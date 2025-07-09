@@ -1,105 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Site Bilíngue com Bandeiras - Exemplo Completo</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0;
-    background-color: #f0f0f0;
-  }
-  header {
-    background-color: #004d99;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .flags {
-    display: flex;
-    gap: 12px;
-  }
-  .flag {
-    width: 36px;
-    height: 24px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-  }
-  .flag:hover, .flag.selected {
-    border-color: #ffcc00;
-  }
-  main {
-    padding: 20px;
-    background: white;
-    max-width: 800px;
-    margin: 30px auto;
-    border-radius: 6px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  }
-  section {
-    display: none;
-  }
-  section.active {
-    display: block;
-  }
-  h1 {
-    margin-top: 0;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Bilíngue com Bandeiras</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #004d99;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .flags {
+      display: flex;
+      gap: 10px;
+    }
+
+    .flag {
+      width: 36px;
+      height: 24px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 3px;
+      transition: border-color 0.3s;
+    }
+
+    .flag:hover,
+    .flag.selected {
+      border-color: yellow;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h2>Minha Empresa</h2>
-  <div class="flags">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" 
-         alt="Português" class="flag selected" id="flag-pt" onclick="setLanguage('pt')" />
-    <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" 
-         alt="English" class="flag" id="flag-en" onclick="setLanguage('en')" />
-  </div>
-</header>
+  <header>
+    <h2>Casa Feliz</h2>
+    <div class="flags">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg"
+           alt="Português" class="flag selected" id="flag-pt" onclick="setLanguage('pt')" />
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+           alt="English" class="flag" id="flag-en" onclick="setLanguage('en')" />
+    </div>
+  </header>
 
-<main>
-  <section id="content-pt" class="active">
-    <h1>Bem-vindo ao nosso site</h1>
-    <p>Este é um exemplo de site bilíngue com troca dinâmica de idioma usando bandeiras.</p>
-    <p>Aqui você pode ver o conteúdo em português.</p>
-  </section>
+  <main>
+    <section id="content-pt" class="active">
+      <h1>Bem-vindo à Casa Feliz</h1>
+      <p>Descubra as melhores soluções de domótica e automação residencial compatíveis com Tuya, Alexa e Google Home.</p>
+      <p>Controle a sua casa com um clique e viva com mais conforto e segurança.</p>
+    </section>
 
-  <section id="content-en">
-    <h1>Welcome to our website</h1>
-    <p>This is an example of a bilingual website with dynamic language switching using flags.</p>
-    <p>Here you can see the content in English.</p>
-  </section>
-</main>
+    <section id="content-en">
+      <h1>Welcome to Casa Feliz</h1>
+      <p>Discover the best home automation solutions compatible with Tuya, Alexa, and Google Home.</p>
+      <p>Control your home with a click and enjoy greater comfort and security.</p>
+    </section>
+  </main>
 
-<script>
-  function setLanguage(lang) {
-    const ptFlag = document.getElementById('flag-pt');
-    const enFlag = document.getElementById('flag-en');
-    const contentPt = document.getElementById('content-pt');
-    const contentEn = document.getElementById('content-en');
+  <script>
+    function setLanguage(lang) {
+      const ptContent = document.getElementById('content-pt');
+      const enContent = document.getElementById('content-en');
+      const ptFlag = document.getElementById('flag-pt');
+      const enFlag = document.getElementById('flag-en');
 
-    if(lang === 'pt') {
-      contentPt.classList.add('active');
-      contentEn.classList.remove('active');
-      ptFlag.classList.add('selected');
-      enFlag.classList.remove('selected');
-      document.documentElement.lang = 'pt';
-    } else if(lang === 'en') {
-      contentEn.classList.add('active');
-      contentPt.classList.remove('active');
-      enFlag.classList.add('selected');
-      ptFlag.classList.remove('selected');
-      document.documentElement.lang = 'en';
+      if (lang === 'pt') {
+        ptContent.classList.add('active');
+        enContent.classList.remove('active');
+        ptFlag.classList.add('selected');
+        enFlag.classList.remove('selected');
+        document.documentElement.lang = 'pt';
+      } else {
+        enContent.classList.add('active');
+        ptContent.classList.remove('active');
+        enFlag.classList.add('selected');
+        ptFlag.classList.remove('selected');
+        document.documentElement.lang = 'en';
+      }
     }
-  }
-</script>
+  </script>
 
 </body>
 </html>
