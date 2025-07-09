@@ -104,14 +104,14 @@
       font-weight: bold;
     }
     .lang-selector button {
-      background-color: transparent;
+      background: none;
       border: none;
-      font-size: 20px;
       cursor: pointer;
-      margin-left: 5px;
+      padding: 4px;
     }
-    .lang-selector button:hover {
-      transform: scale(1.2);
+    .lang-selector img {
+      width: 24px;
+      height: 16px;
     }
     @media (max-width: 768px) {
       nav a {
@@ -127,10 +127,9 @@
 </head>
 <body>
 
-  <!-- Seletor de idioma com bandeiras -->
   <div class="lang-selector">
-    <button onclick="switchLang('pt')" title="Português">🇵🇹</button>
-    <button onclick="switchLang('en')" title="English">🇬🇧</button>
+    <button onclick="switchLang('pt')"><img src="https://flagcdn.com/w40/pt.png" alt="PT"></button>
+    <button onclick="switchLang('en')"><img src="https://flagcdn.com/w40/gb.png" alt="EN"></button>
   </div>
 
   <header>
@@ -146,9 +145,41 @@
   </nav>
 
   <main>
-    <!-- Secções mantidas conforme envio anterior -->
-    <!-- Home, Produtos, Domótica, Sobre, Contacto -->
-    <!-- ... (o mesmo conteúdo que enviaste, que já está correto e bilíngue) -->
+    <section id="home">
+      <h2 data-pt="Bem-vindo à Casa Feliz!" data-en="Welcome to Casa Feliz!">Bem-vindo à Casa Feliz!</h2>
+      <p data-pt="Escolha os melhores produtos para tornar a sua casa ainda mais feliz." data-en="Choose the best products to make your home happier.">Escolha os melhores produtos para tornar a sua casa ainda mais feliz.</p>
+    </section>
+
+    <section id="produtos" class="products">
+      <!-- Produtos... (sem alterações) -->
+    </section>
+
+    <section id="domotica">
+      <h2 data-pt="O que é Domótica?" data-en="What is Home Automation?">O que é Domótica?</h2>
+      <p data-pt="A domótica é a aplicação de tecnologia na automação residencial..."
+         data-en="Home automation is the application of technology...">
+        A domótica é a aplicação de tecnologia na automação residencial...
+      </p>
+    </section>
+
+    <section id="sobre">
+      <h2 data-pt="Sobre a Casa Feliz" data-en="About Casa Feliz">Sobre a Casa Feliz</h2>
+      <p data-pt="Na Casa Feliz, acreditamos que a automação residencial deve ser simples..."
+         data-en="At Casa Feliz, we believe home automation should be simple...">
+        Na Casa Feliz, acreditamos que a automação residencial deve ser simples...
+      </p>
+    </section>
+
+    <section id="contacto">
+      <h2 data-pt="Contacto" data-en="Contact">Contacto</h2>
+      <ul>
+        <li>👤 Fundador: Carlos Oliveira</li>
+        <li>📱 WhatsApp: <a href="https://wa.me/351965064119" target="_blank">+351 965 064 119</a></li>
+        <li>📸 Instagram: <a href="https://instagram.com/casaagiloficial" target="_blank">@casaagiloficial</a></li>
+        <li>✉️ Email: <a href="mailto:casafeliz_2025@hotmail.com">casafeliz_2025@hotmail.com</a></li>
+        <li>👤 Responsável: Carlos Oliveira</li>
+      </ul>
+    </section>
   </main>
 
   <footer>
