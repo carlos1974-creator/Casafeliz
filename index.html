@@ -92,7 +92,8 @@
       text-align: center;
       padding: 15px;
     }
-    /* Seletor de idioma fixo */
+
+    /* Seletor de idioma com bandeiras */
     .lang-selector {
       position: fixed;
       top: 10px;
@@ -102,22 +103,25 @@
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0,0,0,0.2);
       z-index: 999;
-      font-weight: bold;
+      display: flex;
+      gap: 8px;
     }
     .lang-selector button {
-      background-color: #444;
-      color: #fff;
+      background: none;
       border: none;
-      padding: 6px 10px;
-      margin-left: 5px;
       cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-      font-size: 1.1em;
+      padding: 0;
     }
-    .lang-selector button:hover {
-      background-color: #e65100;
+    .lang-selector img {
+      width: 28px;
+      height: 20px;
+      border-radius: 3px;
+      transition: transform 0.2s ease;
     }
+    .lang-selector button:hover img {
+      transform: scale(1.1);
+    }
+
     @media (max-width: 768px) {
       nav a {
         display: block;
@@ -132,10 +136,14 @@
 </head>
 <body>
 
-  <!-- Seletor de idioma com emojis 🇵🇹 🇬🇧 -->
+  <!-- Seletor de idioma com bandeiras -->
   <div class="lang-selector">
-    <button onclick="switchLang('pt')" title="Português">🇵🇹</button>
-    <button onclick="switchLang('en')" title="English">🇬🇧</button>
+    <button onclick="switchLang('pt')" title="Português">
+      <img src="https://flagcdn.com/w40/pt.png" alt="Português" />
+    </button>
+    <button onclick="switchLang('en')" title="English">
+      <img src="https://flagcdn.com/w40/gb.png" alt="English" />
+    </button>
   </div>
 
   <header>
@@ -185,16 +193,14 @@
 
     <section id="domotica">
       <h2 data-pt="O que é Domótica?" data-en="What is Home Automation?">O que é Domótica?</h2>
-      <p data-pt="A domótica é a aplicação de tecnologia na automação residencial. Com ela, pode controlar luzes, sensores, eletrodomésticos e segurança da sua casa através de apps, voz ou até mesmo automaticamente. A Casa Feliz oferece soluções práticas e modernas para levar a domótica até si."
-         data-en="Home automation is the application of technology in residential automation. With it, you can control lights, sensors, appliances, and home security via apps, voice, or automatically. Casa Feliz offers practical and modern solutions to bring home automation to you.">
+      <p data-pt="A domótica é a aplicação de tecnologia na automação residencial..." data-en="Home automation is the application of technology in residential automation...">
         A domótica é a aplicação de tecnologia na automação residencial. Com ela, pode controlar luzes, sensores, eletrodomésticos e segurança da sua casa através de apps, voz ou até mesmo automaticamente. A Casa Feliz oferece soluções práticas e modernas para levar a domótica até si.
       </p>
     </section>
 
     <section id="sobre">
       <h2 data-pt="Sobre a Casa Feliz" data-en="About Casa Feliz">Sobre a Casa Feliz</h2>
-      <p data-pt="Na Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Fundada por Carlos Oliveira, oferecemos produtos compatíveis com Tuya Smart, Alexa e Google Home, transformando espaços comuns em lares inteligentes com conforto e segurança."
-         data-en="At Casa Feliz, we believe home automation should be simple, accessible, and elegant. Founded by Carlos Oliveira, we offer Tuya Smart, Alexa, and Google Home compatible products that transform ordinary spaces into intelligent homes with comfort and security.">
+      <p data-pt="Na Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante..." data-en="At Casa Feliz, we believe home automation should be simple, accessible, and elegant...">
         Na Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Fundada por Carlos Oliveira, oferecemos produtos compatíveis com Tuya Smart, Alexa e Google Home, transformando espaços comuns em lares inteligentes com conforto e segurança.
       </p>
     </section>
@@ -206,7 +212,6 @@
         <li>📱 WhatsApp: <a href="https://wa.me/351965064119" target="_blank">+351 965 064 119</a></li>
         <li>📸 Instagram: <a href="https://instagram.com/casaagiloficial" target="_blank">@casaagiloficial</a></li>
         <li>✉️ Email: <a href="mailto:casafeliz_2025@hotmail.com">casafeliz_2025@hotmail.com</a></li>
-        <li>👤 Responsável: Carlos Oliveira</li>
       </ul>
     </section>
   </main>
@@ -232,4 +237,3 @@
 
 </body>
 </html>
-
