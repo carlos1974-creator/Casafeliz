@@ -92,6 +92,7 @@
       text-align: center;
       padding: 15px;
     }
+    /* Seletor de idioma fixo */
     .lang-selector {
       position: fixed;
       top: 10px;
@@ -104,14 +105,17 @@
       font-weight: bold;
     }
     .lang-selector button {
-      background: none;
+      background-color: #444;
+      color: #fff;
       border: none;
+      padding: 6px 10px;
+      margin-left: 5px;
       cursor: pointer;
-      padding: 4px;
+      border-radius: 5px;
+      font-weight: bold;
     }
-    .lang-selector img {
-      width: 24px;
-      height: 16px;
+    .lang-selector button:hover {
+      background-color: #e65100;
     }
     @media (max-width: 768px) {
       nav a {
@@ -127,9 +131,10 @@
 </head>
 <body>
 
+  <!-- Seletor de idioma -->
   <div class="lang-selector">
-    <button onclick="switchLang('pt')"><img src="https://flagcdn.com/w40/pt.png" alt="PT"></button>
-    <button onclick="switchLang('en')"><img src="https://flagcdn.com/w40/gb.png" alt="EN"></button>
+    <button onclick="switchLang('pt')">PT</button>
+    <button onclick="switchLang('en')">EN</button>
   </div>
 
   <header>
@@ -148,25 +153,48 @@
     <section id="home">
       <h2 data-pt="Bem-vindo à Casa Feliz!" data-en="Welcome to Casa Feliz!">Bem-vindo à Casa Feliz!</h2>
       <p data-pt="Escolha os melhores produtos para tornar a sua casa ainda mais feliz." data-en="Choose the best products to make your home happier.">Escolha os melhores produtos para tornar a sua casa ainda mais feliz.</p>
+      <img src="https://via.placeholder.com/300x200" alt="Imagem exemplo" style="max-width: 100%; margin-top: 20px;">
     </section>
 
     <section id="produtos" class="products">
-      <!-- Produtos... (sem alterações) -->
+      <div class="product">
+        <img src="https://ae01.alicdn.com/kf/H71b2656d99bc4df4b282ef0a5c66f9c1X.jpg" alt="Interruptor Wi-Fi Inteligente" />
+        <h2 data-pt="Interruptor Wi-Fi Inteligente" data-en="Smart Wi-Fi Switch">Interruptor Wi-Fi Inteligente</h2>
+        <p data-pt="Controle luzes e aparelhos via app Tuya. Compatível com Alexa e Google Home." data-en="Control lights and devices via Tuya app. Compatible with Alexa and Google Home.">Controle luzes e aparelhos via app Tuya. Compatível com Alexa e Google Home.</p>
+        <div class="price">17,90€</div>
+        <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank" data-pt="Encomendar no WhatsApp" data-en="Order via WhatsApp">Encomendar no WhatsApp</a>
+      </div>
+
+      <div class="product">
+        <img src="https://ae01.alicdn.com/kf/Hbcb4305d027846429b5e94f3d0bb50e2i.jpg" alt="Tomada Inteligente" />
+        <h2 data-pt="Tomada Inteligente com Monitoramento" data-en="Smart Plug with Monitoring">Tomada Inteligente com Monitoramento</h2>
+        <p data-pt="Monitore o consumo de energia e controle remotamente." data-en="Monitor energy usage and control remotely.">Monitore o consumo de energia e controle remotamente.</p>
+        <div class="price">24,90€</div>
+        <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank" data-pt="Encomendar no WhatsApp" data-en="Order via WhatsApp">Encomendar no WhatsApp</a>
+      </div>
+
+      <div class="product">
+        <img src="https://ae01.alicdn.com/kf/H0e22468b79654736a66eaa276352d04bJ.jpg" alt="Sensor de Movimento Wi-Fi" />
+        <h2 data-pt="Sensor de Movimento Wi-Fi" data-en="Wi-Fi Motion Sensor">Sensor de Movimento Wi-Fi</h2>
+        <p data-pt="Segurança inteligente com notificações em tempo real." data-en="Smart security with real-time alerts.">Segurança inteligente com notificações em tempo real.</p>
+        <div class="price">22,90€</div>
+        <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank" data-pt="Encomendar no WhatsApp" data-en="Order via WhatsApp">Encomendar no WhatsApp</a>
+      </div>
     </section>
 
     <section id="domotica">
       <h2 data-pt="O que é Domótica?" data-en="What is Home Automation?">O que é Domótica?</h2>
-      <p data-pt="A domótica é a aplicação de tecnologia na automação residencial..."
-         data-en="Home automation is the application of technology...">
-        A domótica é a aplicação de tecnologia na automação residencial...
+      <p data-pt="A domótica é a aplicação de tecnologia na automação residencial. Com ela, pode controlar luzes, sensores, eletrodomésticos e segurança da sua casa através de apps, voz ou até mesmo automaticamente. A Casa Feliz oferece soluções práticas e modernas para levar a domótica até si."
+         data-en="Home automation is the application of technology in residential automation. With it, you can control lights, sensors, appliances, and home security via apps, voice, or automatically. Casa Feliz offers practical and modern solutions to bring home automation to you.">
+        A domótica é a aplicação de tecnologia na automação residencial. Com ela, pode controlar luzes, sensores, eletrodomésticos e segurança da sua casa através de apps, voz ou até mesmo automaticamente. A Casa Feliz oferece soluções práticas e modernas para levar a domótica até si.
       </p>
     </section>
 
     <section id="sobre">
       <h2 data-pt="Sobre a Casa Feliz" data-en="About Casa Feliz">Sobre a Casa Feliz</h2>
-      <p data-pt="Na Casa Feliz, acreditamos que a automação residencial deve ser simples..."
-         data-en="At Casa Feliz, we believe home automation should be simple...">
-        Na Casa Feliz, acreditamos que a automação residencial deve ser simples...
+      <p data-pt="Na Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Fundada por Carlos Oliveira, oferecemos produtos compatíveis com Tuya Smart, Alexa e Google Home, transformando espaços comuns em lares inteligentes com conforto e segurança."
+         data-en="At Casa Feliz, we believe home automation should be simple, accessible, and elegant. Founded by Carlos Oliveira, we offer Tuya Smart, Alexa, and Google Home compatible products that transform ordinary spaces into intelligent homes with comfort and security.">
+        Na Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Fundada por Carlos Oliveira, oferecemos produtos compatíveis com Tuya Smart, Alexa e Google Home, transformando espaços comuns em lares inteligentes com conforto e segurança.
       </p>
     </section>
 
