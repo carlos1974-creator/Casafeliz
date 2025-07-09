@@ -13,30 +13,34 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f0f0f0;
     }
 
     header {
       background-color: #004d99;
       color: white;
-      padding: 15px 20px;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
+    header h1 {
+      font-size: 24px;
+    }
+
     .flags {
       display: flex;
-      gap: 10px;
+      gap: 12px;
     }
 
     .flag {
-      width: 36px;
-      height: 24px;
+      width: 40px;
+      height: 28px;
       cursor: pointer;
       border: 2px solid transparent;
-      border-radius: 3px;
-      transition: border-color 0.3s;
+      border-radius: 5px;
+      transition: 0.3s;
     }
 
     .flag:hover,
@@ -47,7 +51,7 @@
     main {
       max-width: 800px;
       margin: 40px auto;
-      background: white;
+      background-color: white;
       padding: 30px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -61,11 +65,12 @@
       display: block;
     }
 
-    h1 {
+    h2 {
       margin-bottom: 15px;
     }
 
     p {
+      margin-bottom: 10px;
       line-height: 1.6;
     }
   </style>
@@ -73,7 +78,7 @@
 <body>
 
   <header>
-    <h2>Casa Feliz</h2>
+    <h1>Minha Empresa</h1>
     <div class="flags">
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg"
            alt="Português" class="flag selected" id="flag-pt" onclick="setLanguage('pt')" />
@@ -84,36 +89,36 @@
 
   <main>
     <section id="content-pt" class="active">
-      <h1>Bem-vindo à Casa Feliz</h1>
-      <p>Descubra as melhores soluções de domótica e automação residencial compatíveis com Tuya, Alexa e Google Home.</p>
-      <p>Controle a sua casa com um clique e viva com mais conforto e segurança.</p>
+      <h2>Bem-vindo ao nosso site</h2>
+      <p>Este é um site bilíngue com troca dinâmica de idioma usando bandeiras no topo.</p>
+      <p>Você está a ver o conteúdo em português.</p>
     </section>
 
     <section id="content-en">
-      <h1>Welcome to Casa Feliz</h1>
-      <p>Discover the best home automation solutions compatible with Tuya, Alexa, and Google Home.</p>
-      <p>Control your home with a click and enjoy greater comfort and security.</p>
+      <h2>Welcome to our website</h2>
+      <p>This is a bilingual website with dynamic language switching using flags at the top.</p>
+      <p>You are viewing the content in English.</p>
     </section>
   </main>
 
   <script>
     function setLanguage(lang) {
-      const ptContent = document.getElementById('content-pt');
-      const enContent = document.getElementById('content-en');
+      const ptSection = document.getElementById('content-pt');
+      const enSection = document.getElementById('content-en');
       const ptFlag = document.getElementById('flag-pt');
       const enFlag = document.getElementById('flag-en');
 
       if (lang === 'pt') {
-        ptContent.classList.add('active');
-        enContent.classList.remove('active');
+        ptSection.classList.add('active');
+        enSection.classList.remove('active');
         ptFlag.classList.add('selected');
         enFlag.classList.remove('selected');
         document.documentElement.lang = 'pt';
       } else {
-        enContent.classList.add('active');
-        ptContent.classList.remove('active');
-        enFlag.classList.add('selected');
+        ptSection.classList.remove('active');
+        enSection.classList.add('active');
         ptFlag.classList.remove('selected');
+        enFlag.classList.add('selected');
         document.documentElement.lang = 'en';
       }
     }
