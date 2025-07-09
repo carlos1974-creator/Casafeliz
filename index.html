@@ -48,12 +48,13 @@
     border-radius: 6px;
     box-shadow: 0 0 6px rgba(0,0,0,0.1);
     padding: 15px;
-    max-width: 300px;
+    max-width: 320px;
     text-align: center;
   }
-  .product img {
+  .product img, .product video {
     max-width: 100%;
     border-radius: 6px;
+    margin-bottom: 10px;
   }
   .price {
     font-weight: bold;
@@ -111,6 +112,10 @@
   .lang-switch button:hover {
     background-color: #e65100;
   }
+  /* Inicialmente escondemos todo o conteúdo EN para mostrar só PT */
+  .lang-en {
+    display: none;
+  }
 </style>
 </head>
 <body>
@@ -137,28 +142,30 @@
     <div class="products">
 
       <div class="product">
-        <img src="https://ae01.alicdn.com/kf/H71b2656d99bc4df4b282ef0a5c66f9c1X.jpg" alt="Interruptor Wi-Fi Inteligente" />
+        <!-- Imagem PT -->
+        <img src="https://ae01.alicdn.com/kf/H71b2656d99bc4df4b282ef0a5c66f9c1X.jpg" alt="Interruptor Wi-Fi Inteligente" class="lang-pt" />
+        <!-- Imagem EN -->
+        <img src="https://ae01.alicdn.com/kf/H71b2656d99bc4df4b282ef0a5c66f9c1X.jpg" alt="Smart Wi-Fi Switch" class="lang-en" />
+        
         <h2 data-pt="Interruptor Wi-Fi Inteligente" data-en="Smart Wi-Fi Switch">Interruptor Wi-Fi Inteligente</h2>
         <p data-pt="Controle luzes e aparelhos via app Tuya. Compatível com Alexa e Google Home." data-en="Control lights and devices via Tuya app. Compatible with Alexa and Google Home.">Controle luzes e aparelhos via app Tuya. Compatível com Alexa e Google Home.</p>
+        
+        <!-- Vídeo PT -->
+        <video class="lang-pt" controls>
+          <source src="video-pt.mp4" type="video/mp4" />
+          O teu navegador não suporta vídeo.
+        </video>
+        <!-- Vídeo EN -->
+        <video class="lang-en" controls>
+          <source src="video-en.mp4" type="video/mp4" />
+          Your browser does not support video.
+        </video>
+        
         <div class="price">17,90€</div>
         <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank" data-pt="Encomendar no WhatsApp" data-en="Order via WhatsApp">Encomendar no WhatsApp</a>
       </div>
 
-      <div class="product">
-        <img src="https://ae01.alicdn.com/kf/Hbcb4305d027846429b5e94f3d0bb50e2i.jpg" alt="Tomada Inteligente" />
-        <h2 data-pt="Tomada Inteligente com Monitoramento" data-en="Smart Plug with Monitoring">Tomada Inteligente com Monitoramento</h2>
-        <p data-pt="Monitore o consumo de energia e controle remotamente." data-en="Monitor energy usage and control remotely.">Monitore o consumo de energia e controle remotamente.</p>
-        <div class="price">24,90€</div>
-        <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank" data-pt="Encomendar no WhatsApp" data-en="Order via WhatsApp">Encomendar no WhatsApp</a>
-      </div>
-
-      <div class="product">
-        <img src="https://ae01.alicdn.com/kf/H0e22468b79654736a66eaa276352d04bJ.jpg" alt="Sensor de Movimento Wi-Fi" />
-        <h2 data-pt="Sensor de Movimento Wi-Fi" data-en="Wi-Fi Motion Sensor">Sensor de Movimento Wi-Fi</h2>
-        <p data-pt="Segurança inteligente com notificações em tempo real." data-en="Smart security with real-time alerts.">Segurança inteligente com notificações em tempo real.</p>
-        <div class="price">22,90€</div>
-        <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank" data-pt="Encomendar no WhatsApp" data-en="Order via WhatsApp">Encomendar no WhatsApp</a>
-      </div>
+      <!-- Repete para outros produtos com as mesmas regras para imagens e vídeos -->
 
     </div>
   </section>
@@ -201,6 +208,14 @@
     localStorage.setItem('lang', lang);
     document.querySelectorAll('[data-pt]').forEach(el => {
       el.textContent = el.getAttribute('data-' + lang);
+    });
+
+    // Alternar visibilidade de imagens/vídeos para cada idioma
+    document.querySelectorAll('.lang-pt').forEach(el => {
+      el.style.display = lang === 'pt' ? 'block' : 'none';
+    });
+    document.querySelectorAll('.lang-en').forEach(el => {
+      el.style.display = lang === 'en' ? 'block' : 'none';
     });
   }
 
