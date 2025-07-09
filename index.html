@@ -1,9 +1,9 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Casa Feliz</title>
+  <title>Casa Feliz / Happy Home</title>
   <style>
     body {
       margin: 0;
@@ -135,60 +135,95 @@
       color: #e65100;
       text-decoration: none;
     }
+    .lang-toggle {
+      text-align: right;
+      padding: 10px 20px;
+    }
+    .lang-toggle button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+  <div class="lang-toggle">
+    <button onclick="mudarIdioma('pt')">PT</button>
+    <button onclick="mudarIdioma('en')">EN</button>
+  </div>
   <header>
-    <h1>Casa Feliz</h1>
-    <p>Ligue a sua casa ao Futuro</p>
+    <h1 class="pt">Casa Feliz</h1>
+    <h1 class="en" style="display:none;">Happy Home</h1>
+    <p class="pt">Ligue a sua casa ao Futuro</p>
+    <p class="en" style="display:none;">Connect your home to the Future</p>
   </header>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#produtos">Produtos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#home" class="pt">Home</a>
+    <a href="#home" class="en" style="display:none;">Home</a>
+    <a href="#produtos" class="pt">Produtos</a>
+    <a href="#produtos" class="en" style="display:none;">Products</a>
+    <a href="#sobre" class="pt">Sobre</a>
+    <a href="#sobre" class="en" style="display:none;">About</a>
+    <a href="#contacto" class="pt">Contacto</a>
+    <a href="#contacto" class="en" style="display:none;">Contact</a>
   </nav>
   <main>
-    <section id="home">
+    <section id="produtos">
       <div class="products">
         <div class="product">
           <img src="https://ae01.alicdn.com/kf/H71b2656d99bc4df4b282ef0a5c66f9c1X.jpg" alt="Interruptor Wi-Fi Inteligente">
-          <h2>Interruptor Wi-Fi Inteligente</h2>
-          <p>Controle luzes e aparelhos via app Tuya. Compatível com Alexa e Google Home.</p>
+          <h2 class="pt">Interruptor Wi-Fi Inteligente</h2>
+          <h2 class="en" style="display:none;">Smart Wi-Fi Switch</h2>
+          <p class="pt">Controle luzes e aparelhos via app Tuya. Compatível com Alexa e Google Home.</p>
+          <p class="en" style="display:none;">Control lights and appliances via Tuya app. Compatible with Alexa and Google Home.</p>
           <div class="price">17,90€</div>
-          <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank">Encomendar no WhatsApp</a>
+          <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank">WhatsApp</a>
         </div>
         <div class="product">
           <img src="https://ae01.alicdn.com/kf/Hbcb4305d027846429b5e94f3d0bb50e2i.jpg" alt="Tomada Inteligente">
-          <h2>Tomada Inteligente com Monitoramento</h2>
-          <p>Monitore o consumo de energia e controle remotamente.</p>
+          <h2 class="pt">Tomada Inteligente com Monitoramento</h2>
+          <h2 class="en" style="display:none;">Smart Plug with Monitoring</h2>
+          <p class="pt">Monitore o consumo de energia e controle remotamente.</p>
+          <p class="en" style="display:none;">Monitor energy consumption and control remotely.</p>
           <div class="price">24,90€</div>
-          <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank">Encomendar no WhatsApp</a>
+          <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank">WhatsApp</a>
         </div>
         <div class="product">
           <img src="https://ae01.alicdn.com/kf/H0e22468b79654736a66eaa276352d04bJ.jpg" alt="Sensor de Movimento Wi-Fi">
-          <h2>Sensor de Movimento Wi-Fi</h2>
-          <p>Segurança inteligente com notificações em tempo real.</p>
+          <h2 class="pt">Sensor de Movimento Wi-Fi</h2>
+          <h2 class="en" style="display:none;">Wi-Fi Motion Sensor</h2>
+          <p class="pt">Segurança inteligente com notificações em tempo real.</p>
+          <p class="en" style="display:none;">Smart security with real-time alerts.</p>
           <div class="price">22,90€</div>
-          <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank">Encomendar no WhatsApp</a>
+          <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank">WhatsApp</a>
         </div>
       </div>
     </section>
     <section id="sobre">
-      <h2>Sobre a Casa Feliz</h2>
-      <p>Na Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Com produtos compatíveis com Tuya Smart, Alexa e Google Home, transformamos espaços comuns em lares inteligentes, proporcionando conforto e segurança.</p>
+      <h2 class="pt">Sobre a Casa Feliz</h2>
+      <h2 class="en" style="display:none;">About Happy Home</h2>
+      <p class="pt">Na Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante...</p>
+      <p class="en" style="display:none;">At Happy Home, we believe home automation should be simple, affordable, and elegant...</p>
     </section>
     <section id="contacto">
-      <h2>Contacto</h2>
+      <h2 class="pt">Contacto</h2>
+      <h2 class="en" style="display:none;">Contact</h2>
       <ul>
-        <li>📱 WhatsApp: <a href="https://wa.me/351965064119" target="_blank">+351 965 064 1119
+        <li>📱 WhatsApp: <a href="https://wa.me/351965064119" target="_blank">+351 965 064 119</a></li>
         <li>📸 Instagram: <a href="https://instagram.com/casaagiloficial" target="_blank">@casaagiloficial</a></li>
-        <li>✉️ Email: <a href="mailto:casafeliz_2025@hotmail.pt">casafeliz_2025@hotmail.com</a></li>
+        <li>✉️ Email: <a href="mailto:casafeliz_2025@hotmail.pt">casafeliz_2025@hotmail.pt</a></li>
       </ul>
     </section>
   </main>
   <footer>
-    Casa Feliz &copy; 2025 — <a href="https://github.com/carlos1974-creator/casafeliz" target="_blank">Repositório no GitHub</a>
+    Casa Feliz &copy; 2025 — <a href="https://github.com/carlos1974-creator/casafeliz" target="_blank">GitHub Repo</a>
   </footer>
+  <script>
+    function mudarIdioma(idioma) {
+      document.querySelectorAll('.pt').forEach(el => el.style.display = idioma === 'pt' ? '' : 'none');
+      document.querySelectorAll('.en').forEach(el => el.style.display = idioma === 'en' ? '' : 'none');
+    }
+  </script>
 </body>
 </html>
