@@ -106,13 +106,13 @@
     }
     .lang-selector button {
       background-color: #444;
-      color: #fff;
+      color: white;
       border: none;
       padding: 6px 10px;
       margin-left: 5px;
       cursor: pointer;
       border-radius: 5px;
-      font-weight: bold;
+      font-size: 18px;
     }
     .lang-selector button:hover {
       background-color: #e65100;
@@ -131,10 +131,10 @@
 </head>
 <body>
 
-  <!-- Seletor de idioma -->
+  <!-- Seletor de idioma com bandeiras -->
   <div class="lang-selector">
-    <button onclick="switchLang('pt')">PT</button>
-    <button onclick="switchLang('en')">EN</button>
+    <button onclick="switchLang('pt')" aria-label="Português">🇵🇹</button>
+    <button onclick="switchLang('en')" aria-label="English">🇬🇧</button>
   </div>
 
   <header>
@@ -231,4 +231,3 @@
 
 </body>
 </html>
-
