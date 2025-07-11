@@ -13,6 +13,7 @@
       color: #333;
     }
 
+    /* Header: flex para alinhamento do logo e texto */
     header {
       background-color: #008080;
       color: white;
@@ -23,8 +24,11 @@
       gap: 15px;
     }
 
+    /* Logo: altura fixa, ajuste aqui se necessário */
     header img {
       height: 60px;
+      /* evita espaço extra */
+      display: block;
     }
 
     nav {
@@ -115,14 +119,15 @@
       padding: 15px;
     }
 
-    /* BANDEIRAS – estilo atualizado */
+    /* Bandeiras no topo direito, sem fundo branco e bem juntinhas */
     .lang-selector {
       position: fixed;
       top: 10px;
       right: 10px;
       background: transparent;
-      padding: 6px 12px;
-      border-radius: 8px;
+      padding: 0;
+      display: flex;
+      gap: 4px; /* espaçamento bem pequeno */
       z-index: 999;
       font-weight: bold;
     }
@@ -131,20 +136,20 @@
       background-color: transparent;
       color: #000;
       border: none;
-      padding: 6px 10px;
-      margin-left: 5px;
+      padding: 0;
       cursor: pointer;
-      border-radius: 5px;
-      font-size: 26px; /* bandeiras maiores */
-    }
-
-    .lang-selector button:first-child {
-      margin-left: 0; /* tirar margem esquerda da primeira */
+      font-size: 28px; /* bandeiras maiores */
+      line-height: 1;
+      /* removendo margem para juntar mais */
+      margin: 0;
+      user-select: none;
     }
 
     .lang-selector button:hover {
       background-color: #e65100;
       color: white;
+      border-radius: 5px;
+      padding: 2px 6px;
     }
 
     @media (max-width: 768px) {
@@ -165,13 +170,14 @@
 </head>
 <body>
 
-  <!-- BANDEIRAS sem fundo e maiores -->
+  <!-- Bandeiras juntas no topo direito -->
   <div class="lang-selector">
-    <button onclick="switchLang('pt')">🇵🇹</button>
-    <button onclick="switchLang('en')">🇬🇧</button>
+    <button onclick="switchLang('pt')" aria-label="Português">🇵🇹</button>
+    <button onclick="switchLang('en')" aria-label="English">🇬🇧</button>
   </div>
 
   <header>
+    <!-- Atenção: ajusta este caminho para o local correto do teu logo -->
     <img src="images/logo-casafeliz.png" alt="Casa Feliz Logo" />
     <div>
       <h1 data-pt="Casa Feliz" data-en="Happy Home" style="margin: 0;">Casa Feliz</h1>
