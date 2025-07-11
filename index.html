@@ -16,51 +16,41 @@
     header {
       background-color: #008080;
       color: white;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px; /* espaço entre título e bandeiras */
+      padding: 20px 0 50px 0;
+      text-align: center;
       position: relative;
     }
 
-    /* Estilo do título */
     header h1 {
-      margin: 0;
       font-size: 2.5rem;
       font-weight: bold;
+      margin: 0 auto;
+      display: inline-block;
+      position: relative; /* referência para as bandeiras */
       letter-spacing: 0.05em;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      position: relative;
     }
 
-    /* Estilo do slogan abaixo do header */
-    header p {
-      position: absolute;
-      width: 100%;
-      bottom: 8px;
-      left: 0;
-      font-size: 1.2rem;
-      font-weight: 400;
-      text-align: center;
-      margin: 0;
-      color: #ccf0f0;
-    }
-
-    /* Bandeiras no header, alinhadas ao texto */
+    /* Container das bandeiras, posicionadas absolutamente */
     .lang-selector {
+      position: absolute;
+      top: 50%; /* centro vertical do header */
+      transform: translateY(-50%);
+      left: calc(50% + 140px); /* ajusta para posicionar à direita do texto */
       display: flex;
-      gap: 1px; /* 1px de espaço entre bandeiras */
-      margin-left: -3px; /* ajuste fino para alinhamento da ponta verde com o Z */
+      gap: 2px;
       cursor: pointer;
+      user-select: none;
     }
 
+    /* Ajuste fino para a ponta verde alinhar exatamente */
     .lang-selector button {
       background-color: transparent;
       border: none;
-      padding: 0;
-      font-size: 32px; /* tamanho das bandeiras */
+      font-size: 32px;
       line-height: 1;
+      padding: 0;
+      margin: 0;
       user-select: none;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
@@ -69,6 +59,13 @@
       background-color: #e65100;
       color: white;
       border-radius: 5px;
+    }
+
+    header p {
+      margin-top: 12px;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #ccf0f0;
     }
 
     nav {
@@ -160,14 +157,14 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 6px;
-        padding-bottom: 40px;
-      }
-      header p {
+      .lang-selector {
         position: static;
-        text-align: center;
+        transform: none;
+        margin-top: 10px;
+        justify-content: center;
+      }
+      header h1 {
+        display: block;
       }
       nav a {
         display: block;
@@ -184,7 +181,7 @@
 
   <header>
     <h1 data-pt="Casa Feliz" data-en="Happy Home">Casa Feliz</h1>
-    <div class="lang-selector">
+    <div class="lang-selector" aria-label="Selecionar idioma">
       <button onclick="switchLang('pt')" aria-label="Português">🇵🇹</button>
       <button onclick="switchLang('en')" aria-label="English">🇬🇧</button>
     </div>
