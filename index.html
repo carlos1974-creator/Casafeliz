@@ -108,32 +108,37 @@
       padding: 15px;
     }
 
-    /* Bandeiras com 2px de espaço */
+    /* BANDEIRAS – estilo atualizado */
     .lang-selector {
       position: fixed;
       top: 10px;
       right: 10px;
       background: transparent;
-      padding: 0;
+      padding: 6px 12px;
       border-radius: 8px;
       z-index: 999;
       font-weight: bold;
-      display: flex;
-      gap: 2px; /* espaço de 2 pixels entre bandeiras */
     }
 
     .lang-selector button {
       background-color: transparent;
+      color: #000;
       border: none;
-      padding: 0;
-      margin: 0;
+      padding: 6px 10px;
+      margin-left: 5px;
       cursor: pointer;
-      font-size: 28px; /* tamanho da bandeira */
-      line-height: 1;
+      border-radius: 5px;
+      font-size: 26px; /* bandeiras maiores */
+    }
+
+    /* Afasta a bandeira Portugal 4mm da inglesa */
+    .lang-selector button:first-child {
+      margin-right: 4mm;
     }
 
     .lang-selector button:hover {
-      color: #e65100;
+      background-color: #e65100;
+      color: white;
     }
 
     @media (max-width: 768px) {
@@ -150,10 +155,10 @@
 </head>
 <body>
 
-  <!-- Bandeiras com pequeno espaço entre elas -->
+  <!-- BANDEIRAS sem fundo e maiores -->
   <div class="lang-selector">
-    <button onclick="switchLang('pt')" aria-label="Português">🇵🇹</button>
-    <button onclick="switchLang('en')" aria-label="English">🇬🇧</button>
+    <button onclick="switchLang('pt')">🇵🇹</button>
+    <button onclick="switchLang('en')">🇬🇧</button>
   </div>
 
   <header>
