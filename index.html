@@ -17,7 +17,58 @@
       background-color: #008080;
       color: white;
       padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px; /* espaço entre título e bandeiras */
+      position: relative;
+    }
+
+    /* Estilo do título */
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+    }
+
+    /* Estilo do slogan abaixo do header */
+    header p {
+      position: absolute;
+      width: 100%;
+      bottom: 8px;
+      left: 0;
+      font-size: 1.2rem;
+      font-weight: 400;
       text-align: center;
+      margin: 0;
+      color: #ccf0f0;
+    }
+
+    /* Bandeiras no header, alinhadas ao texto */
+    .lang-selector {
+      display: flex;
+      gap: 1px; /* 1px de espaço entre bandeiras */
+      margin-left: -3px; /* ajuste fino para alinhamento da ponta verde com o Z */
+      cursor: pointer;
+    }
+
+    .lang-selector button {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      font-size: 32px; /* tamanho das bandeiras */
+      line-height: 1;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .lang-selector button:hover {
+      background-color: #e65100;
+      color: white;
+      border-radius: 5px;
     }
 
     nav {
@@ -108,39 +159,16 @@
       padding: 15px;
     }
 
-    /* BANDEIRAS – estilo atualizado */
-    .lang-selector {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: transparent;
-      padding: 6px 12px;
-      border-radius: 8px;
-      z-index: 999;
-      font-weight: bold;
-    }
-
-    .lang-selector button {
-      background-color: transparent;
-      color: #000;
-      border: none;
-      padding: 6px 10px;
-      margin-left: 1px; /* Espaçamento reduzido para 1px */
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 26px; /* bandeiras maiores */
-    }
-
-    .lang-selector button:first-child {
-      margin-left: 0; /* primeira bandeira sem margem esquerda */
-    }
-
-    .lang-selector button:hover {
-      background-color: #e65100;
-      color: white;
-    }
-
     @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 6px;
+        padding-bottom: 40px;
+      }
+      header p {
+        position: static;
+        text-align: center;
+      }
       nav a {
         display: block;
         margin: 8px 0;
@@ -154,14 +182,12 @@
 </head>
 <body>
 
-  <!-- BANDEIRAS sem fundo e maiores -->
-  <div class="lang-selector">
-    <button onclick="switchLang('pt')">🇵🇹</button>
-    <button onclick="switchLang('en')">🇬🇧</button>
-  </div>
-
   <header>
     <h1 data-pt="Casa Feliz" data-en="Happy Home">Casa Feliz</h1>
+    <div class="lang-selector">
+      <button onclick="switchLang('pt')" aria-label="Português">🇵🇹</button>
+      <button onclick="switchLang('en')" aria-label="English">🇬🇧</button>
+    </div>
     <p data-pt="Ligue a sua casa ao Futuro" data-en="Connect your home to the future">Ligue a sua casa ao Futuro</p>
   </header>
 
