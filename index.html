@@ -125,15 +125,14 @@
       color: #000;
       border: none;
       padding: 6px 10px;
-      margin-left: 5px;
+      margin-left: 2px; /* reduzir espaço entre bandeiras */
       cursor: pointer;
       border-radius: 5px;
       font-size: 26px; /* bandeiras maiores */
     }
 
-    /* Afasta a bandeira Portugal 1mm da inglesa */
     .lang-selector button:first-child {
-      margin-right: 1mm;
+      margin-left: 0; /* primeira bandeira sem margem esquerda */
     }
 
     .lang-selector button:hover {
