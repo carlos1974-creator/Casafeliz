@@ -17,16 +17,7 @@
       background-color: #008080;
       color: white;
       padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      position: relative;
-    }
-
-    header img {
-      height: 50px;
-      width: auto;
+      text-align: center;
     }
 
     nav {
@@ -117,7 +108,7 @@
       padding: 15px;
     }
 
-    /* Seletor de idioma e bandeiras */
+    /* Bandeiras encostadinhas */
     .lang-selector {
       position: fixed;
       top: 10px;
@@ -128,15 +119,16 @@
       z-index: 999;
       font-weight: bold;
       display: flex;
-      gap: 5px; /* Espaço pequeno entre bandeiras */
+      gap: 0; /* sem espaço entre bandeiras */
     }
 
     .lang-selector button {
       background-color: transparent;
       border: none;
       padding: 0;
+      margin: 0;
       cursor: pointer;
-      font-size: 28px; /* Bandeiras maiores */
+      font-size: 28px; /* tamanho da bandeira */
       line-height: 1;
     }
 
@@ -153,32 +145,20 @@
         flex-direction: column;
         align-items: center;
       }
-      header {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .lang-selector {
-        top: auto;
-        bottom: 10px;
-        right: 10px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Seletor de idioma com bandeiras justinhas -->
+  <!-- Bandeiras encostadinhas no topo -->
   <div class="lang-selector">
     <button onclick="switchLang('pt')" aria-label="Português">🇵🇹</button>
     <button onclick="switchLang('en')" aria-label="English">🇬🇧</button>
   </div>
 
   <header>
-    <img src="images/logo.png" alt="Casa Feliz Logo" />
-    <div>
-      <h1 data-pt="Casa Feliz" data-en="Happy Home">Casa Feliz</h1>
-      <p data-pt="Ligue a sua casa ao Futuro" data-en="Connect your home to the future">Ligue a sua casa ao Futuro</p>
-    </div>
+    <h1 data-pt="Casa Feliz" data-en="Happy Home">Casa Feliz</h1>
+    <p data-pt="Ligue a sua casa ao Futuro" data-en="Connect your home to the future">Ligue a sua casa ao Futuro</p>
   </header>
 
   <nav>
@@ -214,8 +194,9 @@
 
     <section id="sobre">
       <h2 data-pt="Sobre a Casa Feliz" data-en="About Casa Feliz">Sobre a Casa Feliz</h2>
-      <p data-pt="Na 🏡 Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Fundada por Carlos Oliveira, oferecemos produtos inteligentes e modernos compatíveis com Tuya Smart, Alexa e Google Home. O nosso objetivo é transformar casas comuns em espaços inteligentes, confortáveis e seguros, tudo com simplicidade e estilo."
-         data-en="At 🏡 Casa Feliz, we believe home automation should be simple, accessible, and stylish. Founded by Carlos Oliveira, we offer smart and modern products compatible with Tuya Smart, Alexa, and Google Home. Our goal is to transform ordinary houses into smart, comfortable, and secure spaces — all with simplicity and style.">
+      <p
+        data-pt="Na 🏡 Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Fundada por Carlos Oliveira, oferecemos produtos inteligentes e modernos compatíveis com Tuya Smart, Alexa e Google Home. O nosso objetivo é transformar casas comuns em espaços inteligentes, confortáveis e seguros, tudo com simplicidade e estilo."
+        data-en="At 🏡 Casa Feliz, we believe home automation should be simple, accessible, and stylish. Founded by Carlos Oliveira, we offer smart and modern products compatible with Tuya Smart, Alexa, and Google Home. Our goal is to transform ordinary houses into smart, comfortable, and secure spaces — all with simplicity and style.">
         Na 🏡 Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Fundada por Carlos Oliveira, oferecemos produtos inteligentes e modernos compatíveis com Tuya Smart, Alexa e Google Home. O nosso objetivo é transformar casas comuns em espaços inteligentes, confortáveis e seguros, tudo com simplicidade e estilo.
       </p>
       <ul style="max-width: 800px; margin: 20px auto; color: #555; font-size: 1.05em;">
