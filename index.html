@@ -92,30 +92,33 @@
       text-align: center;
       padding: 15px;
     }
+
+    /* Bandeiras sem fundo branco */
     .lang-selector {
       position: fixed;
       top: 10px;
       right: 10px;
-      background: rgba(255, 255, 255, 0.95);
+      background: transparent; /* Fundo removido */
       padding: 6px 12px;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
       z-index: 999;
       font-weight: bold;
     }
     .lang-selector button {
-      background-color: #444;
-      color: #fff;
+      background-color: transparent;
+      color: #000;
       border: none;
       padding: 6px 10px;
       margin-left: 5px;
       cursor: pointer;
       border-radius: 5px;
-      font-size: 16px;
+      font-size: 18px;
     }
     .lang-selector button:hover {
       background-color: #e65100;
+      color: white;
     }
+
     @media (max-width: 768px) {
       nav a {
         display: block;
@@ -130,10 +133,10 @@
 </head>
 <body>
 
-  <!-- Seletor de idioma com emojis -->
+  <!-- Seletor de idioma com emojis (sem fundo) -->
   <div class="lang-selector">
-    <button onclick="switchLang('pt')">🇵🇹 PT</button>
-    <button onclick="switchLang('en')">🇬🇧 EN</button>
+    <button onclick="switchLang('pt')">🇵🇹</button>
+    <button onclick="switchLang('en')">🇬🇧</button>
   </div>
 
   <header>
@@ -162,7 +165,6 @@
         <div class="price">17,90€</div>
         <a href="https://wa.me/351965064119" class="btn-whatsapp" target="_blank" data-pt="Encomendar no WhatsApp" data-en="Order via WhatsApp">Encomendar no WhatsApp</a>
       </div>
-      <!-- + outros produtos podem ser adicionados aqui -->
     </section>
 
     <section id="domotica">
@@ -175,23 +177,18 @@
 
     <section id="sobre">
       <h2 data-pt="Sobre a Casa Feliz" data-en="About Casa Feliz">Sobre a Casa Feliz</h2>
-
       <p
         data-pt="Na 🏡 Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Fundada por Carlos Oliveira, oferecemos produtos inteligentes e modernos compatíveis com Tuya Smart, Alexa e Google Home. O nosso objetivo é transformar casas comuns em espaços inteligentes, confortáveis e seguros, tudo com simplicidade e estilo."
         data-en="At 🏡 Casa Feliz, we believe home automation should be simple, accessible, and stylish. Founded by Carlos Oliveira, we offer smart and modern products compatible with Tuya Smart, Alexa, and Google Home. Our goal is to transform ordinary houses into smart, comfortable, and secure spaces — all with simplicity and style.">
         Na 🏡 Casa Feliz, acreditamos que a automação residencial deve ser simples, acessível e elegante. Fundada por Carlos Oliveira, oferecemos produtos inteligentes e modernos compatíveis com Tuya Smart, Alexa e Google Home. O nosso objetivo é transformar casas comuns em espaços inteligentes, confortáveis e seguros, tudo com simplicidade e estilo.
       </p>
-
       <ul style="max-width: 800px; margin: 20px auto; color: #555; font-size: 1.05em;">
         <li>🛠️ Instalação simples e rápida</li>
         <li>📦 Entregas em todo Portugal continental</li>
         <li>💬 Apoio personalizado via WhatsApp</li>
         <li>✅ Compatível com Alexa, Google Home e Tuya</li>
       </ul>
-
-      <p
-        data-pt="Junte-se à Casa Feliz e traga inovação e conforto para o seu dia a dia com tecnologia ao seu alcance."
-        data-en="Join Casa Feliz and bring innovation and comfort to your daily life with technology within your reach.">
+      <p data-pt="Junte-se à Casa Feliz e traga inovação e conforto para o seu dia a dia com tecnologia ao seu alcance." data-en="Join Casa Feliz and bring innovation and comfort to your daily life with technology within your reach.">
         Junte-se à Casa Feliz e traga inovação e conforto para o seu dia a dia com tecnologia ao seu alcance.
       </p>
     </section>
