@@ -108,7 +108,7 @@
       padding: 15px;
     }
 
-    /* Bandeiras encostadinhas */
+    /* Bandeiras com 2px de espaço */
     .lang-selector {
       position: fixed;
       top: 10px;
@@ -119,7 +119,7 @@
       z-index: 999;
       font-weight: bold;
       display: flex;
-      gap: 0; /* sem espaço entre bandeiras */
+      gap: 2px; /* espaço de 2 pixels entre bandeiras */
     }
 
     .lang-selector button {
@@ -150,7 +150,7 @@
 </head>
 <body>
 
-  <!-- Bandeiras encostadinhas no topo -->
+  <!-- Bandeiras com pequeno espaço entre elas -->
   <div class="lang-selector">
     <button onclick="switchLang('pt')" aria-label="Português">🇵🇹</button>
     <button onclick="switchLang('en')" aria-label="English">🇬🇧</button>
