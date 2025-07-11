@@ -17,7 +17,14 @@
       background-color: #008080;
       color: white;
       padding: 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 60px;
     }
 
     nav {
@@ -108,28 +115,36 @@
       padding: 15px;
     }
 
+    /* BANDEIRAS – estilo atualizado */
     .lang-selector {
       position: fixed;
       top: 10px;
       right: 10px;
-      display: flex;
-      gap: 2px;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 8px;
       z-index: 999;
+      font-weight: bold;
     }
 
     .lang-selector button {
       background-color: transparent;
+      color: #000;
       border: none;
-      font-size: 28px;
+      padding: 6px 10px;
+      margin-left: 5px;
       cursor: pointer;
-      padding: 0 2px;
-      line-height: 1;
+      border-radius: 5px;
+      font-size: 26px; /* bandeiras maiores */
+    }
+
+    .lang-selector button:first-child {
+      margin-left: 0; /* tirar margem esquerda da primeira */
     }
 
     .lang-selector button:hover {
       background-color: #e65100;
       color: white;
-      border-radius: 5px;
     }
 
     @media (max-width: 768px) {
@@ -141,19 +156,27 @@
         flex-direction: column;
         align-items: center;
       }
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- BANDEIRAS sem fundo e maiores -->
   <div class="lang-selector">
     <button onclick="switchLang('pt')">🇵🇹</button>
     <button onclick="switchLang('en')">🇬🇧</button>
   </div>
 
   <header>
-    <h1 data-pt="Casa Feliz" data-en="Happy Home">Casa Feliz</h1>
-    <p data-pt="Ligue a sua casa ao Futuro" data-en="Connect your home to the future">Ligue a sua casa ao Futuro</p>
+    <img src="images/logo-casafeliz.png" alt="Casa Feliz Logo" />
+    <div>
+      <h1 data-pt="Casa Feliz" data-en="Happy Home" style="margin: 0;">Casa Feliz</h1>
+      <p data-pt="Ligue a sua casa ao Futuro" data-en="Connect your home to the future" style="margin: 0; font-size: 1.1em;">Ligue a sua casa ao Futuro</p>
+    </div>
   </header>
 
   <nav>
