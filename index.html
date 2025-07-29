@@ -15,30 +15,33 @@
 
     header {
       background-color: #008080;
-      color: white;
-      padding: 40px 20px 40px 20px;
-      text-align: center;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       position: relative;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    /* Logo maior centralizado */
     header img {
-      width: 200px; /* tamanho maior */
+      width: 90%;
+      max-width: 400px;
       height: auto;
       display: block;
-      margin: 0 auto;
+      margin-bottom: 10px;
     }
 
-    /* Bandeiras idioma no canto superior direito */
+    /* Bandeiras centralizadas abaixo do logo, sobrepostas */
     .lang-selector {
-      position: absolute;
-      top: 15px;
-      right: 20px;
       display: flex;
-      gap: 5px;
+      justify-content: center;
+      gap: 10px;
       cursor: pointer;
       user-select: none;
+      position: relative;
+      top: -15px; /* sobe um pouco para sobrepor */
       z-index: 10;
     }
 
@@ -151,6 +154,7 @@
         position: static;
         margin-top: 10px;
         justify-content: center;
+        top: 0;
       }
       nav a {
         display: block;
