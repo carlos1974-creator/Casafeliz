@@ -3,157 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Casa Feliz – Domótica, Automóvel e Bricolage</title>
-  <meta name="description" content="Casa Feliz: Ebooks, cursos e vídeos sobre Domótica, Manutenção Automóvel e Bricolage em Casa." />
+  <title>Casa Feliz – Ebooks e Cursos</title>
+  <meta name="description" content="Casa Feliz – Ebooks e cursos sobre Domótica, Manutenção Automóvel e Bricolage em Casa. Transforme sua vida com conhecimento." />
   <style>
-    body { margin:0; font-family:Arial, sans-serif; background:#f9f9f9; color:#333; }
-    header { background:#008080; color:white; padding:40px 20px; text-align:center; position:relative; }
-    header img { width:280px; height:auto; display:block; margin:0 auto; }
-    .lang-selector { position:absolute; top:20px; right:20px; display:flex; gap:5px; }
-    .lang-selector button { background:transparent; border:none; font-size:28px; cursor:pointer; }
-    .lang-selector button:hover { background:#e65100; color:white; border-radius:5px; }
-    nav { background:#e0e0e0; text-align:center; padding:12px; }
-    nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
-    nav a:hover { color:#e65100; }
-    main { max-width:1100px; margin:30px auto; padding:0 15px; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f9f9f9; color: #333; }
+    header { background: #008080; color: white; padding: 20px; text-align: center; position: relative; }
+    header img { width: 220px; height: auto; }
+    nav { background: #e0e0e0; display: flex; justify-content: center; align-items: center; padding: 10px; position: sticky; top: 0; z-index: 1000; }
+    nav a { margin: 0 12px; text-decoration: none; color: #008080; font-weight: bold; }
+    nav a:hover { color: #e65100; }
+    
+    /* Carrinho */
+    .cart { position: relative; margin-left: auto; cursor: pointer; }
+    .cart-icon { font-size: 22px; }
+    .cart-count { background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; position: absolute; top: -8px; right: -10px; }
+    .cart-dropdown { display: none; position: absolute; right: 0; top: 30px; background: white; border: 1px solid #ccc; box-shadow: 0 2px 6px rgba(0,0,0,0.2); width: 250px; padding: 10px; z-index: 2000; }
+    .cart-dropdown ul { list-style: none; padding: 0; margin: 0; }
+    .cart-dropdown li { font-size: 14px; margin: 5px 0; }
+    .cart-dropdown .total { font-weight: bold; margin-top: 10px; }
+    .cart-dropdown .btn-whatsapp { display: block; text-align: center; margin-top: 10px; padding: 8px; background: #25d366; color: white; border-radius: 5px; text-decoration: none; }
+    .cart-dropdown .btn-whatsapp:hover { background: #128c4a; }
 
-    section { margin:60px 0; }
-    section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
-    section p { max-width:800px; margin:0 auto; text-align:center; color:#555; }
+    main { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
+    section { margin: 50px 0; }
+    section h2 { text-align: center; color: #e65100; font-size: 2em; margin-bottom: 20px; }
+    .products { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .product { background: white; border-radius: 6px; box-shadow: 0 0 6px rgba(0,0,0,0.1); padding: 15px; max-width: 280px; text-align: center; }
+    .product img { max-width: 100%; border-radius: 6px; }
+    .price { font-weight: bold; margin: 10px 0; color: #e65100; }
+    .btn-add { background: #008080; color: white; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-weight: bold; cursor: pointer; }
+    .btn-add:hover { background: #006666; }
 
-    /* Carrossel */
-    .carousel { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:20px; padding:10px; }
-    .carousel::-webkit-scrollbar { display:none; }
-    .product { flex:0 0 280px; background:white; border-radius:10px; box-shadow:0 0 8px rgba(0,0,0,0.1); padding:15px; scroll-snap-align:center; text-align:center; }
-    .product img { max-width:100%; border-radius:8px; }
-    .product .price { color:#e65100; font-weight:bold; margin:10px 0; }
-    .btn-whatsapp { display:inline-block; background:#25d366; color:white; padding:8px 14px; border-radius:6px; text-decoration:none; font-weight:bold; }
-    .btn-whatsapp:hover { background:#128c4a; }
-
-    /* Anúncio */
-    .anuncio { width:100%; max-width:320px; margin:25px auto; padding:10px; background:#f0f0f0; border:1px dashed #ccc; text-align:center; border-radius:6px; }
-
-    footer { background:#008080; color:white; text-align:center; padding:15px; margin-top:50px; }
-
-    /* WhatsApp flutuante */
-    .whatsapp-float { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; font-size:30px; box-shadow:0 2px 8px rgba(0,0,0,0.3); z-index:100; text-decoration:none; }
-    .whatsapp-float:hover { background:#128c4a; }
-
-    @media(max-width:768px) {
-      nav a { display:block; margin:8px 0; }
-      .carousel { flex-direction:column; align-items:center; }
-      .product { width:90%; }
-    }
+    footer { background: #008080; color: white; text-align: center; padding: 15px; margin-top: 40px; }
   </style>
 </head>
 <body>
 
   <header>
     <img src="images/logo.png" alt="Casa Feliz Logo" />
-    <div class="lang-selector">
-      <button onclick="switchLang('pt')">🇵🇹</button>
-      <button onclick="switchLang('en')">🇬🇧</button>
-    </div>
+    <h1>Casa Feliz – Ebooks e Cursos</h1>
   </header>
 
   <nav>
-    <a href="#domotica" data-pt="Domótica" data-en="Home Automation">Domótica</a>
-    <a href="#auto" data-pt="Automóvel" data-en="Automotive">Automóvel</a>
-    <a href="#bricolage" data-pt="Bricolage" data-en="DIY">Bricolage</a>
-    <a href="#contactos" data-pt="Contactos" data-en="Contacts">Contactos</a>
+    <a href="#domotica">Domótica</a>
+    <a href="#auto">Manutenção Automóvel</a>
+    <a href="#bricolage">Bricolage</a>
+    <div class="cart" onclick="toggleCart()">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-count" id="cart-count">0</span>
+      <div class="cart-dropdown" id="cart-dropdown">
+        <ul id="cart-items"></ul>
+        <div class="total" id="cart-total">Total: 0€</div>
+        <a href="#" class="btn-whatsapp" onclick="checkout()">Finalizar via WhatsApp</a>
+      </div>
+    </div>
   </nav>
 
   <main>
     <!-- Domótica -->
     <section id="domotica">
-      <h2 data-pt="Domótica Inteligente" data-en="Smart Home">Domótica Inteligente</h2>
-      <p data-pt="Ebooks, cursos e vídeos para automatizar a sua casa." data-en="Ebooks, courses and videos to automate your home."></p>
-      <div class="carousel">
+      <h2>📗 Ebooks e Cursos de Domótica</h2>
+      <div class="products">
         <div class="product">
-          <img src="images/ebook-domotica.jpg" alt="Ebook Domótica">
-          <h3>Ebook Domótica</h3>
-          <p class="price">14,90€</p>
-          <a href="#" class="btn-whatsapp">📲 Comprar</a>
-        </div>
-        <div class="product">
-          <img src="images/curso-domotica.jpg" alt="Curso Domótica">
-          <h3>Curso Domótica</h3>
-          <p class="price">49,90€</p>
-          <a href="#" class="btn-whatsapp">📲 Comprar</a>
+          <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Domótica Ebook" />
+          <h3>Ebook Domótica Inteligente</h3>
+          <p>Aprenda a automatizar sua casa com sistemas modernos.</p>
+          <div class="price">12,90€</div>
+          <button class="btn-add" onclick="addToCart('Ebook Domótica Inteligente', 12.90)">Adicionar</button>
         </div>
       </div>
-      <div class="anuncio">Espaço para anúncios 🔔</div>
     </section>
 
     <!-- Automóvel -->
     <section id="auto">
-      <h2 data-pt="Manutenção Automóvel" data-en="Car Maintenance">Manutenção Automóvel</h2>
-      <p data-pt="Aprenda a cuidar do seu carro com ebooks e vídeos práticos." data-en="Learn to take care of your car with ebooks and practical videos."></p>
-      <div class="carousel">
+      <h2>🚗 Ebooks e Cursos de Manutenção Automóvel</h2>
+      <div class="products">
         <div class="product">
-          <img src="images/ebook-auto.jpg" alt="Ebook Automóvel">
-          <h3>Ebook Automóvel</h3>
-          <p class="price">12,90€</p>
-          <a href="#" class="btn-whatsapp">📲 Comprar</a>
-        </div>
-        <div class="product">
-          <img src="images/video-auto.jpg" alt="Vídeo Manutenção">
-          <h3>Vídeo Manutenção</h3>
-          <p class="price">19,90€</p>
-          <a href="#" class="btn-whatsapp">📲 Comprar</a>
+          <img src="https://via.placeholder.com/250x150?text=Auto+1" alt="Manutenção Automóvel Ebook" />
+          <h3>Ebook Manutenção Automóvel</h3>
+          <p>Dicas e técnicas para cuidar do seu carro.</p>
+          <div class="price">15,00€</div>
+          <button class="btn-add" onclick="addToCart('Ebook Manutenção Automóvel', 15.00)">Adicionar</button>
         </div>
       </div>
-      <div class="anuncio">Espaço para anúncios 🚗</div>
     </section>
 
     <!-- Bricolage -->
     <section id="bricolage">
-      <h2 data-pt="Bricolage em Casa" data-en="DIY Home">Bricolage em Casa</h2>
-      <p data-pt="Guias e cursos para melhorar a sua casa com bricolage." data-en="Guides and courses to improve your home with DIY projects."></p>
-      <div class="carousel">
+      <h2>🔨 Ebooks e Cursos de Bricolage em Casa</h2>
+      <div class="products">
         <div class="product">
-          <img src="images/ebook-bricolage.jpg" alt="Ebook Bricolage">
-          <h3>Ebook Bricolage</h3>
-          <p class="price">9,90€</p>
-          <a href="#" class="btn-whatsapp">📲 Comprar</a>
-        </div>
-        <div class="product">
-          <img src="images/curso-bricolage.jpg" alt="Curso Bricolage">
-          <h3>Curso Bricolage</h3>
-          <p class="price">39,90€</p>
-          <a href="#" class="btn-whatsapp">📲 Comprar</a>
+          <img src="https://via.placeholder.com/250x150?text=Bricolage+1" alt="Bricolage Ebook" />
+          <h3>Ebook Bricolage Fácil</h3>
+          <p>Projetos simples e práticos para casa.</p>
+          <div class="price">9,90€</div>
+          <button class="btn-add" onclick="addToCart('Ebook Bricolage Fácil', 9.90)">Adicionar</button>
         </div>
       </div>
-      <div class="anuncio">Espaço para anúncios 🛠️</div>
-    </section>
-
-    <!-- Contactos -->
-    <section id="contactos">
-      <h2 data-pt="Contactos" data-en="Contacts">Contactos</h2>
-      <p data-pt="Fale connosco pelo WhatsApp ou email." data-en="Contact us via WhatsApp or email."></p>
-      <p>Email: contacto@casafeliz.pt</p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Casa Feliz. Todos os direitos reservados.</p>
+    Casa Feliz &copy; 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
   </footer>
 
-  <!-- Botão WhatsApp flutuante -->
-  <a href="https://wa.me/351912345678" target="_blank" class="whatsapp-float">💬</a>
-
   <script>
-    function switchLang(lang) {
-      document.querySelectorAll("[data-pt]").forEach(el => {
-        el.textContent = el.getAttribute("data-" + lang);
+    let cart = [];
+
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      updateCart();
+    }
+
+    function updateCart() {
+      document.getElementById("cart-count").textContent = cart.length;
+      let itemsHTML = "";
+      let total = 0;
+      cart.forEach(item => {
+        itemsHTML += `<li>${item.product} - ${item.price.toFixed(2)}€</li>`;
+        total += item.price;
       });
-      localStorage.setItem("lang", lang);
+      document.getElementById("cart-items").innerHTML = itemsHTML;
+      document.getElementById("cart-total").textContent = "Total: " + total.toFixed(2) + "€";
     }
-    function loadLang() {
-      const lang = localStorage.getItem("lang") || "pt";
-      switchLang(lang);
+
+    function toggleCart() {
+      const dropdown = document.getElementById("cart-dropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
     }
-    window.onload = loadLang;
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("O carrinho está vazio!");
+        return;
+      }
+      let msg = "Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
+      cart.forEach(item => {
+        msg += `- ${item.product} (${item.price.toFixed(2)}€)\n`;
+      });
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      msg += `Total: ${total.toFixed(2)}€`;
+      window.open("https://wa.me/351000000000?text=" + encodeURIComponent(msg), "_blank");
+    }
   </script>
+
 </body>
 </html>
