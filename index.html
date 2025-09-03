@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Casa Feliz – Ebooks e Cursos</title>
-  <meta name="description" content="Casa Feliz – Ebooks e cursos sobre Domótica, Manutenção Automóvel e Bricolage em Casa. Transforme sua vida com conhecimento." />
+  <title>Casa Feliz – Ebooks e Cursos Online</title>
+  <meta name="description" content="Casa Feliz – Ebooks e cursos online sobre Domótica, Manutenção Automóvel e Bricolage em Casa. Transforme sua vida com conhecimento." />
   <style>
     body { margin: 0; font-family: Arial, sans-serif; background: #f9f9f9; color: #333; }
     header { background: #008080; color: white; padding: 20px; text-align: center; position: relative; }
@@ -45,13 +45,13 @@
 
   <header>
     <img src="images/logo.png" alt="Casa Feliz Logo" />
-    <h1>Casa Feliz – Ebooks e Cursos</h1>
+    <h1>Casa Feliz – Ebooks e Cursos Online</h1>
   </header>
 
   <nav>
-    <a href="#domotica">Domótica</a>
-    <a href="#auto">Manutenção Automóvel</a>
-    <a href="#bricolage">Bricolage</a>
+    <a href="#domotica">Domótica Online</a>
+    <a href="#auto">Manutenção Automóvel Online</a>
+    <a href="#bricolage">Bricolage em Casa Online</a>
     <a href="#contactos">Contactos</a>
     <div class="cart" onclick="toggleCart()">
       <span class="cart-icon">🛒</span>
@@ -65,44 +65,44 @@
   </nav>
 
   <main>
-    <!-- Domótica -->
+    <!-- Domótica Online -->
     <section id="domotica">
-      <h2>📗 Ebooks e Cursos de Domótica</h2>
+      <h2>📗 Ebooks e Cursos Online de Domótica</h2>
       <div class="products">
         <div class="product">
           <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Domótica Ebook" />
-          <h3>Ebook Domótica Inteligente</h3>
+          <h3>Ebook Domótica Inteligente Online</h3>
           <p>Aprenda a automatizar sua casa com sistemas modernos.</p>
           <div class="price">12,90€</div>
-          <button class="btn-add" onclick="addToCart('Ebook Domótica Inteligente', 12.90)">Adicionar</button>
+          <button class="btn-add" onclick="addToCart('Ebook Domótica Inteligente Online', 12.90)">Adicionar</button>
         </div>
       </div>
     </section>
 
-    <!-- Automóvel -->
+    <!-- Automóvel Online -->
     <section id="auto">
-      <h2>🚗 Ebooks e Cursos de Manutenção Automóvel</h2>
+      <h2>🚗 Ebooks e Cursos Online de Manutenção Automóvel</h2>
       <div class="products">
         <div class="product">
           <img src="https://via.placeholder.com/250x150?text=Auto+1" alt="Manutenção Automóvel Ebook" />
-          <h3>Ebook Manutenção Automóvel</h3>
+          <h3>Ebook Manutenção Automóvel Online</h3>
           <p>Dicas e técnicas para cuidar do seu carro.</p>
           <div class="price">15,00€</div>
-          <button class="btn-add" onclick="addToCart('Ebook Manutenção Automóvel', 15.00)">Adicionar</button>
+          <button class="btn-add" onclick="addToCart('Ebook Manutenção Automóvel Online', 15.00)">Adicionar</button>
         </div>
       </div>
     </section>
 
-    <!-- Bricolage -->
+    <!-- Bricolage Online -->
     <section id="bricolage">
-      <h2>🔨 Ebooks e Cursos de Bricolage em Casa</h2>
+      <h2>🔨 Ebooks e Cursos Online de Bricolage em Casa</h2>
       <div class="products">
         <div class="product">
           <img src="https://via.placeholder.com/250x150?text=Bricolage+1" alt="Bricolage Ebook" />
-          <h3>Ebook Bricolage Fácil</h3>
+          <h3>Ebook Bricolage Fácil Online</h3>
           <p>Projetos simples e práticos para casa.</p>
           <div class="price">9,90€</div>
-          <button class="btn-add" onclick="addToCart('Ebook Bricolage Fácil', 9.90)">Adicionar</button>
+          <button class="btn-add" onclick="addToCart('Ebook Bricolage Fácil Online', 9.90)">Adicionar</button>
         </div>
       </div>
     </section>
@@ -132,12 +132,18 @@
       updateCart();
     }
 
+    function removeFromCart(index) {
+      cart.splice(index, 1); // Remove item pelo índice
+      updateCart();
+    }
+
     function updateCart() {
       document.getElementById("cart-count").textContent = cart.length;
       let itemsHTML = "";
       let total = 0;
-      cart.forEach(item => {
-        itemsHTML += `<li>${item.product} - ${item.price.toFixed(2)}€</li>`;
+      cart.forEach((item, index) => {
+        itemsHTML += `<li>${item.product} - ${item.price.toFixed(2)}€
+            <button onclick="removeFromCart(${index})" style="background:red;color:white;border:none;border-radius:3px;padding:2px 6px;cursor:pointer;margin-left:8px;">❌</button></li>`;
         total += item.price;
       });
       document.getElementById("cart-items").innerHTML = itemsHTML;
