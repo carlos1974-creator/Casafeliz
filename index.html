@@ -1,159 +1,159 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Casa Feliz – Domótica e Manutenção Automóvel</title>
-<meta name="description" content="Transforme sua casa e cuide do seu carro com ebooks, cursos e dicas de domótica e manutenção automóvel.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Casa Feliz – Domótica, Automóvel e Bricolage</title>
+  <meta name="description" content="Casa Feliz: Ebooks, cursos e vídeos sobre Domótica, Manutenção Automóvel e Bricolage em Casa." />
+  <style>
+    body { margin:0; font-family:Arial, sans-serif; background:#f9f9f9; color:#333; }
+    header { background:#008080; color:white; padding:40px 20px; text-align:center; position:relative; }
+    header img { width:280px; height:auto; display:block; margin:0 auto; }
+    .lang-selector { position:absolute; top:20px; right:20px; display:flex; gap:5px; }
+    .lang-selector button { background:transparent; border:none; font-size:28px; cursor:pointer; }
+    .lang-selector button:hover { background:#e65100; color:white; border-radius:5px; }
+    nav { background:#e0e0e0; text-align:center; padding:12px; }
+    nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
+    nav a:hover { color:#e65100; }
+    main { max-width:1100px; margin:30px auto; padding:0 15px; }
 
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
-     crossorigin="anonymous"></script>
+    section { margin:60px 0; }
+    section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
+    section p { max-width:800px; margin:0 auto; text-align:center; color:#555; }
 
-<style>
-body { margin:0; font-family:Arial,sans-serif; background:#f9f9f9; color:#333; }
-header { background:#008080; color:white; padding:40px 20px; text-align:center; position:relative; }
-header img { width:300px; display:block; margin:0 auto; }
-.lang-selector { position:absolute; top:20px; right:20px; display:flex; gap:5px; }
-.lang-selector button { background:transparent; border:none; font-size:28px; cursor:pointer; }
-.lang-selector button:hover { background:#e65100; color:white; border-radius:5px; }
-nav { background:#e0e0e0; text-align:center; padding:10px; }
-nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
-nav a:hover { color:#e65100; }
-main { max-width:1000px; margin:30px auto; padding:0 10px; }
-section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
-section p { max-width:800px; margin:0 auto 20px auto; color:#555; }
-.carousel { display:flex; overflow-x:auto; gap:20px; scroll-snap-type:x mandatory; padding-bottom:10px; }
-.carousel::-webkit-scrollbar { display:none; }
-.carousel-item { min-width:280px; background:white; border-radius:8px; box-shadow:0 0 6px rgba(0,0,0,0.1); padding:15px; scroll-snap-align:start; flex-shrink:0; text-align:center; }
-.carousel-item img { max-width:100%; border-radius:6px; }
-.price { font-weight:bold; color:#e65100; margin:10px 0; }
-.btn-whatsapp { display:inline-block; background:#25d366; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; margin-top:5px; }
-.btn-whatsapp:hover { background:#128c4a; }
-.modal { display:none; position:fixed; z-index:100; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.6); }
-.modal-content { background:white; margin:10% auto; padding:20px; border-radius:8px; max-width:500px; text-align:center; position:relative; }
-.close { position:absolute; top:10px; right:20px; font-size:28px; font-weight:bold; cursor:pointer; }
-#whatsapp-fixed { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; padding:12px; border-radius:50%; font-size:24px; text-align:center; z-index:100; box-shadow:0 4px 6px rgba(0,0,0,0.3); }
-#whatsapp-fixed:hover { background:#128c4a; }
-@media(max-width:768px){ .lang-selector{position:static;margin-top:10px; justify-content:center;} nav a{display:block;margin:8px 0;} }
-</style>
+    /* Carrossel */
+    .carousel { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:20px; padding:10px; }
+    .carousel::-webkit-scrollbar { display:none; }
+    .product { flex:0 0 280px; background:white; border-radius:10px; box-shadow:0 0 8px rgba(0,0,0,0.1); padding:15px; scroll-snap-align:center; text-align:center; }
+    .product img { max-width:100%; border-radius:8px; }
+    .product .price { color:#e65100; font-weight:bold; margin:10px 0; }
+    .btn-whatsapp { display:inline-block; background:#25d366; color:white; padding:8px 14px; border-radius:6px; text-decoration:none; font-weight:bold; }
+    .btn-whatsapp:hover { background:#128c4a; }
+
+    /* Anúncio */
+    .anuncio { width:100%; max-width:320px; margin:25px auto; padding:10px; background:#f0f0f0; border:1px dashed #ccc; text-align:center; border-radius:6px; }
+
+    footer { background:#008080; color:white; text-align:center; padding:15px; margin-top:50px; }
+
+    /* WhatsApp flutuante */
+    .whatsapp-float { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; font-size:30px; box-shadow:0 2px 8px rgba(0,0,0,0.3); z-index:100; text-decoration:none; }
+    .whatsapp-float:hover { background:#128c4a; }
+
+    @media(max-width:768px) {
+      nav a { display:block; margin:8px 0; }
+      .carousel { flex-direction:column; align-items:center; }
+      .product { width:90%; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-<img src="images/logo.png" alt="Casa Feliz Logo">
-<div class="lang-selector" aria-label="Selecionar idioma">
-<button onclick="switchLang('pt')" aria-label="Português">🇵🇹</button>
-<button onclick="switchLang('en')" aria-label="English">🇬🇧</button>
-</div>
-</header>
+  <header>
+    <img src="images/logo.png" alt="Casa Feliz Logo" />
+    <div class="lang-selector">
+      <button onclick="switchLang('pt')">🇵🇹</button>
+      <button onclick="switchLang('en')">🇬🇧</button>
+    </div>
+  </header>
 
-<nav>
-<a href="#home" data-pt="Início" data-en="Home">Início</a>
-<a href="#ebooks" data-pt="Ebooks & Guias" data-en="Ebooks & Guides">Ebooks & Guias</a>
-<a href="#sobre" data-pt="Sobre" data-en="About">Sobre</a>
-<a href="#contactos" data-pt="Contactos" data-en="Contacts">Contactos</a>
-</nav>
+  <nav>
+    <a href="#domotica" data-pt="Domótica" data-en="Home Automation">Domótica</a>
+    <a href="#auto" data-pt="Automóvel" data-en="Automotive">Automóvel</a>
+    <a href="#bricolage" data-pt="Bricolage" data-en="DIY">Bricolage</a>
+    <a href="#contactos" data-pt="Contactos" data-en="Contacts">Contactos</a>
+  </nav>
 
-<main>
+  <main>
+    <!-- Domótica -->
+    <section id="domotica">
+      <h2 data-pt="Domótica Inteligente" data-en="Smart Home">Domótica Inteligente</h2>
+      <p data-pt="Ebooks, cursos e vídeos para automatizar a sua casa." data-en="Ebooks, courses and videos to automate your home."></p>
+      <div class="carousel">
+        <div class="product">
+          <img src="images/ebook-domotica.jpg" alt="Ebook Domótica">
+          <h3>Ebook Domótica</h3>
+          <p class="price">14,90€</p>
+          <a href="#" class="btn-whatsapp">📲 Comprar</a>
+        </div>
+        <div class="product">
+          <img src="images/curso-domotica.jpg" alt="Curso Domótica">
+          <h3>Curso Domótica</h3>
+          <p class="price">49,90€</p>
+          <a href="#" class="btn-whatsapp">📲 Comprar</a>
+        </div>
+      </div>
+      <div class="anuncio">Espaço para anúncios 🔔</div>
+    </section>
 
-<section id="home">
-<h2 data-pt="Bem-vindo à Casa Feliz!" data-en="Welcome to Casa Feliz!">Bem-vindo à Casa Feliz!</h2>
-<p data-pt="Escolha os melhores ebooks, cursos e dicas de manutenção automóvel e domótica." data-en="Choose the best ebooks, courses and tips on home automation and car maintenance.">Escolha os melhores ebooks, cursos e dicas de manutenção automóvel e domótica.</p>
-</section>
+    <!-- Automóvel -->
+    <section id="auto">
+      <h2 data-pt="Manutenção Automóvel" data-en="Car Maintenance">Manutenção Automóvel</h2>
+      <p data-pt="Aprenda a cuidar do seu carro com ebooks e vídeos práticos." data-en="Learn to take care of your car with ebooks and practical videos."></p>
+      <div class="carousel">
+        <div class="product">
+          <img src="images/ebook-auto.jpg" alt="Ebook Automóvel">
+          <h3>Ebook Automóvel</h3>
+          <p class="price">12,90€</p>
+          <a href="#" class="btn-whatsapp">📲 Comprar</a>
+        </div>
+        <div class="product">
+          <img src="images/video-auto.jpg" alt="Vídeo Manutenção">
+          <h3>Vídeo Manutenção</h3>
+          <p class="price">19,90€</p>
+          <a href="#" class="btn-whatsapp">📲 Comprar</a>
+        </div>
+      </div>
+      <div class="anuncio">Espaço para anúncios 🚗</div>
+    </section>
 
-<section id="ebooks">
-<h2 data-pt="Ebooks & Guias" data-en="Ebooks & Guides">Ebooks & Guias</h2>
-<div class="carousel">
+    <!-- Bricolage -->
+    <section id="bricolage">
+      <h2 data-pt="Bricolage em Casa" data-en="DIY Home">Bricolage em Casa</h2>
+      <p data-pt="Guias e cursos para melhorar a sua casa com bricolage." data-en="Guides and courses to improve your home with DIY projects."></p>
+      <div class="carousel">
+        <div class="product">
+          <img src="images/ebook-bricolage.jpg" alt="Ebook Bricolage">
+          <h3>Ebook Bricolage</h3>
+          <p class="price">9,90€</p>
+          <a href="#" class="btn-whatsapp">📲 Comprar</a>
+        </div>
+        <div class="product">
+          <img src="images/curso-bricolage.jpg" alt="Curso Bricolage">
+          <h3>Curso Bricolage</h3>
+          <p class="price">39,90€</p>
+          <a href="#" class="btn-whatsapp">📲 Comprar</a>
+        </div>
+      </div>
+      <div class="anuncio">Espaço para anúncios 🛠️</div>
+    </section>
 
-<div class="carousel-item">
-<img src="images/ebook-casa-inteligente.jpg" alt="Guia Casa Inteligente">
-<h3 data-pt="Guia Casa Inteligente" data-en="Smart Home Guide">Guia Casa Inteligente</h3>
-<p data-pt="Aprenda a automatizar a sua casa e realizar manutenção básica do seu carro." data-en="Learn how to automate your home and perform basic car maintenance.">Aprenda a automatizar a sua casa e realizar manutenção básica do seu carro.</p>
-<div class="price">Grátis / 9,90€</div>
-<a href="downloads/ebook-casa-inteligente.pdf" class="btn-whatsapp" target="_blank" data-pt="Download" data-en="Download">Download</a>
-</div>
+    <!-- Contactos -->
+    <section id="contactos">
+      <h2 data-pt="Contactos" data-en="Contacts">Contactos</h2>
+      <p data-pt="Fale connosco pelo WhatsApp ou email." data-en="Contact us via WhatsApp or email."></p>
+      <p>Email: contacto@casafeliz.pt</p>
+    </section>
+  </main>
 
-<!-- Google Ads Slot -->
-<div class="carousel-item">
-<ins class="adsbygoogle"
-     style="display:block; min-width:280px; height:250px"
-     data-ad-client="ca-pub-XXXXXXXXXXXX"
-     data-ad-slot="1111111111"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
+  <footer>
+    <p>&copy; 2025 Casa Feliz. Todos os direitos reservados.</p>
+  </footer>
 
-<div class="carousel-item">
-<img src="images/planner-automacao.jpg" alt="Planner Casa Feliz">
-<h3 data-pt="Checklist & Planner" data-en="Automation & Car Checklist">Checklist & Planner</h3>
-<p data-pt="Organize projetos de automação residencial e manutenção do carro." data-en="Organize home automation and car maintenance projects.">Organize projetos de automação residencial e manutenção do carro.</p>
-<div class="price">Grátis / 7,90€</div>
-<a href="downloads/planner.pdf" class="btn-whatsapp" target="_blank" data-pt="Download" data-en="Download">Download</a>
-</div>
+  <!-- Botão WhatsApp flutuante -->
+  <a href="https://wa.me/351912345678" target="_blank" class="whatsapp-float">💬</a>
 
-<!-- Outro Slot de Anúncio -->
-<div class="carousel-item">
-<ins class="adsbygoogle"
-     style="display:block; min-width:280px; height:250px"
-     data-ad-client="ca-pub-XXXXXXXXXXXX"
-     data-ad-slot="2222222222"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div class="carousel-item">
-<img src="images/minicurso.jpg" alt="Mini-Curso Casa Feliz">
-<h3 data-pt="Mini-Curso Casa Feliz" data-en="Casa Feliz Mini-Course">Mini-Curso Casa Feliz</h3>
-<p data-pt="Aprenda em vídeos curtos como automatizar sua casa e manter seu carro." data-en="Learn in short videos how to automate your home and maintain your car.">Aprenda em vídeos curtos como automatizar sua casa e manter seu carro.</p>
-<div class="price">14,90€</div>
-<a href="downloads/minicurso.html" class="btn-whatsapp" target="_blank" data-pt="Acessar Curso" data-en="Access Course">Acessar Curso</a>
-</div>
-
-<!-- Terceiro Slot de Anúncio -->
-<div class="carousel-item">
-<ins class="adsbygoogle"
-     style="display:block; min-width:280px; height:250px"
-     data-ad-client="ca-pub-XXXXXXXXXXXX"
-     data-ad-slot="3333333333"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-</div>
-</section>
-
-<section id="sobre">
-<h2 data-pt="Sobre a Casa Feliz" data-en="About Casa Feliz">Sobre a Casa Feliz</h2>
-<p data-pt="A Casa Feliz oferece ebooks, cursos e dicas de automação residencial e manutenção automóvel. Criada por Carlos Oliveira para simplificar sua vida." data-en="Casa Feliz offers ebooks, courses and tips on home automation and car maintenance. Created by Carlos Oliveira to simplify your life.">A Casa Feliz oferece ebooks, cursos e dicas de automação residencial e manutenção automóvel. Criada por Carlos Oliveira para simplificar sua vida.</p>
-</section>
-
-<section id="contactos">
-<h2 data-pt="Contactos" data-en="Contacts">Contactos</h2>
-<ul>
-<li>👤 Fundador: Carlos Oliveira</li>
-<li>📱 WhatsApp: <a href="https://wa.me/351000000000" target="_blank">+351 000 000 000</a></li>
-<li>📘 Facebook: <a href="https://www.facebook.com/share/19f9GhAERQ/" target="_blank">Casa Feliz</a></li>
-<li>📸 Instagram: <a href="https://www.instagram.com/casafeliz_2025" target="_blank">casafeliz_2025</a></li>
-<li>✉️ Email: <a href="mailto:casafeliz_2025@hotmail.com">casafeliz_2025@hotmail.com</a></li>
-</ul>
-</section>
-
-<footer>
-Casa Feliz &copy; 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
-</footer>
-
-<a href="https://wa.me/351000000000" id="whatsapp-fixed" target="_blank">💬</a>
-
-<script>
-function switchLang(lang){
-localStorage.setItem('lang',lang);
-document.querySelectorAll('[data-pt]').forEach(el=>{
-el.textContent=el.getAttribute('data-'+lang);
-});
-}
-function loadLang(){
-switchLang(localStorage.getItem('lang')||'pt');
-}
-window.onload=loadLang;
-</script>
-
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll("[data-pt]").forEach(el => {
+        el.textContent = el.getAttribute("data-" + lang);
+      });
+      localStorage.setItem("lang", lang);
+    }
+    function loadLang() {
+      const lang = localStorage.getItem("lang") || "pt";
+      switchLang(lang);
+    }
+    window.onload = loadLang;
+  </script>
 </body>
 </html>
