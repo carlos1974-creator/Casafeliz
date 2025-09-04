@@ -10,13 +10,21 @@
   <style>
     body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
     header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
-    header img { width:220px; height:auto; display:block; margin:0 auto 10px auto; }
-    .language-switch { position:absolute; top:20px; right:20px; }
-    .language-switch img { height:20px; cursor:pointer; margin-left:5px; border-radius:3px; border:2px solid white; }
-
+    header img { width:220px; height:auto; }
     nav { background:#e0e0e0; display:flex; justify-content:center; align-items:center; padding:10px; position:sticky; top:0; z-index:1000; }
     nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
     nav a:hover { color:#e65100; }
+
+    /* Bandeiras */
+    .language-switch { position:absolute; top:20px; right:20px; display:flex; }
+    .language-switch img {
+        height:20px;        /* mesma altura para todas */
+        width:auto;          /* mantém proporção */
+        cursor:pointer; 
+        margin-left:5px; 
+        border-radius:3px; 
+        border:2px solid white;
+    }
 
     /* Carrinho */
     .cart { position:relative; margin-left:auto; cursor:pointer; }
@@ -55,8 +63,8 @@
     <img src="images/logo.png" alt="Casa Feliz Logo" />
     <h1>Casa Feliz – Ebooks e Cursos Online</h1>
     <div class="language-switch">
-      <img src="images/pt.png" alt="Português" title="Português" onclick="alert('Mudar para PT')" />
-      <img src="images/en.png" alt="English" title="English" onclick="alert('Mudar para EN')" />
+      <img src="images/pt.png" alt="Português" onclick="alert('Idioma Português');">
+      <img src="images/en.png" alt="English" onclick="alert('English Language');">
     </div>
   </header>
 
@@ -142,11 +150,10 @@
   </main>
 
   <footer>
-    Casa Feliz &copy; 2025 — Criado por Carlos Oliveira — Todos os direitos reservados<br>
-    <span id="visit-count" style="color:#00ff00; font-weight:bold;">Contador de visitas: 0</span>
+    Casa Feliz &copy; 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
   </footer>
 
-  <!-- JS Carrinho e Contador -->
+  <!-- JS Carrinho -->
   <script>
     let cart = [];
 
@@ -186,12 +193,6 @@
       msg+="Total: "+total.toFixed(2)+"€";
       window.open("https://wa.me/351000000000?text="+encodeURIComponent(msg),"_blank");
     }
-
-    // Contador simples de visitas
-    let visits = localStorage.getItem("visits") || 0;
-    visits++;
-    localStorage.setItem("visits", visits);
-    document.getElementById("visit-count").textContent = "Contador de visitas: " + visits;
   </script>
 
 </body>
