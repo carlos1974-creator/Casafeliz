@@ -2,187 +2,58 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casa Feliz – Ebooks e Cursos Online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
-    header { background:#008080; color:white; padding:20px; text-align:center; }
-    nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; }
-    nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
-    nav a:hover { color:#e65100; }
-    main { max-width:1000px; margin:30px auto; padding:0 15px; }
-    section { margin:50px 0; }
-    section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
-    .products { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
-    .product { background:white; border-radius:6px; box-shadow:0 0 6px rgba(0,0,0,0.1); padding:15px; max-width:280px; text-align:center; }
-    .product img { max-width:100%; border-radius:6px; }
-    .price { font-weight:bold; margin:10px 0; color:#e65100; }
-    .btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; }
-    .btn-add:hover, .btn-paypal:hover { background:#006666; }
-    #sugestoes { text-align:center; padding:30px; background:#f9f9f9; border-radius:10px; margin:40px auto; max-width:600px; }
-    .whatsapp-btn { display:inline-block; background:#25D366; color:white; padding:12px 25px; margin-top:15px; border-radius:8px; text-decoration:none; font-size:16px; font-weight:bold; }
-    footer { background:#222; color:white; text-align:center; padding:20px; margin-top:40px; }
-    .cart { position:relative; margin-left:auto; cursor:pointer; }
-    .cart-icon { font-size:22px; }
-    .cart-count { background:red; color:white; border-radius:50%; padding:2px 6px; font-size:12px; position:absolute; top:-8px; right:-10px; }
-    .cart-dropdown { display:none; position:absolute; right:0; top:30px; background:white; border:1px solid #ccc; box-shadow:0 2px 6px rgba(0,0,0,0.2); width:270px; padding:10px; z-index:2000; }
-    .cart-dropdown ul { list-style:none; padding:0; margin:0; }
-    .cart-dropdown li { font-size:14px; margin:5px 0; }
-    .cart-dropdown .total { font-weight:bold; margin-top:10px; }
-    .cart-dropdown .btn-whatsapp { display:block; text-align:center; margin-top:10px; padding:8px; background:#25d366; color:white; border-radius:5px; text-decoration:none; }
-    .cart-dropdown .btn-whatsapp:hover { background:#128c4a; }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fff; }
+    header { background:#008080; color:white; text-align:center; padding:20px; }
+    section { padding:20px; }
+    #sugestoes {
+      text-align:center; padding:30px; background:#f9f9f9;
+      border-radius:10px; margin:40px auto; max-width:600px;
+    }
+    .whatsapp-btn {
+      display:inline-block; background:#25D366; color:white;
+      padding:12px 25px; margin-top:15px; border-radius:8px;
+      text-decoration:none; font-size:16px; font-weight:bold;
+    }
+    footer { background:#222; color:white; text-align:center; padding:20px; margin-top:30px; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Casa Feliz – Ebooks e Cursos Online</h1>
+    <h1>Casa Feliz</h1>
+    <p>Automação, conforto e ideias inteligentes</p>
   </header>
 
-  <nav>
-    <a href="#domotica">Domótica</a>
-    <a href="#auto">Manutenção Automóvel</a>
-    <a href="#bricolage">Bricolage</a>
-    <a href="#sugestoes">Sugestões</a>
-    <div class="cart" onclick="toggleCart()">
-      <span class="cart-icon">🛒</span>
-      <span class="cart-count" id="cart-count">0</span>
-      <div class="cart-dropdown" id="cart-dropdown">
-        <ul id="cart-items"></ul>
-        <div class="total" id="cart-total">Total: 0€</div>
-        <a href="#" class="btn-whatsapp" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</a>
-      </div>
-    </div>
-  </nav>
+  <section>
+    <h2>Bem-vindo ao Casa Feliz</h2>
+    <p>Descubra as nossas soluções de domótica, ebooks e muito mais.</p>
+  </section>
 
-  <main>
+  <!-- Box de Sugestões via WhatsApp -->
+  <section id="sugestoes">
+    <h2>💬 Envie-nos a sua sugestão</h2>
+    <p>Tem uma ideia, pedido ou solicitação? Clique no botão abaixo e fale connosco diretamente no WhatsApp.</p>
+    
+    <a class="whatsapp-btn" 
+       href="https://wa.me/351912345678?text=Olá!%20Tenho%20uma%20sugestão%20para%20o%20Casa%20Feliz:" 
+       target="_blank">
+      Enviar sugestão via WhatsApp
+    </a>
+  </section>
 
-    <!-- Domótica -->
-    <section id="domotica">
-      <h2>📗 Ebooks de Domótica</h2>
-      <div class="products">
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Ebook Domótica">
-          <h3>Ebook Domótica Inteligente</h3>
-          <p>Aprenda a automatizar sua casa com sistemas modernos.</p>
-          <div class="price">12,90€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Ebook Domótica Inteligente">
-            <input type="hidden" name="amount" value="12.90">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Automóvel -->
-    <section id="auto">
-      <h2>🚗 Ebooks de Manutenção Automóvel</h2>
-      <div class="products">
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Auto+1" alt="Ebook Automóvel">
-          <h3>Ebook Manutenção Automóvel</h3>
-          <p>Dicas e técnicas para cuidar do seu carro.</p>
-          <div class="price">15,00€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Ebook Manutenção Automóvel">
-            <input type="hidden" name="amount" value="15.00">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bricolage -->
-    <section id="bricolage">
-      <h2>🔨 Ebooks de Bricolage</h2>
-      <div class="products">
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Bricolage+1" alt="Ebook Bricolage">
-          <h3>Ebook Bricolage Fácil</h3>
-          <p>Projetos simples e práticos para casa.</p>
-          <div class="price">9,90€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Ebook Bricolage Fácil">
-            <input type="hidden" name="amount" value="9.90">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sugestões via WhatsApp -->
-    <section id="sugestoes">
-      <h2>💬 Envie-nos a sua sugestão</h2>
-      <p>Tem uma ideia, pedido ou solicitação? Clique no botão abaixo e fale connosco diretamente no WhatsApp.</p>
-      <a class="whatsapp-btn" 
-         href="https://wa.me/351912345678?text=Olá!%20Tenho%20uma%20sugestão%20para%20o%20Casa%20Feliz:" 
-         target="_blank">
-        Enviar sugestão via WhatsApp
-      </a>
-    </section>
-
-  </main>
-
+  <!-- Rodapé com contador -->
   <footer>
     <p>Casa Feliz © 2025 — Criado por Carlos Oliveira</p>
     <p>Contador de visitas:</p>
-    <!-- Contador simples -->
+    <!-- Contador gratuito HitWebCounter -->
     <a href="https://www.hitwebcounter.com" target="_blank">
-      <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0" 
-           title="contador de visitas" alt="contador gratuito" border="0" />
+      <img src="https://hitwebcounter.com/counter/counter.php?page=123456&style=0006&nbdigits=5&type=page&initCount=0" 
+           title="contador de visitas" Alt="contador gratuito" border="0" />
     </a>
   </footer>
-
-  <script>
-    let cart = [];
-
-    function addToCart(product, price) {
-      cart.push({ product, price });
-      updateCart();
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index,1);
-      updateCart();
-    }
-
-    function updateCart() {
-      document.getElementById("cart-count").textContent = cart.length;
-      let itemsHTML = "";
-      let total = 0;
-      cart.forEach((item,index)=>{
-        itemsHTML += `<li>${item.product} - ${item.price.toFixed(2)}€ 
-          <button onclick="removeFromCart(${index})" style="background:red;color:white;border:none;border-radius:3px;padding:2px 6px;cursor:pointer;margin-left:8px;">❌</button></li>`;
-        total += item.price;
-      });
-      document.getElementById("cart-items").innerHTML = itemsHTML;
-      document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
-    }
-
-    function toggleCart() {
-      const dropdown = document.getElementById("cart-dropdown");
-      dropdown.style.display = dropdown.style.display==="block"?"none":"block";
-    }
-
-    function checkoutWhatsApp() {
-      if(cart.length===0){ alert("O carrinho está vazio!"); return; }
-      let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
-      cart.forEach(item=>{ msg+="- "+item.product+" ("+item.price.toFixed(2)+"€)\n"; });
-      const total=cart.reduce((sum,item)=>sum+item.price,0);
-      msg+="Total: "+total.toFixed(2)+"€";
-      window.open("https://wa.me/351912345678?text="+encodeURIComponent(msg),"_blank");
-    }
-  </script>
 
 </body>
 </html>
