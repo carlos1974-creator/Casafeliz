@@ -69,17 +69,14 @@
     </div>
   </nav>
 
-  <!-- Exemplo de AdSense -->
+  <!-- AdSense -->
   <div style="max-width:1000px; margin:20px auto; text-align:center;">
-    <!-- Substituir IDs reais -->
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-XXXXXX"
          data-ad-slot="YYYYYY"
          data-ad-format="auto"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
   <main>
@@ -191,7 +188,7 @@
       let itemsHTML = "";
       let total = 0;
       cart.forEach((item,index)=>{
-        itemsHTML += `<li>${item.product} - ${item.price.toFixed(2)}€
+        itemsHTML += `<li>${item.product} - ${item.price.toFixed(2)}€ 
           <button onclick="removeFromCart(${index})" style="background:red;color:white;border:none;border-radius:3px;padding:2px 6px;cursor:pointer;margin-left:8px;">❌</button></li>`;
         total += item.price;
       });
