@@ -3,10 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casa Feliz – Teste</title>
+<title>Casa Feliz – Ebooks e Cursos Online</title>
 <style>
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
-header { background:#008080; color:white; padding:20px; text-align:center; }
+header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
+header img { width:220px; height:auto; display:block; margin:0 auto 10px; }
+.language-switch { position:absolute; top:20px; right:20px; }
+.language-switch img { width:30px; cursor:pointer; margin-left:5px; }
+nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; flex-wrap: wrap; }
+nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
+nav a:hover { color:#e65100; }
+.cart { position:relative; margin-left:auto; cursor:pointer; }
+.cart-icon { font-size:22px; }
+.cart-count { background:red; color:white; border-radius:50%; padding:2px 6px; font-size:12px; position:absolute; top:-8px; right:-10px; }
+.cart-dropdown { display:none; position:absolute; right:0; top:30px; background:white; border:1px solid #ccc; box-shadow:0 2px 6px rgba(0,0,0,0.2); width:270px; padding:10px; z-index:2000; }
+.cart-dropdown ul { list-style:none; padding:0; margin:0; }
+.cart-dropdown li { font-size:14px; margin:5px 0; }
+.cart-dropdown .total { font-weight:bold; margin-top:10px; }
+.cart-dropdown .btn-whatsapp { display:block; text-align:center; margin-top:10px; padding:8px; background:#25d366; color:white; border-radius:5px; text-decoration:none; }
+.cart-dropdown .btn-whatsapp:hover { background:#128c4a; }
 main { max-width:1000px; margin:30px auto; padding:0 15px; }
 section { margin:50px 0; }
 section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
@@ -15,6 +30,8 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 .price { font-weight:bold; margin:10px 0; color:#e65100; }
 .show-more-btn { display:block; margin:20px auto; padding:10px 20px; background:#e65100; color:white; font-weight:bold; border:none; border-radius:5px; cursor:pointer; }
 .show-more-btn:hover { background:#b84300; }
+#sugestoes { text-align:center; padding:30px; background:#f9f9f9; border-radius:10px; margin:40px auto; max-width:600px; }
+.whatsapp-btn { display:inline-block; background:#25D366; color:white; padding:12px 25px; margin-top:15px; border-radius:8px; text-decoration:none; font-size:16px; font-weight:bold; }
 footer { background:#222; color:white; text-align:center; padding:20px; margin-top:40px; }
 #contador { color:#00ff00; font-weight:bold; display:block; margin-top:10px; }
 </style>
@@ -22,11 +39,31 @@ footer { background:#222; color:white; text-align:center; padding:20px; margin-t
 <body>
 
 <header>
-<h1>Casa Feliz – Teste Produtos</h1>
+  <img src="https://via.placeholder.com/220x60?text=Logo+Casa+Feliz" alt="Logo Casa Feliz">
+  <div class="language-switch">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg" alt="PT" onclick="setLang('pt')">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="EN" onclick="setLang('en')">
+  </div>
+  <h1>Casa Feliz – Ebooks e Cursos Online</h1>
 </header>
 
-<main>
+<nav>
+<a href="#domotica">Domótica</a>
+<a href="#auto">Automóvel</a>
+<a href="#bricolage">Bricolage</a>
+<a href="#sugestoes">Sugestões</a>
+<div class="cart" onclick="toggleCart()">
+  <span class="cart-icon">🛒</span>
+  <span class="cart-count" id="cart-count">0</span>
+  <div class="cart-dropdown" id="cart-dropdown">
+    <ul id="cart-items"></ul>
+    <div class="total" id="cart-total">Total: 0€</div>
+    <a href="#" class="btn-whatsapp" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</a>
+  </div>
+</div>
+</nav>
 
+<main>
 <section id="domotica">
 <h2>📗 Ebooks de Domótica</h2>
 <div class="products" id="domotica-products">
@@ -60,9 +97,15 @@ footer { background:#222; color:white; text-align:center; padding:20px; margin-t
 <button class="show-more-btn" onclick="showMore('bricolage-products')">Ver mais</button>
 </section>
 
+<section id="sugestoes">
+<h2>💡 Sugestões e Solicitações</h2>
+<p>Envie suas ideias de ebooks, dúvidas ou pedidos de cursos.</p>
+<a href="https://wa.me/351000000000?text=Olá!%20Tenho%20uma%20sugestão" class="whatsapp-btn" target="_blank">Enviar via WhatsApp</a>
+</section>
+
 <footer>
+<p>Contactos: Carlos Oliveira | WhatsApp: +351 000 000 000 | Facebook: Casa Feliz | Instagram: @casafeliz_2025 | Email: casafeliz_2025@hotmail.com</p>
 <span id="contador">Contador de visitas: 0</span>
-<p>Contactos: Carlos Oliveira | WhatsApp: +351 000 000 000</p>
 <p>Casa Feliz &copy; 2025</p>
 </footer>
 
@@ -73,13 +116,21 @@ function showMore(id){
   for(let i=0;i<products.length;i++){ products[i].style.display='block'; }
 }
 
-// Contador simples
 let contador = localStorage.getItem('visitas') || 0;
 contador++;
 localStorage.setItem('visitas', contador);
 document.getElementById('contador').textContent = "Contador de visitas: "+contador;
 
-// Mostrar 3 produtos por padrão
+// Carrinho
+let cart=[];
+function toggleCart(){ const d=document.getElementById('cart-dropdown'); d.style.display=d.style.display==='block'?'none':'block'; }
+function addToCart(product,price){ cart.push({product,price}); updateCart(); }
+function removeFromCart(i){ cart.splice(i,1); updateCart(); }
+function updateCart(){ let items=''; let total=0; cart.forEach((p,i)=>{ items+=`<li>${p.product} - ${p.price.toFixed(2)}€ <button onclick="+"removeFromCart("+i+")"+` style="background:red;color:white;border:none;border-radius:3px;padding:2px 6px;cursor:pointer;margin-left:8px;">❌</button></li>`; total+=p.price; }); document.getElementById('cart-items').innerHTML=items; document.getElementById('cart-total').textContent='Total: '+total.toFixed(2)+'€'; }
+function checkoutWhatsApp(){ if(cart.length===0){alert("O carrinho está vazio!"); return;} let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n"; cart.forEach(p=>{msg+="- "+p.product+" ("+p.price.toFixed(2)+"€)\n"}); let total=cart.reduce((s,p)=>s+p.price,0); msg+="Total: "+total.toFixed(2)+"€"; window.open("https://wa.me/351000000000?text="+encodeURIComponent(msg),"_blank"); }
+function setLang(lang){ alert("Idioma selecionado: "+lang); }
+
+// Mostrar 3 produtos inicialmente
 ['domotica-products','auto-products','bricolage-products'].forEach(id=>{
   let products=document.getElementById(id).getElementsByClassName('product');
   for(let i=0;i<products.length && i<3;i++){ products[i].style.display='block'; }
