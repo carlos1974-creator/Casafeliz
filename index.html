@@ -10,8 +10,8 @@ header { background:#008080; color:white; padding:20px; text-align:center; posit
 header img { width:220px; height:auto; display:block; margin:0 auto; }
 header p { margin-top:10px; font-size:1.1em; }
 .language-switch { position:absolute; top:20px; right:20px; }
-.language-switch img { width:30px; cursor:pointer; margin-left:5px; border:2px solid white; border-radius:3px; }
-nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; flex-wrap: wrap; }
+.language-switch img { width:30px; cursor:pointer; margin-left:5px; border-radius:3px; border:2px solid white; }
+nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; flex-wrap:wrap; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
 .cart { position:relative; margin-left:auto; cursor:pointer; }
@@ -137,7 +137,7 @@ function checkoutWhatsApp() {
   window.open("https://wa.me/351000000000?text="+encodeURIComponent(msg),"_blank");
 }
 
-// Contador simples
+// Contador de visitas simples
 let visits = localStorage.getItem('visits')||0;
 visits++; localStorage.setItem('visits',visits);
 document.getElementById('contador').textContent = "Contador de visitas: " + visits;
