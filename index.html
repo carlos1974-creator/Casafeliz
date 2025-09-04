@@ -135,17 +135,31 @@
 
   <footer>
     <p>Casa Feliz © 2025 — Criado por Carlos Oliveira</p>
-    <p>Contador de visitas: <span id="visitCount">0</span></p>
+    <p>Contador de visitas:</p>
+    <!-- Contador simples -->
+    <a href="https://www.hitwebcounter.com" target="_blank">
+      <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0" 
+           title="contador de visitas" alt="contador gratuito" border="0" />
+    </a>
   </footer>
 
   <script>
-    // Carrinho
     let cart = [];
-    function addToCart(product, price) { cart.push({ product, price }); updateCart(); }
-    function removeFromCart(index) { cart.splice(index,1); updateCart(); }
+
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      updateCart();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index,1);
+      updateCart();
+    }
+
     function updateCart() {
       document.getElementById("cart-count").textContent = cart.length;
-      let itemsHTML = "", total = 0;
+      let itemsHTML = "";
+      let total = 0;
       cart.forEach((item,index)=>{
         itemsHTML += `<li>${item.product} - ${item.price.toFixed(2)}€ 
           <button onclick="removeFromCart(${index})" style="background:red;color:white;border:none;border-radius:3px;padding:2px 6px;cursor:pointer;margin-left:8px;">❌</button></li>`;
@@ -154,10 +168,12 @@
       document.getElementById("cart-items").innerHTML = itemsHTML;
       document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
     }
-    function toggleCart() { 
-      const dropdown = document.getElementById("cart-dropdown"); 
-      dropdown.style.display = dropdown.style.display==="block"?"none":"block"; 
+
+    function toggleCart() {
+      const dropdown = document.getElementById("cart-dropdown");
+      dropdown.style.display = dropdown.style.display==="block"?"none":"block";
     }
+
     function checkoutWhatsApp() {
       if(cart.length===0){ alert("O carrinho está vazio!"); return; }
       let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
@@ -166,12 +182,6 @@
       msg+="Total: "+total.toFixed(2)+"€";
       window.open("https://wa.me/351912345678?text="+encodeURIComponent(msg),"_blank");
     }
-
-    // Contador de visitas limpo
-    let count = localStorage.getItem("visitCount") || 0;
-    count++;
-    localStorage.setItem("visitCount", count);
-    document.getElementById("visitCount").textContent = count;
   </script>
 
 </body>
