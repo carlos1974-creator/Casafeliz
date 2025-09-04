@@ -11,11 +11,13 @@
     body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
     header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
     header img { width:220px; height:auto; display:block; margin:0 auto; }
-    nav { background:#e0e0e0; display:flex; justify-content:center; align-items:center; padding:10px; position:sticky; top:0; z-index:1000; flex-wrap:wrap; }
+    nav { background:#e0e0e0; display:flex; justify-content:center; align-items:center; padding:10px; position:sticky; top:0; z-index:1000; }
     nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
     nav a:hover { color:#e65100; }
-    .lang-selector { margin-left:10px; display:flex; gap:5px; }
-    .lang-selector img { width:30px; height:20px; cursor:pointer; border:1px solid #ccc; }
+
+    /* Bandeiras */
+    .lang-selector { margin-left:20px; }
+    .lang-selector span { font-size:24px; cursor:pointer; margin:0 5px; }
 
     /* Carrinho */
     .cart { position:relative; margin-left:auto; cursor:pointer; }
@@ -43,6 +45,7 @@
     #contactos li { margin:8px 0; font-size:1.05em; }
     #contactos a { color:#008080; text-decoration:none; font-weight:bold; }
     #contactos a:hover { color:#e65100; }
+    #contador { font-weight:bold; color:#00ff00; margin-top:5px; display:block; }
   </style>
 
   <!-- AdSense -->
@@ -54,8 +57,8 @@
     <img src="images/logo.png" alt="Casa Feliz Logo" />
     <h1>Casa Feliz – Ebooks e Cursos Online</h1>
     <div class="lang-selector">
-      <img src="images/pt.png" alt="Português" onclick="setLanguage('pt')" title="Português" />
-      <img src="images/en.png" alt="English" onclick="setLanguage('en')" title="English" />
+      <span onclick="setLanguage('pt')">🇵🇹</span>
+      <span onclick="setLanguage('en')">🇬🇧</span>
     </div>
   </header>
 
@@ -96,14 +99,6 @@
           <p>Aprenda a automatizar sua casa com sistemas modernos.</p>
           <div class="price">12,90€</div>
           <button onclick="addToCart('Ebook Domótica Inteligente Online', 12.90)" class="btn-add">Adicionar ao Carrinho</button>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-            <input type="hidden" name="item_name" value="Ebook Domótica Inteligente Online">
-            <input type="hidden" name="amount" value="12.90">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
         </div>
       </div>
     </section>
@@ -118,14 +113,6 @@
           <p>Dicas e técnicas para cuidar do seu carro.</p>
           <div class="price">15,00€</div>
           <button onclick="addToCart('Ebook Manutenção Automóvel Online', 15.00)" class="btn-add">Adicionar ao Carrinho</button>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-            <input type="hidden" name="item_name" value="Ebook Manutenção Automóvel Online">
-            <input type="hidden" name="amount" value="15.00">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
         </div>
       </div>
     </section>
@@ -140,14 +127,6 @@
           <p>Projetos simples e práticos para casa.</p>
           <div class="price">9,90€</div>
           <button onclick="addToCart('Ebook Bricolage Fácil Online', 9.90)" class="btn-add">Adicionar ao Carrinho</button>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-            <input type="hidden" name="item_name" value="Ebook Bricolage Fácil Online">
-            <input type="hidden" name="amount" value="9.90">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
         </div>
       </div>
     </section>
@@ -164,30 +143,23 @@
     </section>
   </main>
 
-  <footer style="background:#008080; color:white; text-align:center; padding:15px; margin-top:40px;">
+  <footer>
     Casa Feliz &copy; 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
-    <div style="margin-top:8px; font-weight:bold; color:#00ff00;">
-      <!-- Contador de visitas HitWebCounter verde -->
-      <a href="https://www.hitwebcounter.com" target="_blank">
-        <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0" title="Contador de visitas" Alt="Contador de visitas" border="0" />
-      </a>
-    </div>
+    <div id="contador">Contador de visitas: 0</div>
   </footer>
 
-  <!-- JS Carrinho -->
+  <!-- JS Carrinho e Contador -->
   <script>
+    // Carrinho
     let cart = [];
-
     function addToCart(product, price) {
       cart.push({ product, price });
       updateCart();
     }
-
     function removeFromCart(index) {
       cart.splice(index,1);
       updateCart();
     }
-
     function updateCart() {
       document.getElementById("cart-count").textContent = cart.length;
       let itemsHTML = "";
@@ -200,12 +172,10 @@
       document.getElementById("cart-items").innerHTML = itemsHTML;
       document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
     }
-
     function toggleCart() {
       const dropdown = document.getElementById("cart-dropdown");
       dropdown.style.display = dropdown.style.display==="block"?"none":"block";
     }
-
     function checkoutWhatsApp() {
       if(cart.length===0){ alert("O carrinho está vazio!"); return; }
       let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
@@ -215,6 +185,13 @@
       window.open("https://wa.me/351000000000?text="+encodeURIComponent(msg),"_blank");
     }
 
+    // Contador de visitas
+    let visitas = localStorage.getItem("visitas") || 0;
+    visitas = parseInt(visitas) + 1;
+    localStorage.setItem("visitas", visitas);
+    document.getElementById("contador").textContent = "Contador de visitas: " + visitas;
+
+    // Bandeiras
     function setLanguage(lang){
       alert("Idioma selecionado: " + lang);
       // Futuro: implementar troca de idioma real
