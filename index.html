@@ -7,7 +7,7 @@
   <style>
     body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
     header { background:#008080; color:white; padding:20px; text-align:center; }
-    nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; }
+    nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; flex-wrap: wrap; }
     nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
     nav a:hover { color:#e65100; }
     main { max-width:1000px; margin:30px auto; padding:0 15px; }
@@ -57,41 +57,90 @@
 
   <main>
 
-    <!-- Domótica -->
+    <!-- DOMÓTICA -->
     <section id="domotica">
       <h2>📗 Ebooks de Domótica</h2>
       <div class="products">
         <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Ebook Domótica">
-          <h3>Ebook Domótica Inteligente</h3>
-          <p>Aprenda a automatizar sua casa com sistemas modernos.</p>
+          <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Casa Inteligente do Zero">
+          <h3>Casa Inteligente do Zero</h3>
+          <p>Aprenda a automatizar sua casa de forma simples e econômica.</p>
           <div class="price">12,90€</div>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Ebook Domótica Inteligente">
+            <input type="hidden" name="item_name" value="Casa Inteligente do Zero">
             <input type="hidden" name="amount" value="12.90">
             <input type="hidden" name="currency_code" value="EUR">
             <input type="submit" value="Comprar com PayPal" class="btn-paypal">
           </form>
         </div>
-      </div>
-    </section>
-
-    <!-- Automóvel -->
-    <section id="auto">
-      <h2>🚗 Ebooks de Manutenção Automóvel</h2>
-      <div class="products">
         <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Auto+1" alt="Ebook Automóvel">
-          <h3>Ebook Manutenção Automóvel</h3>
-          <p>Dicas e técnicas para cuidar do seu carro.</p>
-          <div class="price">15,00€</div>
+          <img src="https://via.placeholder.com/250x150?text=Domotica+2" alt="Segurança Residencial com IoT">
+          <h3>Segurança Residencial com IoT</h3>
+          <p>Instale câmeras, sensores e alarmes inteligentes facilmente.</p>
+          <div class="price">14,90€</div>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Ebook Manutenção Automóvel">
-            <input type="hidden" name="amount" value="15.00">
+            <input type="hidden" name="item_name" value="Segurança Residencial com IoT">
+            <input type="hidden" name="amount" value="14.90">
+            <input type="hidden" name="currency_code" value="EUR">
+            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+          </form>
+        </div>
+        <div class="product">
+          <img src="https://via.placeholder.com/250x150?text=Domotica+3" alt="Controle de Energia e Economia">
+          <h3>Controle de Energia e Economia</h3>
+          <p>Otimize o consumo de energia com sistemas inteligentes.</p>
+          <div class="price">12,50€</div>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
+            <input type="hidden" name="item_name" value="Controle de Energia e Economia">
+            <input type="hidden" name="amount" value="12.50">
+            <input type="hidden" name="currency_code" value="EUR">
+            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+          </form>
+        </div>
+        <div class="product">
+          <img src="https://via.placeholder.com/250x150?text=Domotica+4" alt="Automação DIY: Luzes e Cortinas">
+          <h3>Automação DIY: Luzes e Cortinas</h3>
+          <p>Projetos fáceis para iniciantes em automação residencial.</p>
+          <div class="price">11,90€</div>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
+            <input type="hidden" name="item_name" value="Automação DIY: Luzes e Cortinas">
+            <input type="hidden" name="amount" value="11.90">
+            <input type="hidden" name="currency_code" value="EUR">
+            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+          </form>
+        </div>
+        <div class="product">
+          <img src="https://via.placeholder.com/250x150?text=Domotica+5" alt="Monitoramento Remoto de Casa">
+          <h3>Monitoramento Remoto de Casa</h3>
+          <p>Como controlar sua casa de qualquer lugar pelo celular.</p>
+          <div class="price">13,50€</div>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
+            <input type="hidden" name="item_name" value="Monitoramento Remoto de Casa">
+            <input type="hidden" name="amount" value="13.50">
+            <input type="hidden" name="currency_code" value="EUR">
+            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+          </form>
+        </div>
+        <div class="product">
+          <img src="https://via.placeholder.com/250x150?text=Domotica+6" alt="Assistentes Virtuais e Casa Inteligente">
+          <h3>Assistentes Virtuais e Casa Inteligente</h3>
+          <p>Integre Alexa, Google Home e outros assistentes à sua casa.</p>
+          <div class="price">13,90€</div>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
+            <input type="hidden" name="item_name" value="Assistentes Virtuais e Casa Inteligente">
+            <input type="hidden" name="amount" value="13.90">
             <input type="hidden" name="currency_code" value="EUR">
             <input type="submit" value="Comprar com PayPal" class="btn-paypal">
           </form>
@@ -99,80 +148,3 @@
       </div>
     </section>
 
-    <!-- Bricolage -->
-    <section id="bricolage">
-      <h2>🔨 Ebooks de Bricolage</h2>
-      <div class="products">
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Bricolage+1" alt="Ebook Bricolage">
-          <h3>Ebook Bricolage Fácil</h3>
-          <p>Projetos simples e práticos para casa.</p>
-          <div class="price">9,90€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Ebook Bricolage Fácil">
-            <input type="hidden" name="amount" value="9.90">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sugestões via WhatsApp -->
-    <section id="sugestoes">
-      <h2>💬 Envie-nos a sua sugestão</h2>
-      <p>Tem uma ideia, pedido ou solicitação? Clique no botão abaixo e fale connosco diretamente no WhatsApp.</p>
-      <a class="whatsapp-btn" 
-         href="https://wa.me/351912345678?text=Olá!%20Tenho%20uma%20sugestão%20para%20o%20Casa%20Feliz:" 
-         target="_blank">
-        Enviar sugestão via WhatsApp
-      </a>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>Casa Feliz © 2025 — Criado por Carlos Oliveira</p>
-    <p>Contador de visitas: <span id="visitCount">0</span></p>
-  </footer>
-
-  <script>
-    // Carrinho
-    let cart = [];
-    function addToCart(product, price) { cart.push({ product, price }); updateCart(); }
-    function removeFromCart(index) { cart.splice(index,1); updateCart(); }
-    function updateCart() {
-      document.getElementById("cart-count").textContent = cart.length;
-      let itemsHTML = "", total = 0;
-      cart.forEach((item,index)=>{
-        itemsHTML += `<li>${item.product} - ${item.price.toFixed(2)}€ 
-          <button onclick="removeFromCart(${index})" style="background:red;color:white;border:none;border-radius:3px;padding:2px 6px;cursor:pointer;margin-left:8px;">❌</button></li>`;
-        total += item.price;
-      });
-      document.getElementById("cart-items").innerHTML = itemsHTML;
-      document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
-    }
-    function toggleCart() { 
-      const dropdown = document.getElementById("cart-dropdown"); 
-      dropdown.style.display = dropdown.style.display==="block"?"none":"block"; 
-    }
-    function checkoutWhatsApp() {
-      if(cart.length===0){ alert("O carrinho está vazio!"); return; }
-      let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
-      cart.forEach(item=>{ msg+="- "+item.product+" ("+item.price.toFixed(2)+"€)\n"; });
-      const total=cart.reduce((sum,item)=>sum+item.price,0);
-      msg+="Total: "+total.toFixed(2)+"€";
-      window.open("https://wa.me/351912345678?text="+encodeURIComponent(msg),"_blank");
-    }
-
-    // Contador de visitas limpo
-    let count = localStorage.getItem("visitCount") || 0;
-    count++;
-    localStorage.setItem("visitCount", count);
-    document.getElementById("visitCount").textContent = count;
-  </script>
-
-</body>
-</html>
