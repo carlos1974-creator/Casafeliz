@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Casa Feliz – Ebooks e Cursos Online</title>
   <meta name="description" content="Casa Feliz – Ebooks e cursos online sobre Domótica, Manutenção Automóvel e Bricolage em Casa. Transforme sua vida com conhecimento." />
+
+  <!-- CSS -->
   <style>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875462679161698"
-     crossorigin="anonymous"></script>
-</head>
     body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
     header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
     header img { width:220px; height:auto; }
@@ -43,6 +42,9 @@
     #contactos a { color:#008080; text-decoration:none; font-weight:bold; }
     #contactos a:hover { color:#e65100; }
   </style>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875462679161698" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -69,14 +71,14 @@
 
   <!-- Exemplo de AdSense -->
   <div style="max-width:1000px; margin:20px auto; text-align:center;">
-    <!-- Substitui pelo teu código AdSense real -->
+    <!-- Substituir IDs reais -->
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-XXXXXX"
          data-ad-slot="YYYYYY"
          data-ad-format="auto"></ins>
     <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
 
@@ -90,7 +92,8 @@
           <h3>Ebook Domótica Inteligente Online</h3>
           <p>Aprenda a automatizar sua casa com sistemas modernos.</p>
           <div class="price">12,90€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <button onclick="addToCart('Ebook Domótica Inteligente Online', 12.90)" class="btn-add">Adicionar ao Carrinho</button>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="CARLOSOLIVEIRA955@paypal.com">
             <input type="hidden" name="item_name" value="Ebook Domótica Inteligente Online">
@@ -111,7 +114,8 @@
           <h3>Ebook Manutenção Automóvel Online</h3>
           <p>Dicas e técnicas para cuidar do seu carro.</p>
           <div class="price">15,00€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <button onclick="addToCart('Ebook Manutenção Automóvel Online', 15.00)" class="btn-add">Adicionar ao Carrinho</button>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="CARLOSOLIVEIRA955@paypal.com">
             <input type="hidden" name="item_name" value="Ebook Manutenção Automóvel Online">
@@ -132,7 +136,8 @@
           <h3>Ebook Bricolage Fácil Online</h3>
           <p>Projetos simples e práticos para casa.</p>
           <div class="price">9,90€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <button onclick="addToCart('Ebook Bricolage Fácil Online', 9.90)" class="btn-add">Adicionar ao Carrinho</button>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="CARLOSOLIVEIRA955@paypal.com">
             <input type="hidden" name="item_name" value="Ebook Bricolage Fácil Online">
@@ -161,6 +166,7 @@
     Casa Feliz &copy; 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
   </footer>
 
+  <!-- JS Carrinho -->
   <script>
     let cart = [];
 
