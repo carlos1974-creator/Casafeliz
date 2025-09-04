@@ -9,7 +9,7 @@ body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; 
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
 header img { width:220px; height:auto; display:block; margin:0 auto 10px; }
 .language-switch { position:absolute; top:20px; right:20px; }
-.language-switch img { width:30px; cursor:pointer; margin-left:5px; }
+.language-switch img { width:30px; cursor:pointer; margin-left:5px; border:2px solid white; border-radius:3px; }
 nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; flex-wrap: wrap; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
@@ -34,6 +34,8 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 .whatsapp-btn { display:inline-block; background:#25D366; color:white; padding:12px 25px; margin-top:15px; border-radius:8px; text-decoration:none; font-size:16px; font-weight:bold; }
 footer { background:#222; color:white; text-align:center; padding:20px; margin-top:40px; }
 #contador { color:#00ff00; font-weight:bold; display:block; margin-top:10px; }
+footer a { color:#00ffff; text-decoration:none; }
+footer a:hover { color:#e65100; }
 </style>
 </head>
 <body>
@@ -104,7 +106,7 @@ footer { background:#222; color:white; text-align:center; padding:20px; margin-t
 </section>
 
 <footer>
-<p>Contactos: Carlos Oliveira | WhatsApp: +351 000 000 000 | Facebook: Casa Feliz | Instagram: @casafeliz_2025 | Email: casafeliz_2025@hotmail.com</p>
+<p>Contactos: Carlos Oliveira | WhatsApp: <a href="https://wa.me/351000000000" target="_blank">+351 000 000 000</a> | <a href="https://www.facebook.com/share/19f9GhAERQ/" target="_blank">Facebook</a> | <a href="https://www.instagram.com/casafeliz_2025" target="_blank">Instagram</a> | Email: <a href="mailto:casafeliz_2025@hotmail.com">casafeliz_2025@hotmail.com</a></p>
 <span id="contador">Contador de visitas: 0</span>
 <p>Casa Feliz &copy; 2025</p>
 </footer>
@@ -116,6 +118,7 @@ function showMore(id){
   for(let i=0;i<products.length;i++){ products[i].style.display='block'; }
 }
 
+// Contador
 let contador = localStorage.getItem('visitas') || 0;
 contador++;
 localStorage.setItem('visitas', contador);
