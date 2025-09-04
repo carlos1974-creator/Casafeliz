@@ -10,8 +10,10 @@
 
 <style>
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
-header { background:#008080; color:white; padding:20px; text-align:center; }
+header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
 header img { width:220px; height:auto; display:block; margin:0 auto 10px; }
+.language-switch { position:absolute; top:20px; right:20px; }
+.language-switch img { width:30px; cursor:pointer; margin-left:5px; }
 nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; flex-wrap: wrap; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
@@ -45,7 +47,11 @@ footer { background:#222; color:white; text-align:center; padding:20px; margin-t
 
 <header>
   <img src="images/logo.png" alt="Casa Feliz Logo">
-  <h1>Casa Feliz – Ebooks e Cursos Online</h1>
+  <div class="language-switch">
+    <img src="images/pt.png" alt="PT" onclick="setLang('pt')">
+    <img src="images/en.png" alt="EN" onclick="setLang('en')">
+  </div>
+  <h1 id="site-title">Casa Feliz – Ebooks e Cursos Online</h1>
 </header>
 
 <nav>
@@ -129,6 +135,16 @@ footer { background:#222; color:white; text-align:center; padding:20px; margin-t
 <a href="https://wa.me/351000000000?text=Olá!%20Tenho%20uma%20sugestão" class="whatsapp-btn" target="_blank">Enviar via WhatsApp</a>
 </section>
 
+<!-- AdSense rodapé -->
+<div class="adsense-slot">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3875462679161698"
+     data-ad-slot="ZZZZZZZ"
+     data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
 </main>
 
 <footer>
@@ -175,6 +191,34 @@ document.querySelectorAll('.products').forEach(div=>{
   let products = div.children;
   for(let i=0;i<products.length;i++){ if(i<3){ products[i].style.display="block"; } }
 });
+
+// Idiomas PT/EN
+const texts = {
+  pt: {
+    siteTitle: "Casa Feliz – Ebooks e Cursos Online",
+    domotica: "📗 Ebooks de Domótica",
+    auto: "🚗 Ebooks de Manutenção Automóvel",
+    bricolage: "🔨 Ebooks de Bricolage",
+    sugestoes: "💡 Sugestões e Solicitações",
+    sugestoesText: "Envie suas ideias de ebooks, dúvidas ou pedidos de cursos."
+  },
+  en: {
+    siteTitle: "Happy Home – Ebooks and Online Courses",
+    domotica: "📗 Home Automation Ebooks",
+    auto: "🚗 Car Maintenance Ebooks",
+    bricolage: "🔨 DIY Home Ebooks",
+    sugestoes: "💡 Suggestions and Requests",
+    sugestoesText: "Send us your ebook ideas, questions, or course requests."
+  }
+};
+function setLang(lang) {
+  document.getElementById("site-title").textContent = texts[lang].siteTitle;
+  document.querySelector("#domotica h2").textContent = texts[lang].domotica;
+  document.querySelector("#auto h2").textContent = texts[lang].auto;
+  document.querySelector("#bricolage h2").textContent = texts[lang].bricolage;
+  document.querySelector("#sugestoes h2").textContent = texts[lang].sugestoes;
+  document.querySelector("#sugestoes p").textContent = texts[lang].sugestoesText;
+}
 </script>
 
 </body>
