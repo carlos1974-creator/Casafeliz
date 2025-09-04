@@ -1,150 +1,160 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casa Feliz – Ebooks e Cursos Online</title>
-  <style>
-    body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
-    header { background:#008080; color:white; padding:20px; text-align:center; }
-    nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; flex-wrap: wrap; }
-    nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
-    nav a:hover { color:#e65100; }
-    main { max-width:1000px; margin:30px auto; padding:0 15px; }
-    section { margin:50px 0; }
-    section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
-    .products { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
-    .product { background:white; border-radius:6px; box-shadow:0 0 6px rgba(0,0,0,0.1); padding:15px; max-width:280px; text-align:center; }
-    .product img { max-width:100%; border-radius:6px; }
-    .price { font-weight:bold; margin:10px 0; color:#e65100; }
-    .btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; }
-    .btn-add:hover, .btn-paypal:hover { background:#006666; }
-    #sugestoes { text-align:center; padding:30px; background:#f9f9f9; border-radius:10px; margin:40px auto; max-width:600px; }
-    .whatsapp-btn { display:inline-block; background:#25D366; color:white; padding:12px 25px; margin-top:15px; border-radius:8px; text-decoration:none; font-size:16px; font-weight:bold; }
-    footer { background:#222; color:white; text-align:center; padding:20px; margin-top:40px; }
-    .cart { position:relative; margin-left:auto; cursor:pointer; }
-    .cart-icon { font-size:22px; }
-    .cart-count { background:red; color:white; border-radius:50%; padding:2px 6px; font-size:12px; position:absolute; top:-8px; right:-10px; }
-    .cart-dropdown { display:none; position:absolute; right:0; top:30px; background:white; border:1px solid #ccc; box-shadow:0 2px 6px rgba(0,0,0,0.2); width:270px; padding:10px; z-index:2000; }
-    .cart-dropdown ul { list-style:none; padding:0; margin:0; }
-    .cart-dropdown li { font-size:14px; margin:5px 0; }
-    .cart-dropdown .total { font-weight:bold; margin-top:10px; }
-    .cart-dropdown .btn-whatsapp { display:block; text-align:center; margin-top:10px; padding:8px; background:#25d366; color:white; border-radius:5px; text-decoration:none; }
-    .cart-dropdown .btn-whatsapp:hover { background:#128c4a; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Feliz – Ebooks e Cursos Online</title>
+<style>
+body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
+header { background:#008080; color:white; padding:20px; text-align:center; }
+nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; flex-wrap: wrap; }
+nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
+nav a:hover { color:#e65100; }
+main { max-width:1000px; margin:30px auto; padding:0 15px; }
+section { margin:50px 0; }
+section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
+.products { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+.product { background:white; border-radius:6px; box-shadow:0 0 6px rgba(0,0,0,0.1); padding:15px; max-width:280px; text-align:center; display:none; }
+.product img { max-width:100%; border-radius:6px; }
+.price { font-weight:bold; margin:10px 0; color:#e65100; }
+.btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; }
+.btn-add:hover, .btn-paypal:hover { background:#006666; }
+#sugestoes { text-align:center; padding:30px; background:#f9f9f9; border-radius:10px; margin:40px auto; max-width:600px; }
+.whatsapp-btn { display:inline-block; background:#25D366; color:white; padding:12px 25px; margin-top:15px; border-radius:8px; text-decoration:none; font-size:16px; font-weight:bold; }
+footer { background:#222; color:white; text-align:center; padding:20px; margin-top:40px; }
+.cart { position:relative; margin-left:auto; cursor:pointer; }
+.cart-icon { font-size:22px; }
+.cart-count { background:red; color:white; border-radius:50%; padding:2px 6px; font-size:12px; position:absolute; top:-8px; right:-10px; }
+.cart-dropdown { display:none; position:absolute; right:0; top:30px; background:white; border:1px solid #ccc; box-shadow:0 2px 6px rgba(0,0,0,0.2); width:270px; padding:10px; z-index:2000; }
+.cart-dropdown ul { list-style:none; padding:0; margin:0; }
+.cart-dropdown li { font-size:14px; margin:5px 0; }
+.cart-dropdown .total { font-weight:bold; margin-top:10px; }
+.cart-dropdown .btn-whatsapp { display:block; text-align:center; margin-top:10px; padding:8px; background:#25d366; color:white; border-radius:5px; text-decoration:none; }
+.cart-dropdown .btn-whatsapp:hover { background:#128c4a; }
+.show-more-btn { display:block; margin:20px auto; padding:10px 20px; background:#e65100; color:white; font-weight:bold; border:none; border-radius:5px; cursor:pointer; }
+.show-more-btn:hover { background:#b84300; }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Casa Feliz – Ebooks e Cursos Online</h1>
-  </header>
+<header>
+<h1>Casa Feliz – Ebooks e Cursos Online</h1>
+</header>
 
-  <nav>
-    <a href="#domotica">Domótica</a>
-    <a href="#auto">Manutenção Automóvel</a>
-    <a href="#bricolage">Bricolage</a>
-    <a href="#sugestoes">Sugestões</a>
-    <div class="cart" onclick="toggleCart()">
-      <span class="cart-icon">🛒</span>
-      <span class="cart-count" id="cart-count">0</span>
-      <div class="cart-dropdown" id="cart-dropdown">
-        <ul id="cart-items"></ul>
-        <div class="total" id="cart-total">Total: 0€</div>
-        <a href="#" class="btn-whatsapp" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</a>
-      </div>
-    </div>
-  </nav>
+<nav>
+<a href="#domotica">Domótica</a>
+<a href="#auto">Manutenção Automóvel</a>
+<a href="#bricolage">Bricolage</a>
+<a href="#sugestoes">Sugestões</a>
+<div class="cart" onclick="toggleCart()">
+  <span class="cart-icon">🛒</span>
+  <span class="cart-count" id="cart-count">0</span>
+  <div class="cart-dropdown" id="cart-dropdown">
+    <ul id="cart-items"></ul>
+    <div class="total" id="cart-total">Total: 0€</div>
+    <a href="#" class="btn-whatsapp" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</a>
+  </div>
+</div>
+</nav>
 
-  <main>
+<main>
 
-    <!-- DOMÓTICA -->
-    <section id="domotica">
-      <h2>📗 Ebooks de Domótica</h2>
-      <div class="products">
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Casa Inteligente do Zero">
-          <h3>Casa Inteligente do Zero</h3>
-          <p>Aprenda a automatizar sua casa de forma simples e econômica.</p>
-          <div class="price">12,90€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Casa Inteligente do Zero">
-            <input type="hidden" name="amount" value="12.90">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Domotica+2" alt="Segurança Residencial com IoT">
-          <h3>Segurança Residencial com IoT</h3>
-          <p>Instale câmeras, sensores e alarmes inteligentes facilmente.</p>
-          <div class="price">14,90€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Segurança Residencial com IoT">
-            <input type="hidden" name="amount" value="14.90">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Domotica+3" alt="Controle de Energia e Economia">
-          <h3>Controle de Energia e Economia</h3>
-          <p>Otimize o consumo de energia com sistemas inteligentes.</p>
-          <div class="price">12,50€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Controle de Energia e Economia">
-            <input type="hidden" name="amount" value="12.50">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Domotica+4" alt="Automação DIY: Luzes e Cortinas">
-          <h3>Automação DIY: Luzes e Cortinas</h3>
-          <p>Projetos fáceis para iniciantes em automação residencial.</p>
-          <div class="price">11,90€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Automação DIY: Luzes e Cortinas">
-            <input type="hidden" name="amount" value="11.90">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Domotica+5" alt="Monitoramento Remoto de Casa">
-          <h3>Monitoramento Remoto de Casa</h3>
-          <p>Como controlar sua casa de qualquer lugar pelo celular.</p>
-          <div class="price">13,50€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Monitoramento Remoto de Casa">
-            <input type="hidden" name="amount" value="13.50">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-        <div class="product">
-          <img src="https://via.placeholder.com/250x150?text=Domotica+6" alt="Assistentes Virtuais e Casa Inteligente">
-          <h3>Assistentes Virtuais e Casa Inteligente</h3>
-          <p>Integre Alexa, Google Home e outros assistentes à sua casa.</p>
-          <div class="price">13,90€</div>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="SEU_EMAIL_AQUI">
-            <input type="hidden" name="item_name" value="Assistentes Virtuais e Casa Inteligente">
-            <input type="hidden" name="amount" value="13.90">
-            <input type="hidden" name="currency_code" value="EUR">
-            <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-          </form>
-        </div>
-      </div>
-    </section>
+<!-- DOMÓTICA -->
+<section id="domotica">
+<h2>📗 Ebooks de Domótica</h2>
+<div class="products" id="domotica-products">
+  <!-- Produtos -->
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Domotica+1"><h3>Casa Inteligente do Zero</h3><p>Aprenda a automatizar sua casa de forma simples e econômica.</p><div class="price">12,90€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Domotica+2"><h3>Segurança Residencial com IoT</h3><p>Instale câmeras, sensores e alarmes inteligentes facilmente.</p><div class="price">14,90€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Domotica+3"><h3>Controle de Energia e Economia</h3><p>Otimize o consumo de energia com sistemas inteligentes.</p><div class="price">12,50€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Domotica+4"><h3>Automação DIY: Luzes e Cortinas</h3><p>Projetos fáceis para iniciantes em automação residencial.</p><div class="price">11,90€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Domotica+5"><h3>Monitoramento Remoto de Casa</h3><p>Como controlar sua casa de qualquer lugar pelo celular.</p><div class="price">13,50€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Domotica+6"><h3>Assistentes Virtuais e Casa Inteligente</h3><p>Integre Alexa, Google Home e outros assistentes à sua casa.</p><div class="price">13,90€</div></div>
+</div>
+<button class="show-more-btn" onclick="showMore('domotica-products')">Ver mais</button>
+</section>
 
+<!-- AUTO -->
+<section id="auto">
+<h2>🚗 Ebooks de Manutenção Automóvel</h2>
+<div class="products" id="auto-products">
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Auto+1"><h3>Cuidados Essenciais com o Carro</h3><p>Manutenção preventiva para prolongar a vida do veículo.</p><div class="price">15,00€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Auto+2"><h3>Trocas e Revisões Passo a Passo</h3><p>Óleo, filtros, pastilhas de travão e mais.</p><div class="price">16,50€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Auto+3"><h3>Guia do Tuning Seguro</h3><p>Melhore desempenho sem comprometer a fiabilidade.</p><div class="price">17,00€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Auto+4"><h3>Diagnóstico de Problemas Comuns</h3><p>Aprenda a identificar falhas e resolvê-las em casa.</p><div class="price">14,50€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Auto+5"><h3>Limpeza e Conservação do Carro</h3><p>Técnicas para manter o carro sempre novo.</p><div class="price">13,50€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Auto+6"><h3>Preparação para Viagens Longas</h3><p>Checklist e manutenção antes de viajar de carro.</p><div class="price">12,90€</div></div>
+</div>
+<button class="show-more-btn" onclick="showMore('auto-products')">Ver mais</button>
+</section>
+
+<!-- BRICOLAGE -->
+<section id="bricolage">
+<h2>🔨 Ebooks de Bricolage</h2>
+<div class="products" id="bricolage-products">
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Bricolage+1"><h3>Projetos Rápidos para Casa</h3><p>Estantes, suportes e pequenas reparações.</p><div class="price">9,90€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Bricolage+2"><h3>Decoração DIY</h3><p>Transforme espaços com baixo custo e criatividade.</p><div class="price">10,50€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Bricolage+3"><h3>Reparações Domésticas</h3><p>Conserto de torneiras, portas, janelas e pisos.</p><div class="price">11,00€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Bricolage+4"><h3>Oficina em Casa</h3><p>Ferramentas essenciais e como utilizá-las com segurança.</p><div class="price">10,90€</div></div>
+  <div class="product"><img src="https://via.placeholder.com/250x150?text=Bricolage+5"><h3>Organização e Otimização de Espaços</h3><p>Ideias para aproveitar melhor cada canto da casa.</p><div class="price">12,00€</div></div>
+</div>
+<button class="show-more-btn" onclick="showMore('bricolage-products')">Ver mais</button>
+</section>
+
+<!-- SUGESTÕES -->
+<section id="sugestoes">
+<h2>💡 Sugestões e Solicitações</h2>
+<p>Envie suas ideias de ebooks, dúvidas ou pedidos de cursos.</p>
+<a href="https://wa.me/351000000000?text=Olá!%20Tenho%20uma%20sugestão" class="whatsapp-btn" target="_blank">Enviar via WhatsApp</a>
+</section>
+
+</main>
+
+<footer>
+📞 Contatos: WhatsApp: <a href="https://wa.me/351000000000" target="_blank" style="color:#25d366;">+351 000 000 000</a> — Email: casafeliz_2025@hotmail.com<br>
+💻 Contador de visitas: <span id="visitas">0</span><br>
+Casa Feliz &copy; 2025 — Criado por Carlos Oliveira
+</footer>
+
+<script>
+// Carrinho
+let cart = [];
+function addToCart(product, price){ cart.push({product, price}); updateCart(); }
+function removeFromCart(index){ cart.splice(index,1); updateCart(); }
+function updateCart(){
+  document.getElementById("cart-count").textContent = cart.length;
+  let itemsHTML = ""; let total = 0;
+  cart.forEach((item,index)=>{ itemsHTML += `<li>${item.product} - ${item.price.toFixed(2)}€ <button onclick="removeFromCart(${index})" style="background:red;color:white;border:none;border-radius:3px;padding:2px 6px;cursor:pointer;margin-left:8px;">❌</button></li>`; total += item.price; });
+  document.getElementById("cart-items").innerHTML = itemsHTML;
+  document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
+}
+function toggleCart(){ const dropdown = document.getElementById("cart-dropdown"); dropdown.style.display = dropdown.style.display==="block"?"none":"block"; }
+function checkoutWhatsApp(){
+  if(cart.length===0){ alert("O carrinho está vazio!"); return; }
+  let msg="Olá! Gostaria de finalizar a compra:\n";
+  cart.forEach(item=>{ msg+="- "+item.product+" ("+item.price.toFixed(2)+"€)\n"; });
+  const total=cart.reduce((sum,item)=>sum+item.price,0); msg+="Total: "+total.toFixed(2)+"€";
+  window.open("https://wa.me/351000000000?text="+encodeURIComponent(msg),"_blank");
+}
+
+// Mostrar somente 3 produtos por seção
+function showMore(sectionId){
+  const products = document.getElementById(sectionId).children;
+  for(let i=0;i<products.length;i++){ products[i].style.display="block"; }
+}
+
+// Contador de visitas simples
+let visitas = localStorage.getItem('visitas') || 0;
+visitas++;
+localStorage.setItem('visitas', visitas);
+document.getElementById('visitas').textContent = visitas;
+
+// Inicializa produtos visíveis (3 por seção)
+document.querySelectorAll('.products').forEach(div=>{
+  let products = div.children;
+  for(let i=0;i<products.length;i++){ if(i<3){ products[i].style.display="block"; } }
+});
+</script>
+
+</body>
+</html>
