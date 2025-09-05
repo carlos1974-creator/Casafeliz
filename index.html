@@ -5,11 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Casa Feliz – Ebooks e Cursos Online</title>
 <meta name="description" content="Casa Feliz – Ebooks e cursos online sobre Domótica, Manutenção Automóvel e Bricolage em Casa." />
+
 <style>
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
-header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
+header { background:#008080; color:white; padding:40px 20px; text-align:center; position:relative; }
 header img.logo { width:220px; height:auto; display:block; margin:0 auto 10px auto; }
-.lang-switch { position:absolute; top:20px; right:20px; font-size:28px; cursor:pointer; }
+.lang-switch { 
+  position:absolute; 
+  top:20px; 
+  right:20px; 
+  font-size:28px; 
+  cursor:pointer; 
+  z-index:1001; /* garante que fique acima do nav */
+}
 nav { background:#e0e0e0; display:flex; justify-content:center; align-items:center; padding:10px; position:sticky; top:0; z-index:1000; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
@@ -36,11 +44,12 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 #contactos li { margin:8px 0; font-size:1.05em; }
 #contactos a { color:#008080; text-decoration:none; font-weight:bold; }
 #contactos a:hover { color:#e65100; }
-#contador { color:#00ff00; font-weight:bold; margin-top:10px; text-align:center; }
-#modal-ebooks { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:3000; justify-content:center; align-items:center; }
-#modal-ebooks .modal-content { background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80%; overflow-y:auto; position:relative; }
-#modal-ebooks .fechar { position:absolute; top:10px; right:10px; background:red; color:white; border:none; border-radius:50%; width:30px; height:30px; cursor:pointer; }
+#contador { color:#00ff00; font-weight:bold; margin-top:10px; }
+#modal-ebooks { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:3000; }
+.modal-content { background:white; padding:20px; border-radius:6px; max-width:500px; width:90%; position:relative; }
+.modal-content .fechar { position:absolute; top:10px; right:10px; cursor:pointer; background:red; color:white; border:none; border-radius:3px; padding:4px 8px; }
 </style>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875462679161698" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -70,7 +79,6 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   </div>
 </nav>
 
-<!-- Placeholder AdSense -->
 <div style="max-width:1000px; margin:20px auto; text-align:center;">
   <ins class="adsbygoogle"
        style="display:block"
@@ -196,7 +204,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   </div>
 
   <!-- Sugestões / Solicitações -->
-  <div style="position:fixed; bottom:20px; right:20px; background:#008080; color:white; padding:12px 16px; border-radius:8px; cursor:pointer; z-index:4000;" onclick="window.open('https://wa.me/351000000000?text=Olá!%20Gostaria%20de%20enviar%20uma%20sugestão/solicitação','_blank')">
+  <div style="position:fixed; bottom:20px; right:20px; background:#008080; color:white; padding:12px 16px; border-radius:8px; cursor:pointer; z-index:4000;" onclick="window.open('https://wa.me/351000000000?text=Olá!%20Gostaria%20de%20enviar%20Sugestões%20/ Solicitações','_blank')">
     💬 Sugestões / Solicitações
   </div>
 
@@ -249,14 +257,6 @@ contador++;
 localStorage.setItem('visitas', contador);
 document.getElementById('contador').textContent = "Visitas: "+contador;
 
-// Modal Ebooks
-const btnVerTodos = document.getElementById("btn-ver-todos");
-const modalEbooks = document.getElementById("modal-ebooks");
-const fecharModal = modalEbooks.querySelector(".fechar");
-btnVerTodos.addEventListener("click", () => { modalEbooks.style.display = "flex"; });
-fecharModal.addEventListener("click", () => { modalEbooks.style.display = "none"; });
-modalEbooks.addEventListener("click", (e) => { if(e.target === modalEbooks) modalEbooks.style.display = "none"; });
-
 // Troca de idioma
 function setLanguage(lang) {
   if(lang==='pt') {
@@ -293,6 +293,12 @@ function setLanguage(lang) {
     document.getElementById('titulo-contactos').textContent = "📞 Contacts";
   }
 }
+
+// Modal Ver Todos os Ebooks
+const modal = document.getElementById('modal-ebooks');
+document.getElementById('btn-ver-todos').onclick = ()=>{ modal.style.display='flex'; }
+modal.querySelector('.fechar').onclick = ()=>{ modal.style.display='none'; }
+window.onclick = e=>{ if(e.target==modal){ modal.style.display='none'; } }
 </script>
 
 </body>
