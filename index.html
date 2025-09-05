@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Casa Feliz – Ebooks e Cursos Online</title>
 <meta name="description" content="Casa Feliz – Ebooks e cursos online sobre Domótica, Manutenção Automóvel e Bricolage em Casa." />
+
 <style>
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
@@ -29,25 +30,24 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 .product { background:white; border-radius:6px; box-shadow:0 0 6px rgba(0,0,0,0.1); padding:15px; max-width:280px; text-align:center; }
 .product img { max-width:100%; border-radius:6px; }
 .price { font-weight:bold; margin:10px 0; color:#e65100; }
-.btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; width:100%; }
+.btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; }
 .btn-add:hover, .btn-paypal:hover { background:#006666; }
 footer { background:#008080; color:white; text-align:center; padding:15px; margin-top:40px; }
 #contactos ul { list-style:none; padding:0; text-align:center; }
 #contactos li { margin:8px 0; font-size:1.05em; }
 #contactos a { color:#008080; text-decoration:none; font-weight:bold; }
 #contactos a:hover { color:#e65100; }
-#contador { color:#00ff00; font-weight:bold; margin-top:10px; display:block; text-align:center; }
-#suggestionsBtn { position:fixed; bottom:20px; right:20px; padding:12px 18px; background:#008080; color:white; border:none; border-radius:5px; cursor:pointer; z-index:6000; font-weight:bold; }
-#suggestionsModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:5000; justify-content:center; align-items:center; }
-#suggestionsModalContent { background:white; padding:20px; border-radius:8px; max-width:500px; width:90%; position:relative; display:flex; flex-direction:column; gap:10px; }
-#suggestionsModalContent textarea { width:100%; height:100px; padding:8px; }
-#suggestionsModalContent button { padding:8px 12px; background:#25d366; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold; }
-#suggestionsModalContent button:hover { background:#128c4a; }
-#suggestionsModalContent .close { position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px; font-weight:bold; }
-#allEbooksModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:5000; overflow:auto; justify-content:center; align-items:center; }
-#allEbooksModal > div { background:white; padding:20px; border-radius:8px; max-width:800px; width:90%; position:relative; display:flex; flex-direction:column; gap:10px; text-align:center; }
-#allEbooksModal div div { border:1px solid #ccc; padding:10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:5px; }
+#contador { color:#00ff00; font-weight:bold; margin-top:10px; }
+
+/* Modais */
+#suggestionsModal, #allEbooksModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:3000; justify-content:center; align-items:center; }
+#suggestionsModalContent, #allEbooksModal > div { background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:90%; overflow-y:auto; position:relative; }
+.close { position:absolute; top:10px; right:15px; font-size:22px; font-weight:bold; cursor:pointer; }
+#suggestionsModalContent textarea { width:100%; height:120px; margin-top:10px; border-radius:5px; border:1px solid #ccc; padding:8px; }
+#suggestionsModalContent button { margin-top:10px; background:#008080; color:white; padding:8px 12px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; }
+#suggestionsModalContent button:hover { background:#006666; }
 </style>
+
 </head>
 <body>
 
@@ -76,20 +76,32 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   </div>
 </nav>
 
+<!-- Espaço reservado para AdSense Topo -->
+<!-- 
+<div style="max-width:1000px; margin:20px auto; text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXX"
+       data-ad-slot="YYYYY"
+       data-ad-format="auto"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+-->
+
 <main>
-  <!-- Destaques Domótica -->
   <section id="domotica">
-    <h2>📗 Ebooks e Cursos Online de Domótica</h2>
+    <h2 id="titulo-domotica">📗 Ebooks e Cursos Online de Domótica</h2>
     <div class="products">
       <div class="product">
         <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Domótica Ebook" />
-        <h3>Automação Residencial Inteligente</h3>
+        <h3 id="produto-domotica">Ebook Domótica Inteligente Online</h3>
+        <p id="desc-domotica">Aprenda a automatizar sua casa com sistemas modernos.</p>
         <div class="price">12,90€</div>
-        <button onclick="addToCart('Automação Residencial Inteligente',12.90)" class="btn-add">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Ebook Domótica Inteligente Online',12.90)" class="btn-add">Adicionar ao Carrinho</button>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
           <input type="hidden" name="cmd" value="_xclick">
           <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-          <input type="hidden" name="item_name" value="Automação Residencial Inteligente">
+          <input type="hidden" name="item_name" value="Ebook Domótica Inteligente Online">
           <input type="hidden" name="amount" value="12.90">
           <input type="hidden" name="currency_code" value="EUR">
           <input type="submit" value="Comprar com PayPal" class="btn-paypal">
@@ -98,19 +110,22 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
-  <!-- Destaques Automóvel -->
+  <!-- Espaço reservado para AdSense entre Domótica e Automóvel -->
+  <!-- colocar aqui o bloco AdSense -->
+
   <section id="auto">
-    <h2>🚗 Ebooks e Cursos Online de Manutenção Automóvel</h2>
+    <h2 id="titulo-auto">🚗 Ebooks e Cursos Online de Manutenção Automóvel</h2>
     <div class="products">
       <div class="product">
         <img src="https://via.placeholder.com/250x150?text=Auto+1" alt="Manutenção Automóvel Ebook" />
-        <h3>Manutenção Automóvel Online</h3>
+        <h3 id="produto-auto">Ebook Manutenção Automóvel Online</h3>
+        <p id="desc-auto">Dicas e técnicas para cuidar do seu carro.</p>
         <div class="price">15,00€</div>
-        <button onclick="addToCart('Manutenção Automóvel Online',15.00)" class="btn-add">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Ebook Manutenção Automóvel Online',15.00)" class="btn-add">Adicionar ao Carrinho</button>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
           <input type="hidden" name="cmd" value="_xclick">
           <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-          <input type="hidden" name="item_name" value="Manutenção Automóvel Online">
+          <input type="hidden" name="item_name" value="Ebook Manutenção Automóvel Online">
           <input type="hidden" name="amount" value="15.00">
           <input type="hidden" name="currency_code" value="EUR">
           <input type="submit" value="Comprar com PayPal" class="btn-paypal">
@@ -119,19 +134,22 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
-  <!-- Destaques Bricolage -->
+  <!-- Espaço reservado para AdSense entre Automóvel e Bricolage -->
+  <!-- colocar aqui o bloco AdSense -->
+
   <section id="bricolage">
-    <h2>🔨 Ebooks e Cursos Online de Bricolage em Casa</h2>
+    <h2 id="titulo-bricolage">🔨 Ebooks e Cursos Online de Bricolage em Casa</h2>
     <div class="products">
       <div class="product">
         <img src="https://via.placeholder.com/250x150?text=Bricolage+1" alt="Bricolage Ebook" />
-        <h3>Bricolage Fácil Online</h3>
+        <h3 id="produto-bricolage">Ebook Bricolage Fácil Online</h3>
+        <p id="desc-bricolage">Projetos simples e práticos para casa.</p>
         <div class="price">9,90€</div>
-        <button onclick="addToCart('Bricolage Fácil Online',9.90)" class="btn-add">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Ebook Bricolage Fácil Online',9.90)" class="btn-add">Adicionar ao Carrinho</button>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
           <input type="hidden" name="cmd" value="_xclick">
           <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-          <input type="hidden" name="item_name" value="Bricolage Fácil Online">
+          <input type="hidden" name="item_name" value="Ebook Bricolage Fácil Online">
           <input type="hidden" name="amount" value="9.90">
           <input type="hidden" name="currency_code" value="EUR">
           <input type="submit" value="Comprar com PayPal" class="btn-paypal">
@@ -140,7 +158,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
-  <!-- Botão Ver todos os Ebooks centralizado -->
+  <!-- Botão centralizado Ver todos os Ebooks -->
   <div style="text-align:center; margin:30px 0;">
     <button onclick="openAllEbooks()" style="padding:12px 20px; background:#008080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold; font-size:16px;">
       Ver todos os Ebooks
@@ -162,6 +180,8 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 <footer>
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
   <div id="contador">Visitas: 0</div>
+  <!-- Espaço reservado para AdSense Rodapé -->
+  <!-- colocar aqui o bloco AdSense -->
 </footer>
 
 <!-- Modal Sugestões / Solicitações -->
@@ -217,7 +237,6 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
           <input type="submit" value="Comprar com PayPal" class="btn-paypal">
         </form>
       </div>
-      <!-- Adicione mais produtos conforme necessário -->
     </div>
   </div>
 </div>
@@ -255,35 +274,51 @@ localStorage.setItem('visitas', contador);
 document.getElementById('contador').textContent = "Visitas: "+contador;
 
 // Troca de idioma
-function setLanguage(lang){
-  if(lang==='pt'){
+function setLanguage(lang) {
+  if(lang==='pt') {
     document.getElementById('titulo-principal').textContent = "Casa Feliz – Ebooks e Cursos Online";
     document.getElementById('nav-domotica').textContent = "Domótica Online";
     document.getElementById('nav-auto').textContent = "Manutenção Automóvel Online";
     document.getElementById('nav-bricolage').textContent = "Bricolage em Casa Online";
     document.getElementById('nav-contactos').textContent = "Contactos";
+    document.getElementById('titulo-domotica').textContent = "📗 Ebooks e Cursos Online de Domótica";
+    document.getElementById('produto-domotica').textContent = "Ebook Domótica Inteligente Online";
+    document.getElementById('desc-domotica').textContent = "Aprenda a automatizar sua casa com sistemas modernos.";
+    document.getElementById('titulo-auto').textContent = "🚗 Ebooks e Cursos Online de Manutenção Automóvel";
+    document.getElementById('produto-auto').textContent = "Ebook Manutenção Automóvel Online";
+    document.getElementById('desc-auto').textContent = "Dicas e técnicas para cuidar do seu carro.";
+    document.getElementById('titulo-bricolage').textContent = "🔨 Ebooks e Cursos Online de Bricolage em Casa";
+    document.getElementById('produto-bricolage').textContent = "Ebook Bricolage Fácil Online";
+    document.getElementById('desc-bricolage').textContent = "Projetos simples e práticos para casa.";
   } else {
     document.getElementById('titulo-principal').textContent = "Casa Feliz – Online Ebooks and Courses";
     document.getElementById('nav-domotica').textContent = "Home Automation Online";
     document.getElementById('nav-auto').textContent = "Car Maintenance Online";
     document.getElementById('nav-bricolage').textContent = "DIY at Home Online";
     document.getElementById('nav-contactos').textContent = "Contacts";
+    document.getElementById('titulo-domotica').textContent = "📗 Online Ebooks and Courses on Home Automation";
+    document.getElementById('produto-domotica').textContent = "Smart Home Automation Ebook";
+    document.getElementById('desc-domotica').textContent = "Learn to automate your home with modern systems.";
+    document.getElementById('titulo-auto').textContent = "🚗 Online Ebooks and Courses on Car Maintenance";
+    document.getElementById('produto-auto').textContent = "Car Maintenance Ebook";
+    document.getElementById('desc-auto').textContent = "Tips and techniques to take care of your car.";
+    document.getElementById('titulo-bricolage').textContent = "🔨 Online Ebooks and Courses on DIY at Home";
+    document.getElementById('produto-bricolage').textContent = "Easy DIY Ebook";
+    document.getElementById('desc-bricolage').textContent = "Simple and practical projects for home.";
   }
 }
 
-// Modals
-function openAllEbooks(){ document.getElementById('allEbooksModal').style.display='flex'; }
-function closeAllEbooks(){ document.getElementById('allEbooksModal').style.display='none'; }
-function openSuggestions(){ document.getElementById('suggestionsModal').style.display='flex'; }
-function closeSuggestions(){ document.getElementById('suggestionsModal').style.display='none'; }
+// Modais
+function openSuggestions(){document.getElementById('suggestionsModal').style.display='flex';}
+function closeSuggestions(){document.getElementById('suggestionsModal').style.display='none';}
 function sendSuggestion(){
-  const textarea = document.querySelector("#suggestionsModalContent textarea");
-  if(textarea.value.trim()===""){ alert("Escreva algo antes de enviar!"); return; }
-  const msg = "Sugestão / Solicitação:\n"+textarea.value;
-  window.open("https://wa.me/351000000000?text="+encodeURIComponent(msg),"_blank");
-  textarea.value="";
+  const msg=document.querySelector('#suggestionsModal textarea').value;
+  if(!msg){ alert("Digite sua sugestão ou solicitação."); return; }
+  window.open("https://wa.me/351000000000?text="+encodeURIComponent("Sugestão / Solicitação:\n"+msg),"_blank");
   closeSuggestions();
 }
+function openAllEbooks(){document.getElementById('allEbooksModal').style.display='flex';}
+function closeAllEbooks(){document.getElementById('allEbooksModal').style.display='none';}
 </script>
 
 </body>
