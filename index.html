@@ -8,18 +8,17 @@
 
 <style>
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
-header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
-header img.logo { width:220px; height:auto; display:block; margin:0 auto 10px auto; }
-.lang-switch {
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:28px;
-  cursor:pointer;
+header {
+  background:#008080;
+  color:white;
+  padding:20px;
+  position:relative;
   display:flex;
-  gap:8px;
-  z-index:9999;
+  justify-content: space-between;
+  align-items: center;
 }
+header img.logo { width:220px; height:auto; display:block; }
+.lang-switch { font-size:28px; cursor:pointer; display:flex; gap:8px; }
 nav { background:#e0e0e0; display:flex; justify-content:center; align-items:center; padding:10px; position:sticky; top:0; z-index:1000; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
@@ -41,6 +40,8 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 .price { font-weight:bold; margin:10px 0; color:#e65100; }
 .btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; }
 .btn-add:hover, .btn-paypal:hover { background:#006666; }
+#btn-ver-todos { display:block; margin:20px auto; padding:10px 15px; font-weight:bold; cursor:pointer; background:#e65100; color:white; border:none; border-radius:5px; }
+#btn-ver-todos:hover { background:#b43c00; }
 footer { background:#008080; color:white; text-align:center; padding:15px; margin-top:40px; }
 #contactos ul { list-style:none; padding:0; text-align:center; }
 #contactos li { margin:8px 0; font-size:1.05em; }
@@ -48,29 +49,10 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 #contactos a:hover { color:#e65100; }
 #contador { color:#00ff00; font-weight:bold; margin-top:10px; text-align:center; }
 
-/* Modal ebooks */
-#modal-ebooks {
-  display:none;
-  position:fixed;
-  top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,0.7);
-  justify-content:center; align-items:center;
-  z-index:9998;
-}
-#modal-ebooks .modal-content {
-  background:white; padding:20px; border-radius:8px; max-width:600px; width:90%;
-  max-height:80%; overflow-y:auto; position:relative;
-}
-#modal-ebooks .fechar {
-  position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px;
-}
-
-/* Botão Sugestões WhatsApp */
-#btn-sugestoes {
-  position:fixed; bottom:20px; right:20px; background:#25d366; color:white;
-  padding:12px 15px; border-radius:50px; cursor:pointer; font-weight:bold; z-index:9999;
-}
-#btn-sugestoes:hover { background:#128c4a; }
+/* Modal */
+#modal-ebooks { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:5000; }
+#modal-ebooks .modal-content { background:white; padding:20px; border-radius:6px; max-width:600px; width:90%; text-align:center; position:relative; }
+#modal-ebooks .fechar { position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px; font-weight:bold; }
 </style>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875462679161698" crossorigin="anonymous"></script>
@@ -79,7 +61,6 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 
 <header>
   <img src="images/logo.png" alt="Casa Feliz Logo" class="logo"/>
-  <h1 id="titulo-principal">Casa Feliz – Ebooks e Cursos Online</h1>
   <div class="lang-switch">
     <span onclick="setLanguage('pt')">🇵🇹</span>
     <span onclick="setLanguage('en')">🇬🇧</span>
@@ -112,6 +93,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 </div>
 
 <main>
+  <!-- Domótica -->
   <section id="domotica">
     <h2 id="titulo-domotica">📗 Ebooks e Cursos Online de Domótica</h2>
     <div class="products">
@@ -131,12 +113,9 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
         </form>
       </div>
     </div>
-    <div style="text-align:center; margin-top:20px;">
-      <button id="btn-ver-todos" class="btn-add">Ver Todos os Ebooks</button>
-    </div>
   </section>
 
-  <!-- Automóvel Online -->
+  <!-- Automóvel -->
   <section id="auto">
     <h2 id="titulo-auto">🚗 Ebooks e Cursos Online de Manutenção Automóvel</h2>
     <div class="products">
@@ -158,7 +137,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
-  <!-- Bricolage Online -->
+  <!-- Bricolage -->
   <section id="bricolage">
     <h2 id="titulo-bricolage">🔨 Ebooks e Cursos Online de Bricolage em Casa</h2>
     <div class="products">
@@ -180,6 +159,19 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
+  <!-- Botão Modal Ver Todos -->
+  <button id="btn-ver-todos">Ver Todos os Ebooks</button>
+
+  <!-- Modal Ebooks -->
+  <div id="modal-ebooks">
+    <div class="modal-content">
+      <span class="fechar">&times;</span>
+      <h2>Todos os Ebooks</h2>
+      <p>Aqui podes ver todos os ebooks disponíveis e comprar via PayPal.</p>
+    </div>
+  </div>
+
+  <!-- Contactos -->
   <section id="contactos">
     <h2 id="titulo-contactos">📞 Contactos</h2>
     <ul>
@@ -190,24 +182,6 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </ul>
   </section>
 </main>
-
-<!-- Modal Todos os Ebooks -->
-<div id="modal-ebooks">
-  <div class="modal-content">
-    <span class="fechar">&times;</span>
-    <h3>Todos os Ebooks</h3>
-    <ul>
-      <li>Ebook Domótica Inteligente Online – 12,90€ <a href="#" class="btn-paypal">Comprar com PayPal</a></li>
-      <li>Ebook Manutenção Automóvel Online – 15,00€ <a href="#" class="btn-paypal">Comprar com PayPal</a></li>
-      <li>Ebook Bricolage Fácil Online – 9,90€ <a href="#" class="btn-paypal">Comprar com PayPal</a></li>
-    </ul>
-  </div>
-</div>
-
-<!-- Botão Sugestões / Solicitações -->
-<div id="btn-sugestoes" onclick="window.open('https://wa.me/351000000000?text=Olá! Gostaria de enviar Sugestões / Solicitações','_blank')">
-  💬 Sugestões / Solicitações
-</div>
 
 <footer>
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
