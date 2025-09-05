@@ -10,7 +10,8 @@
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
 header img.logo { width:220px; height:auto; display:block; margin:0 auto 10px auto; }
-.lang-switch { position:absolute; top:20px; right:20px; font-size:28px; cursor:pointer; }
+.lang-switch { position:absolute; top:20px; right:20px; }
+.lang-switch .flag { width:28px; cursor:pointer; margin-left:5px; vertical-align:middle; }
 nav { background:#e0e0e0; display:flex; justify-content:center; align-items:center; padding:10px; position:sticky; top:0; z-index:1000; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
@@ -32,6 +33,8 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 .price { font-weight:bold; margin:10px 0; color:#e65100; }
 .btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; }
 .btn-add:hover, .btn-paypal:hover { background:#006666; }
+#btn-ver-todos { display:block; text-align:center; margin:40px auto 0 auto; padding:12px 20px; background:#e65100; color:white; border:none; border-radius:6px; font-weight:bold; cursor:pointer; }
+#btn-ver-todos:hover { background:#bf360c; }
 footer { background:#008080; color:white; text-align:center; padding:15px; margin-top:40px; }
 #contactos ul { list-style:none; padding:0; text-align:center; }
 #contactos li { margin:8px 0; font-size:1.05em; }
@@ -39,15 +42,13 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 #contactos a:hover { color:#e65100; }
 #contador { color:#00ff00; font-weight:bold; margin-top:10px; }
 
-/* Modais */
-#suggestionsModal, #allEbooksModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:3000; justify-content:center; align-items:center; }
-#suggestionsModalContent, #allEbooksModal > div { background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:90%; overflow-y:auto; position:relative; }
-.close { position:absolute; top:10px; right:15px; font-size:22px; font-weight:bold; cursor:pointer; }
-#suggestionsModalContent textarea { width:100%; height:120px; margin-top:10px; border-radius:5px; border:1px solid #ccc; padding:8px; }
-#suggestionsModalContent button { margin-top:10px; background:#008080; color:white; padding:8px 12px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; }
-#suggestionsModalContent button:hover { background:#006666; }
+/* Modal Sugestões */
+#modal-sugestoes { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:3000; }
+#modal-sugestoes .modal-content { background:white; max-width:400px; margin:100px auto; padding:20px; border-radius:8px; text-align:center; }
+#modal-sugestoes h3 { margin-bottom:15px; }
+#modal-sugestoes button { margin-top:10px; padding:8px 12px; border:none; background:#e65100; color:white; border-radius:5px; cursor:pointer; }
+#modal-sugestoes button:hover { background:#bf360c; }
 </style>
-
 </head>
 <body>
 
@@ -55,8 +56,8 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   <img src="images/logo.png" alt="Casa Feliz Logo" class="logo"/>
   <h1 id="titulo-principal">Casa Feliz – Ebooks e Cursos Online</h1>
   <div class="lang-switch">
-    <span onclick="setLanguage('pt')">🇵🇹</span>
-    <span onclick="setLanguage('en')">🇬🇧</span>
+    <img src="images/pt.png" alt="Português" onclick="setLanguage('pt')" class="flag">
+    <img src="images/en.png" alt="English" onclick="setLanguage('en')" class="flag">
   </div>
 </header>
 
@@ -76,18 +77,6 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   </div>
 </nav>
 
-<!-- Espaço reservado para AdSense Topo -->
-<!-- 
-<div style="max-width:1000px; margin:20px auto; text-align:center;">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-XXXXX"
-       data-ad-slot="YYYYY"
-       data-ad-format="auto"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
--->
-
 <main>
   <section id="domotica">
     <h2 id="titulo-domotica">📗 Ebooks e Cursos Online de Domótica</h2>
@@ -97,7 +86,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
         <h3 id="produto-domotica">Ebook Domótica Inteligente Online</h3>
         <p id="desc-domotica">Aprenda a automatizar sua casa com sistemas modernos.</p>
         <div class="price">12,90€</div>
-        <button onclick="addToCart('Ebook Domótica Inteligente Online',12.90)" class="btn-add">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Ebook Domótica Inteligente Online', 12.90)" class="btn-add">Adicionar ao Carrinho</button>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
           <input type="hidden" name="cmd" value="_xclick">
           <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
@@ -110,9 +99,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
-  <!-- Espaço reservado para AdSense entre Domótica e Automóvel -->
-  <!-- colocar aqui o bloco AdSense -->
-
+  <!-- Automóvel Online -->
   <section id="auto">
     <h2 id="titulo-auto">🚗 Ebooks e Cursos Online de Manutenção Automóvel</h2>
     <div class="products">
@@ -121,7 +108,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
         <h3 id="produto-auto">Ebook Manutenção Automóvel Online</h3>
         <p id="desc-auto">Dicas e técnicas para cuidar do seu carro.</p>
         <div class="price">15,00€</div>
-        <button onclick="addToCart('Ebook Manutenção Automóvel Online',15.00)" class="btn-add">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Ebook Manutenção Automóvel Online', 15.00)" class="btn-add">Adicionar ao Carrinho</button>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
           <input type="hidden" name="cmd" value="_xclick">
           <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
@@ -134,9 +121,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
-  <!-- Espaço reservado para AdSense entre Automóvel e Bricolage -->
-  <!-- colocar aqui o bloco AdSense -->
-
+  <!-- Bricolage Online -->
   <section id="bricolage">
     <h2 id="titulo-bricolage">🔨 Ebooks e Cursos Online de Bricolage em Casa</h2>
     <div class="products">
@@ -145,7 +130,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
         <h3 id="produto-bricolage">Ebook Bricolage Fácil Online</h3>
         <p id="desc-bricolage">Projetos simples e práticos para casa.</p>
         <div class="price">9,90€</div>
-        <button onclick="addToCart('Ebook Bricolage Fácil Online',9.90)" class="btn-add">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Ebook Bricolage Fácil Online', 9.90)" class="btn-add">Adicionar ao Carrinho</button>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
           <input type="hidden" name="cmd" value="_xclick">
           <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
@@ -158,16 +143,11 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
-  <!-- Botão centralizado Ver todos os Ebooks -->
-  <div style="text-align:center; margin:30px 0;">
-    <button onclick="openAllEbooks()" style="padding:12px 20px; background:#008080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold; font-size:16px;">
-      Ver todos os Ebooks
-    </button>
-  </div>
+  <button id="btn-ver-todos" onclick="openAllEbooks()">Ver todos os Ebooks</button>
 
   <!-- Contactos -->
   <section id="contactos">
-    <h2>📞 Contactos</h2>
+    <h2 id="titulo-contactos">📞 Contactos</h2>
     <ul>
       <li>👤 Fundador: Carlos Oliveira</li>
       <li>📱 WhatsApp: <a href="https://wa.me/351000000000" target="_blank">+351 000 000 000</a></li>
@@ -180,64 +160,15 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 <footer>
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
   <div id="contador">Visitas: 0</div>
-  <!-- Espaço reservado para AdSense Rodapé -->
-  <!-- colocar aqui o bloco AdSense -->
 </footer>
 
 <!-- Modal Sugestões / Solicitações -->
-<button id="suggestionsBtn" onclick="openSuggestions()">Sugestões / Solicitações</button>
-<div id="suggestionsModal">
-  <div id="suggestionsModalContent">
-    <span class="close" onclick="closeSuggestions()">&times;</span>
-    <h2>Sugestões / Solicitações</h2>
-    <textarea placeholder="Escreva aqui sua sugestão ou solicitação..."></textarea>
-    <button onclick="sendSuggestion()">Enviar via WhatsApp</button>
-  </div>
-</div>
-
-<!-- Modal Todos os Ebooks -->
-<div id="allEbooksModal">
-  <div>
-    <span class="close" onclick="closeAllEbooks()">&times;</span>
-    <h2>Todos os Ebooks – Casa Feliz</h2>
-    <div>
-      <div>
-        Automação Residencial Inteligente
-        <button onclick="addToCart('Automação Residencial Inteligente',12.90)">Adicionar ao Carrinho</button>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline;">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-          <input type="hidden" name="item_name" value="Automação Residencial Inteligente">
-          <input type="hidden" name="amount" value="12.90">
-          <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-        </form>
-      </div>
-      <div>
-        Manutenção Automóvel Online
-        <button onclick="addToCart('Manutenção Automóvel Online',15.00)">Adicionar ao Carrinho</button>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline;">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-          <input type="hidden" name="item_name" value="Manutenção Automóvel Online">
-          <input type="hidden" name="amount" value="15.00">
-          <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-        </form>
-      </div>
-      <div>
-        Bricolage Fácil Online
-        <button onclick="addToCart('Bricolage Fácil Online',9.90)">Adicionar ao Carrinho</button>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline;">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-          <input type="hidden" name="item_name" value="Bricolage Fácil Online">
-          <input type="hidden" name="amount" value="9.90">
-          <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-        </form>
-      </div>
-    </div>
+<div id="modal-sugestoes">
+  <div class="modal-content">
+    <h3>Sugestões / Solicitações</h3>
+    <p>Envie sua mensagem via WhatsApp para nós!</p>
+    <button onclick="window.open('https://wa.me/351000000000', '_blank')">Enviar via WhatsApp</button>
+    <button onclick="closeSugestoes()">Fechar</button>
   </div>
 </div>
 
@@ -290,6 +221,7 @@ function setLanguage(lang) {
     document.getElementById('titulo-bricolage').textContent = "🔨 Ebooks e Cursos Online de Bricolage em Casa";
     document.getElementById('produto-bricolage').textContent = "Ebook Bricolage Fácil Online";
     document.getElementById('desc-bricolage').textContent = "Projetos simples e práticos para casa.";
+    document.getElementById('titulo-contactos').textContent = "📞 Contactos";
   } else {
     document.getElementById('titulo-principal').textContent = "Casa Feliz – Online Ebooks and Courses";
     document.getElementById('nav-domotica').textContent = "Home Automation Online";
@@ -305,20 +237,14 @@ function setLanguage(lang) {
     document.getElementById('titulo-bricolage').textContent = "🔨 Online Ebooks and Courses on DIY at Home";
     document.getElementById('produto-bricolage').textContent = "Easy DIY Ebook";
     document.getElementById('desc-bricolage').textContent = "Simple and practical projects for home.";
+    document.getElementById('titulo-contactos').textContent = "📞 Contacts";
   }
 }
 
-// Modais
-function openSuggestions(){document.getElementById('suggestionsModal').style.display='flex';}
-function closeSuggestions(){document.getElementById('suggestionsModal').style.display='none';}
-function sendSuggestion(){
-  const msg=document.querySelector('#suggestionsModal textarea').value;
-  if(!msg){ alert("Digite sua sugestão ou solicitação."); return; }
-  window.open("https://wa.me/351000000000?text="+encodeURIComponent("Sugestão / Solicitação:\n"+msg),"_blank");
-  closeSuggestions();
-}
-function openAllEbooks(){document.getElementById('allEbooksModal').style.display='flex';}
-function closeAllEbooks(){document.getElementById('allEbooksModal').style.display='none';}
+// Modal Sugestões
+function openSugestoes() { document.getElementById('modal-sugestoes').style.display='block'; }
+function closeSugestoes() { document.getElementById('modal-sugestoes').style.display='none'; }
+function openAllEbooks() { alert('Aqui você pode exibir todos os ebooks (exemplo).'); }
 </script>
 
 </body>
