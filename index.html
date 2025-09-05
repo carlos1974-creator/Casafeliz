@@ -1,58 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa Feliz – Ebooks e Cursos Online</title>
-
 <style>
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
-header img.logo { width:220px; height:auto; display:block; margin:0 auto 10px auto; }
-.lang-switch { position:absolute; top:20px; right:20px; display:flex; gap:8px; z-index:9999; }
-.lang-switch img { width:28px; height:18px; cursor:pointer; }
-nav { background:#e0e0e0; display:flex; justify-content:center; align-items:center; padding:10px; position:sticky; top:0; z-index:1000; }
+header img.logo { width:220px; display:block; margin:0 auto 10px auto; }
+.lang-switch { position:absolute; top:20px; right:20px; display:flex; gap:8px; cursor:pointer; font-size:24px; }
+nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
-.cart { position:relative; margin-left:auto; cursor:pointer; }
-.cart-icon { font-size:22px; }
-.cart-count { background:red; color:white; border-radius:50%; padding:2px 6px; font-size:12px; position:absolute; top:-8px; right:-10px; }
-.cart-dropdown { display:none; position:absolute; right:0; top:30px; background:white; border:1px solid #ccc; box-shadow:0 2px 6px rgba(0,0,0,0.2); width:270px; padding:10px; z-index:2000; }
-.cart-dropdown ul { list-style:none; padding:0; margin:0; }
-.cart-dropdown li { font-size:14px; margin:5px 0; }
-.cart-dropdown .total { font-weight:bold; margin-top:10px; }
-.cart-dropdown .btn-whatsapp { display:block; text-align:center; margin-top:10px; padding:8px; background:#25d366; color:white; border-radius:5px; text-decoration:none; }
-.cart-dropdown .btn-whatsapp:hover { background:#128c4a; }
-main { max-width:1000px; margin:30px auto; padding:0 15px; }
-section { margin:50px 0; }
-section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
 .products { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
-.product { background:white; border-radius:6px; box-shadow:0 0 6px rgba(0,0,0,0.1); padding:15px; max-width:280px; text-align:center; }
-.product img { max-width:100%; border-radius:6px; }
+.product { background:white; border-radius:6px; padding:15px; max-width:280px; text-align:center; box-shadow:0 0 6px rgba(0,0,0,0.1);}
 .price { font-weight:bold; margin:10px 0; color:#e65100; }
-.btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; }
-.btn-add:hover, .btn-paypal:hover { background:#006666; }
-footer { background:#008080; color:white; text-align:center; padding:15px; margin-top:40px; }
-#contador { color:#00ff00; font-weight:bold; margin-top:10px; text-align:center; font-size:1.2em; }
+.btn-add { background:#008080; color:white; padding:8px 12px; border:none; border-radius:5px; cursor:pointer; }
+.btn-add:hover { background:#006666; }
 
-/* Modal ebooks */
+/* Modal */
 #modal-ebooks { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:9999; }
-#modal-ebooks .modal-content { background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80%; overflow-y:auto; position:relative; }
+#modal-ebooks .modal-content { background:white; padding:20px; border-radius:8px; max-width:500px; width:90%; max-height:80%; overflow-y:auto; position:relative; }
 #modal-ebooks .fechar { position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px; }
-
-/* Botão Sugestões WhatsApp */
-#btn-sugestoes { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; padding:12px 15px; border-radius:50px; cursor:pointer; font-weight:bold; z-index:9999; }
-#btn-sugestoes:hover { background:#128c4a; }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="images/logo.png" alt="Casa Feliz Logo" class="logo"/>
+  <img src="https://via.placeholder.com/220x60?text=Logo" alt="Casa Feliz Logo" class="logo">
   <h1 id="titulo-principal">Casa Feliz – Ebooks e Cursos Online</h1>
   <div class="lang-switch">
-    <img src="images/pt.png" alt="Português" onclick="setLanguage('pt')">
-    <img src="images/en.png" alt="English" onclick="setLanguage('en')">
+    <span onclick="setLanguage('pt')">🇵🇹</span>
+    <span onclick="setLanguage('en')">🇬🇧</span>
   </div>
 </header>
 
@@ -61,15 +40,6 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   <a href="#auto" id="nav-auto">Manutenção Automóvel Online</a>
   <a href="#bricolage" id="nav-bricolage">Bricolage em Casa Online</a>
   <a href="#contactos" id="nav-contactos">Contactos</a>
-  <div class="cart" onclick="toggleCart()">
-    <span class="cart-icon">🛒</span>
-    <span class="cart-count" id="cart-count">0</span>
-    <div class="cart-dropdown" id="cart-dropdown">
-      <ul id="cart-items"></ul>
-      <div class="total" id="cart-total">Total: 0€</div>
-      <a href="#" class="btn-whatsapp" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</a>
-    </div>
-  </div>
 </nav>
 
 <main>
@@ -77,45 +47,54 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     <h2 id="titulo-domotica">📗 Ebooks e Cursos Online de Domótica</h2>
     <div class="products">
       <div class="product">
-        <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Domótica Ebook" />
         <h3 id="produto-domotica">Ebook Domótica Inteligente Online</h3>
         <p id="desc-domotica">Aprenda a automatizar sua casa com sistemas modernos.</p>
         <div class="price">12,90€</div>
-        <button onclick="addToCart('Ebook Domótica Inteligente Online', 12.90)" class="btn-add">Adicionar ao Carrinho</button>
+        <button class="btn-add" onclick="openModal()">Ver Todos os Ebooks</button>
       </div>
     </div>
-    <div style="text-align:center; margin-top:20px;">
-      <button id="btn-ver-todos" class="btn-add">Ver Todos os Ebooks</button>
-    </div>
   </section>
-
-  <!-- Modal Todos os Ebooks -->
-  <div id="modal-ebooks">
-    <div class="modal-content">
-      <span class="fechar">&times;</span>
-      <h3>Todos os Ebooks</h3>
-      <ul>
-        <li>Ebook Domótica Inteligente Online – 12,90€</li>
-        <li>Ebook Manutenção Automóvel Online – 15,00€</li>
-        <li>Ebook Bricolage Fácil Online – 9,90€</li>
-      </ul>
-    </div>
-  </div>
 </main>
+
+<!-- Modal Todos os Ebooks -->
+<div id="modal-ebooks">
+  <div class="modal-content">
+    <span class="fechar" onclick="closeModal()">&times;</span>
+    <h3>Todos os Ebooks</h3>
+    <ul>
+      <li>Ebook Domótica Inteligente Online – 12,90€</li>
+      <li>Ebook Manutenção Automóvel Online – 15,00€</li>
+      <li>Ebook Bricolage Fácil Online – 9,90€</li>
+    </ul>
+  </div>
+</div>
 
 <script>
 // Modal
 const modal = document.getElementById('modal-ebooks');
-const btnVerTodos = document.getElementById('btn-ver-todos');
-const spanFechar = modal.querySelector('.fechar');
-btnVerTodos.onclick = () => modal.style.display = 'flex';
-spanFechar.onclick = () => modal.style.display = 'none';
-window.onclick = (e) => { if(e.target == modal) modal.style.display='none'; }
+function openModal(){ modal.style.display='flex'; }
+function closeModal(){ modal.style.display='none'; }
+window.onclick = function(e){ if(e.target==modal) modal.style.display='none'; }
 
 // Troca de idioma
 function setLanguage(lang){
-  if(lang==='pt'){ document.getElementById('titulo-principal').textContent='Casa Feliz – Ebooks e Cursos Online'; }
-  else { document.getElementById('titulo-principal').textContent='Casa Feliz – Online Ebooks and Courses'; }
+  if(lang=='pt'){
+    document.getElementById('titulo-principal').textContent='Casa Feliz – Ebooks e Cursos Online';
+    document.getElementById('nav-domotica').textContent='Domótica Online';
+    document.getElementById('nav-auto').textContent='Manutenção Automóvel Online';
+    document.getElementById('nav-bricolage').textContent='Bricolage em Casa Online';
+    document.getElementById('titulo-domotica').textContent='📗 Ebooks e Cursos Online de Domótica';
+    document.getElementById('produto-domotica').textContent='Ebook Domótica Inteligente Online';
+    document.getElementById('desc-domotica').textContent='Aprenda a automatizar sua casa com sistemas modernos.';
+  } else {
+    document.getElementById('titulo-principal').textContent='Casa Feliz – Online Ebooks and Courses';
+    document.getElementById('nav-domotica').textContent='Home Automation Online';
+    document.getElementById('nav-auto').textContent='Car Maintenance Online';
+    document.getElementById('nav-bricolage').textContent='DIY at Home Online';
+    document.getElementById('titulo-domotica').textContent='📗 Online Ebooks and Courses on Home Automation';
+    document.getElementById('produto-domotica').textContent='Smart Home Automation Ebook';
+    document.getElementById('desc-domotica').textContent='Learn to automate your home with modern systems.';
+  }
 }
 </script>
 
