@@ -44,11 +44,9 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 #suggestionsModalContent button { padding:8px 12px; background:#25d366; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold; }
 #suggestionsModalContent button:hover { background:#128c4a; }
 #suggestionsModalContent .close { position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px; font-weight:bold; }
-#allEbooksModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:5000; overflow:auto; justify-content:center; align-items:flex-start; padding-top:40px; }
-#allEbooksModal > div { background:white; padding:20px; border-radius:8px; max-width:800px; width:90%; margin:auto; position:relative; }
-#allEbooksModal h2 { text-align:center; margin-bottom:20px; }
-#allEbooksModal span.close { position:absolute; top:10px; right:15px; cursor:pointer; font-weight:bold; font-size:20px; }
-#allEbooksModal div div { border:1px solid #ccc; padding:10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
+#allEbooksModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:5000; overflow:auto; justify-content:center; align-items:center; }
+#allEbooksModal > div { background:white; padding:20px; border-radius:8px; max-width:800px; width:90%; position:relative; display:flex; flex-direction:column; gap:10px; text-align:center; }
+#allEbooksModal div div { border:1px solid #ccc; padding:10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:5px; }
 </style>
 </head>
 <body>
@@ -88,6 +86,14 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
         <h3>Automação Residencial Inteligente</h3>
         <div class="price">12,90€</div>
         <button onclick="addToCart('Automação Residencial Inteligente',12.90)" class="btn-add">Adicionar ao Carrinho</button>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+          <input type="hidden" name="item_name" value="Automação Residencial Inteligente">
+          <input type="hidden" name="amount" value="12.90">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+        </form>
       </div>
     </div>
   </section>
@@ -98,9 +104,17 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     <div class="products">
       <div class="product">
         <img src="https://via.placeholder.com/250x150?text=Auto+1" alt="Manutenção Automóvel Ebook" />
-        <h3>Manutenção Preventiva de Carros</h3>
+        <h3>Manutenção Automóvel Online</h3>
         <div class="price">15,00€</div>
-        <button onclick="addToCart('Manutenção Preventiva de Carros',15.00)" class="btn-add">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Manutenção Automóvel Online',15.00)" class="btn-add">Adicionar ao Carrinho</button>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+          <input type="hidden" name="item_name" value="Manutenção Automóvel Online">
+          <input type="hidden" name="amount" value="15.00">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+        </form>
       </div>
     </div>
   </section>
@@ -111,41 +125,26 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     <div class="products">
       <div class="product">
         <img src="https://via.placeholder.com/250x150?text=Bricolage+1" alt="Bricolage Ebook" />
-        <h3>Projetos DIY Simples para Casa</h3>
+        <h3>Bricolage Fácil Online</h3>
         <div class="price">9,90€</div>
-        <button onclick="addToCart('Projetos DIY Simples para Casa',9.90)" class="btn-add">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Bricolage Fácil Online',9.90)" class="btn-add">Adicionar ao Carrinho</button>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+          <input type="hidden" name="item_name" value="Bricolage Fácil Online">
+          <input type="hidden" name="amount" value="9.90">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Botão Ver todos os ebooks -->
-  <button onclick="openAllEbooks()">Ver todos os Ebooks</button>
-
-  <!-- Modal Todos os ebooks -->
-  <div id="allEbooksModal">
-    <div>
-      <span class="close" onclick="closeAllEbooks()">&times;</span>
-      <h2>Todos os Ebooks – Casa Feliz</h2>
-      <h3>📗 Domótica</h3>
-      <div>
-        <div>Automação Residencial Inteligente <button onclick="addToCart('Automação Residencial Inteligente',12.90)">Adicionar ao Carrinho</button></div>
-        <div>Iluminação e Segurança Automática <button onclick="addToCart('Iluminação e Segurança Automática',14.50)">Adicionar ao Carrinho</button></div>
-        <div>Controle da Casa pelo Telemóvel <button onclick="addToCart('Controle da Casa pelo Telemóvel',11.90)">Adicionar ao Carrinho</button></div>
-      </div>
-      <h3>🚗 Manutenção Automóvel</h3>
-      <div>
-        <div>Manutenção Preventiva de Carros <button onclick="addToCart('Manutenção Preventiva de Carros',15.00)">Adicionar ao Carrinho</button></div>
-        <div>Diagnóstico de Problemas Comuns <button onclick="addToCart('Diagnóstico de Problemas Comuns',13.90)">Adicionar ao Carrinho</button></div>
-        <div>Troca de Óleo e Filtros em Casa <button onclick="addToCart('Troca de Óleo e Filtros em Casa',12.50)">Adicionar ao Carrinho</button></div>
-      </div>
-      <h3>🔨 Bricolage</h3>
-      <div>
-        <div>Projetos DIY Simples para Casa <button onclick="addToCart('Projetos DIY Simples para Casa',9.90)">Adicionar ao Carrinho</button></div>
-        <div>Decoração e Organização DIY <button onclick="addToCart('Decoração e Organização DIY',10.50)">Adicionar ao Carrinho</button></div>
-        <div>Reparos e Melhorias em Casa <button onclick="addToCart('Reparos e Melhorias em Casa',11.00)">Adicionar ao Carrinho</button></div>
-        <div>Pintura, Decoração e Renovação <button onclick="addToCart('Pintura, Decoração e Renovação',10.90)">Adicionar ao Carrinho</button></div>
-      </div>
-    </div>
+  <!-- Botão Ver todos os Ebooks centralizado -->
+  <div style="text-align:center; margin:30px 0;">
+    <button onclick="openAllEbooks()" style="padding:12px 20px; background:#008080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold; font-size:16px;">
+      Ver todos os Ebooks
+    </button>
   </div>
 
   <!-- Contactos -->
@@ -160,30 +159,75 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   </section>
 </main>
 
-<!-- Botão Sugestões -->
-<button id="suggestionsBtn" onclick="openSuggestions()">Sugestões / Solicitações</button>
+<footer>
+  Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
+  <div id="contador">Visitas: 0</div>
+</footer>
 
-<!-- Modal Sugestões -->
+<!-- Modal Sugestões / Solicitações -->
+<button id="suggestionsBtn" onclick="openSuggestions()">Sugestões / Solicitações</button>
 <div id="suggestionsModal">
   <div id="suggestionsModalContent">
     <span class="close" onclick="closeSuggestions()">&times;</span>
-    <h3>Sugestões / Solicitações</h3>
-    <textarea placeholder="Escreva aqui a sua sugestão ou solicitação..."></textarea>
+    <h2>Sugestões / Solicitações</h2>
+    <textarea placeholder="Escreva aqui sua sugestão ou solicitação..."></textarea>
     <button onclick="sendSuggestion()">Enviar via WhatsApp</button>
   </div>
 </div>
 
-<footer>
-  Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
-  <span id="contador">Visitas: 0</span>
-</footer>
+<!-- Modal Todos os Ebooks -->
+<div id="allEbooksModal">
+  <div>
+    <span class="close" onclick="closeAllEbooks()">&times;</span>
+    <h2>Todos os Ebooks – Casa Feliz</h2>
+    <div>
+      <div>
+        Automação Residencial Inteligente
+        <button onclick="addToCart('Automação Residencial Inteligente',12.90)">Adicionar ao Carrinho</button>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline;">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+          <input type="hidden" name="item_name" value="Automação Residencial Inteligente">
+          <input type="hidden" name="amount" value="12.90">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+        </form>
+      </div>
+      <div>
+        Manutenção Automóvel Online
+        <button onclick="addToCart('Manutenção Automóvel Online',15.00)">Adicionar ao Carrinho</button>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline;">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+          <input type="hidden" name="item_name" value="Manutenção Automóvel Online">
+          <input type="hidden" name="amount" value="15.00">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+        </form>
+      </div>
+      <div>
+        Bricolage Fácil Online
+        <button onclick="addToCart('Bricolage Fácil Online',9.90)">Adicionar ao Carrinho</button>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline;">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+          <input type="hidden" name="item_name" value="Bricolage Fácil Online">
+          <input type="hidden" name="amount" value="9.90">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+        </form>
+      </div>
+      <!-- Adicione mais produtos conforme necessário -->
+    </div>
+  </div>
+</div>
 
 <script>
 // Carrinho
 let cart = [];
-function addToCart(product, price){ cart.push({product, price}); updateCart(); }
-function removeFromCart(index){ cart.splice(index,1); updateCart(); }
-function updateCart(){
+function addToCart(product, price) { cart.push({product, price}); updateCart(); }
+function removeFromCart(index) { cart.splice(index,1); updateCart(); }
+function updateCart() {
   document.getElementById("cart-count").textContent = cart.length;
   let itemsHTML = "";
   let total = 0;
@@ -194,8 +238,8 @@ function updateCart(){
   document.getElementById("cart-items").innerHTML = itemsHTML;
   document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
 }
-function toggleCart(){ const dropdown = document.getElementById("cart-dropdown"); dropdown.style.display = dropdown.style.display==="block"?"none":"block"; }
-function checkoutWhatsApp(){
+function toggleCart() { const dropdown = document.getElementById("cart-dropdown"); dropdown.style.display = dropdown.style.display==="block"?"none":"block"; }
+function checkoutWhatsApp() {
   if(cart.length===0){ alert("O carrinho está vazio!"); return; }
   let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
   cart.forEach(item=>{ msg+="- "+item.product+" ("+item.price.toFixed(2)+"€)\n"; });
