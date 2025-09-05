@@ -10,8 +10,7 @@
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
 header img.logo { width:220px; height:auto; display:block; margin:0 auto 10px auto; }
-.lang-switch { position:absolute; top:20px; right:20px; }
-.lang-switch img { width:26px; height:auto; cursor:pointer; margin-left:8px; border-radius:3px; box-shadow:0 0 3px rgba(0,0,0,0.4); }
+.lang-switch { position:absolute; top:20px; right:20px; font-size:28px; cursor:pointer; }
 nav { background:#e0e0e0; display:flex; justify-content:center; align-items:center; padding:10px; position:sticky; top:0; z-index:1000; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
@@ -34,20 +33,18 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 .btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; }
 .btn-add:hover, .btn-paypal:hover { background:#006666; }
 footer { background:#008080; color:white; text-align:center; padding:15px; margin-top:40px; }
-#contador { font-weight:bold; margin-top:10px; color:#00ff00; }
+#contactos ul { list-style:none; padding:0; text-align:center; }
+#contactos li { margin:8px 0; font-size:1.05em; }
+#contactos a { color:#008080; text-decoration:none; font-weight:bold; }
+#contactos a:hover { color:#e65100; }
+#contador { color:#00ff00; font-weight:bold; margin-top:10px; text-align:center; }
 
-/* Botão Sugestões */
-#sugestoes-btn { position:fixed; bottom:20px; right:20px; background:#e65100; color:white; padding:12px 18px; border-radius:8px; cursor:pointer; font-weight:bold; box-shadow:0 2px 6px rgba(0,0,0,0.3); }
-#sugestoes-btn:hover { background:#bf360c; }
-#sugestoes-modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:3000; justify-content:center; align-items:center; }
-#sugestoes-box { background:white; padding:20px; border-radius:8px; max-width:400px; text-align:center; }
-#sugestoes-box h3 { margin-bottom:10px; color:#008080; }
-#sugestoes-box textarea { width:100%; height:120px; padding:10px; }
-#sugestoes-box button { margin-top:10px; background:#25d366; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer; }
-#sugestoes-box button:hover { background:#128c4a; }
+/* Modal de Ebooks */
+#modal-ebooks { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:3000; justify-content:center; align-items:center; }
+#modal-ebooks .modal-content { background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80%; overflow-y:auto; position:relative; }
+#modal-ebooks button.fechar { position:absolute; top:10px; right:10px; background:red; color:white; border:none; border-radius:4px; padding:5px 10px; cursor:pointer; }
 </style>
 
-<!-- Código Adsense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875462679161698" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -56,8 +53,8 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   <img src="images/logo.png" alt="Casa Feliz Logo" class="logo"/>
   <h1 id="titulo-principal">Casa Feliz – Ebooks e Cursos Online</h1>
   <div class="lang-switch">
-    <img src="https://flagcdn.com/24x18/pt.png" alt="PT" onclick="setLanguage('pt')">
-    <img src="https://flagcdn.com/24x18/gb.png" alt="EN" onclick="setLanguage('en')">
+    <span onclick="setLanguage('pt')">🇵🇹</span>
+    <span onclick="setLanguage('en')">🇬🇧</span>
   </div>
 </header>
 
@@ -77,7 +74,6 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   </div>
 </nav>
 
-<!-- Bloco Adsense topo -->
 <div style="max-width:1000px; margin:20px auto; text-align:center;">
   <ins class="adsbygoogle"
        style="display:block"
@@ -88,6 +84,12 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 </div>
 
 <main>
+  <!-- Botão Ver Todos os Ebooks -->
+  <div style="text-align:center; margin:30px 0;">
+    <button id="btn-ver-todos" class="btn-add">📚 Ver Todos os Ebooks</button>
+  </div>
+
+  <!-- Secções de produtos -->
   <section id="domotica">
     <h2 id="titulo-domotica">📗 Ebooks e Cursos Online de Domótica</h2>
     <div class="products">
@@ -151,13 +153,10 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
-  <div style="text-align:center; margin:40px 0;">
-    <a href="#" style="background:#008080; color:white; padding:12px 20px; border-radius:6px; text-decoration:none; font-weight:bold;">📚 Ver Todos os Ebooks</a>
-  </div>
-
+  <!-- Contactos -->
   <section id="contactos">
     <h2 id="titulo-contactos">📞 Contactos</h2>
-    <ul style="list-style:none; text-align:center; padding:0;">
+    <ul>
       <li>👤 Fundador: Carlos Oliveira</li>
       <li>📱 WhatsApp: <a href="https://wa.me/351000000000" target="_blank">+351 000 000 000</a></li>
       <li>📘 Facebook: <a href="https://www.facebook.com/share/19f9GhAERQ/" target="_blank">Casa Feliz</a></li>
@@ -166,20 +165,58 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   </section>
 </main>
 
-<footer>
-  Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
-  <div id="contador">Visitas: 0</div>
-</footer>
-
-<!-- Botão Sugestões -->
-<div id="sugestoes-btn" onclick="document.getElementById('sugestoes-modal').style.display='flex'">Sugestões / Solicitações</div>
-<div id="sugestoes-modal">
-  <div id="sugestoes-box">
-    <h3>Sugestões / Solicitações</h3>
-    <textarea id="sugestao-text" placeholder="Escreva a sua sugestão..."></textarea>
-    <button onclick="enviarSugestao()">📩 Enviar via WhatsApp</button>
+<!-- Modal de Ebooks -->
+<div id="modal-ebooks">
+  <div class="modal-content">
+    <button class="fechar">✖</button>
+    <h2 style="text-align:center; color:#e65100;">Todos os Ebooks</h2>
+    <ul style="list-style:none; padding:0; margin-top:20px; font-size:1.1em;">
+      <li style="margin-bottom:15px;">
+        📗 Ebook Domótica Inteligente Online — 12,90€<br>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px; text-align:center;">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+          <input type="hidden" name="item_name" value="Ebook Domótica Inteligente Online">
+          <input type="hidden" name="amount" value="12.90">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+        </form>
+      </li>
+      <li style="margin-bottom:15px;">
+        🚗 Ebook Manutenção Automóvel Online — 15,00€<br>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px; text-align:center;">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+          <input type="hidden" name="item_name" value="Ebook Manutenção Automóvel Online">
+          <input type="hidden" name="amount" value="15.00">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+        </form>
+      </li>
+      <li style="margin-bottom:15px;">
+        🔨 Ebook Bricolage Fácil Online — 9,90€<br>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px; text-align:center;">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+          <input type="hidden" name="item_name" value="Ebook Bricolage Fácil Online">
+          <input type="hidden" name="amount" value="9.90">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+        </form>
+      </li>
+    </ul>
   </div>
 </div>
+
+<!-- Sugestões / Solicitações -->
+<div style="position:fixed; bottom:30px; right:30px; z-index:4000;">
+  <button onclick="abrirSugestoes()" style="background:#e65100; color:white; border:none; border-radius:6px; padding:10px 15px; cursor:pointer;">💬 Sugestões / Solicitações</button>
+</div>
+
+<footer>
+  Casa Feliz &copy; 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
+  <div id="contador">Visitas: 0</div>
+</footer>
 
 <script>
 // Carrinho
@@ -197,10 +234,7 @@ function updateCart() {
   document.getElementById("cart-items").innerHTML = itemsHTML;
   document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
 }
-function toggleCart() {
-  const dropdown = document.getElementById("cart-dropdown");
-  dropdown.style.display = dropdown.style.display==="block"?"none":"block";
-}
+function toggleCart() { const dropdown = document.getElementById("cart-dropdown"); dropdown.style.display = dropdown.style.display==="block"?"none":"block"; }
 function checkoutWhatsApp() {
   if(cart.length===0){ alert("O carrinho está vazio!"); return; }
   let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
@@ -216,7 +250,7 @@ contador++;
 localStorage.setItem('visitas', contador);
 document.getElementById('contador').textContent = "Visitas: "+contador;
 
-// Idiomas
+// Troca de idioma
 function setLanguage(lang) {
   if(lang==='pt') {
     document.getElementById('titulo-principal').textContent = "Casa Feliz – Ebooks e Cursos Online";
@@ -253,15 +287,19 @@ function setLanguage(lang) {
   }
 }
 
-// Sugestões
-function enviarSugestao() {
-  let texto = document.getElementById('sugestao-text').value;
-  if(texto.trim()===""){ alert("Por favor escreva uma sugestão."); return; }
-  window.open("https://wa.me/351000000000?text="+encodeURIComponent("Sugestão: "+texto),"_blank");
-}
-window.onclick = function(event) {
-  const modal=document.getElementById('sugestoes-modal');
-  if(event.target===modal){ modal.style.display="none"; }
+// Modal de Ebooks
+const btnVerTodos = document.getElementById("btn-ver-todos");
+const modalEbooks = document.getElementById("modal-ebooks");
+const fecharModal = modalEbooks.querySelector(".fechar");
+
+btnVerTodos.addEventListener("click", () => { modalEbooks.style.display = "flex"; });
+fecharModal.addEventListener("click", () => { modalEbooks.style.display = "none"; });
+modalEbooks.addEventListener("click", (e) => { if(e.target === modalEbooks) modalEbooks.style.display = "none"; });
+
+// Sugestões / Solicitações
+function abrirSugestoes() {
+  const msg="Olá! Tenho uma sugestão / solicitação para a Casa Feliz:";
+  window.open("https://wa.me/351000000000?text="+encodeURIComponent(msg),"_blank");
 }
 </script>
 
