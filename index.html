@@ -71,20 +71,21 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   </div>
 </nav>
 
-<!-- Bloco de anúncio de teste AdSense -->
-<div style="max-width:1000px; margin:20px auto; text-align:center;">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3940256099942544"
-       data-ad-slot="6300978111"
-       data-ad-format="auto"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
 <main>
   <!-- Domótica -->
   <section id="domotica">
     <h2 id="titulo-domotica">📗 Ebooks e Cursos Online de Domótica</h2>
+
+    <!-- Bloco de anúncio de teste AdSense -->
+    <div style="text-align:center; margin:20px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3940256099942544"
+           data-ad-slot="6300978111"
+           data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <div class="products">
       <div class="product">
         <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Domótica Ebook" />
@@ -107,6 +108,17 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   <!-- Automóvel -->
   <section id="auto">
     <h2 id="titulo-auto">🚗 Ebooks e Cursos Online de Manutenção Automóvel</h2>
+
+    <!-- Bloco de anúncio de teste AdSense -->
+    <div style="text-align:center; margin:20px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3940256099942544"
+           data-ad-slot="6300978111"
+           data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <div class="products">
       <div class="product">
         <img src="https://via.placeholder.com/250x150?text=Auto+1" alt="Manutenção Automóvel Ebook" />
@@ -129,6 +141,17 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   <!-- Bricolage -->
   <section id="bricolage">
     <h2 id="titulo-bricolage">🔨 Ebooks e Cursos Online de Bricolage em Casa</h2>
+
+    <!-- Bloco de anúncio de teste AdSense -->
+    <div style="text-align:center; margin:20px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3940256099942544"
+           data-ad-slot="6300978111"
+           data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <div class="products">
       <div class="product">
         <img src="https://via.placeholder.com/250x150?text=Bricolage+1" alt="Bricolage Ebook" />
@@ -181,13 +204,13 @@ function updateCart() {
   document.getElementById("cart-items").innerHTML = itemsHTML;
   document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
 }
-document.getElementById("cart").onclick = function(e){ 
-  if(!e.target.classList.contains("btn-remove")) toggleCart(); 
-};
 function toggleCart() { 
   const dropdown = document.getElementById("cart-dropdown"); 
   dropdown.style.display = dropdown.style.display==="block"?"none":"block"; 
 }
+document.getElementById("cart").onclick = function(e){ 
+  if(!e.target.classList.contains("btn-remove")) toggleCart(); 
+};
 document.getElementById("btn-whatsapp").onclick = function(e){
   e.preventDefault();
   if(cart.length===0){ alert("O carrinho está vazio!"); return; }
