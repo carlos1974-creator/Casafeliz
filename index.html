@@ -91,14 +91,14 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
         <h3 id="produto-domotica">Ebook Domótica Inteligente Online</h3>
         <p id="desc-domotica">Aprenda a automatizar sua casa com sistemas modernos.</p>
         <div class="price">12,90€</div>
-        <button onclick="addToCart('Ebook Domótica Inteligente Online', 12.90)" class="btn-add" id="btn-add-domotica">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Ebook Domótica Inteligente Online', 12.90)" class="btn-add">Adicionar ao Carrinho</button>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
           <input type="hidden" name="cmd" value="_xclick">
           <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
           <input type="hidden" name="item_name" value="Ebook Domótica Inteligente Online">
           <input type="hidden" name="amount" value="12.90">
           <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Comprar com PayPal" class="btn-paypal" id="btn-paypal-domotica">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
         </form>
       </div>
     </div>
@@ -113,14 +113,14 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
         <h3 id="produto-auto">Ebook Manutenção Automóvel Online</h3>
         <p id="desc-auto">Dicas e técnicas para cuidar do seu carro.</p>
         <div class="price">15,00€</div>
-        <button onclick="addToCart('Ebook Manutenção Automóvel Online', 15.00)" class="btn-add" id="btn-add-auto">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Ebook Manutenção Automóvel Online', 15.00)" class="btn-add">Adicionar ao Carrinho</button>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
           <input type="hidden" name="cmd" value="_xclick">
           <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
           <input type="hidden" name="item_name" value="Ebook Manutenção Automóvel Online">
           <input type="hidden" name="amount" value="15.00">
           <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Comprar com PayPal" class="btn-paypal" id="btn-paypal-auto">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
         </form>
       </div>
     </div>
@@ -135,14 +135,14 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
         <h3 id="produto-bricolage">Ebook Bricolage Fácil Online</h3>
         <p id="desc-bricolage">Projetos simples e práticos para casa.</p>
         <div class="price">9,90€</div>
-        <button onclick="addToCart('Ebook Bricolage Fácil Online', 9.90)" class="btn-add" id="btn-add-bricolage">Adicionar ao Carrinho</button>
+        <button onclick="addToCart('Ebook Bricolage Fácil Online', 9.90)" class="btn-add">Adicionar ao Carrinho</button>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
           <input type="hidden" name="cmd" value="_xclick">
           <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
           <input type="hidden" name="item_name" value="Ebook Bricolage Fácil Online">
           <input type="hidden" name="amount" value="9.90">
           <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Comprar com PayPal" class="btn-paypal" id="btn-paypal-bricolage">
+          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
         </form>
       </div>
     </div>
@@ -179,10 +179,9 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 <script>
 // =================== Carrinho ===================
 let cart = [];
-
-function addToCart(product, price) { cart.push({product, price}); updateCart(); }
-function removeFromCart(index) { cart.splice(index,1); updateCart(); }
-function updateCart() {
+function addToCart(product, price){ cart.push({product,price}); updateCart(); }
+function removeFromCart(index){ cart.splice(index,1); updateCart(); }
+function updateCart(){
   document.getElementById("cart-count").textContent = cart.length;
   let itemsHTML = "";
   let total = 0;
@@ -194,10 +193,9 @@ function updateCart() {
   document.getElementById("cart-items").innerHTML = itemsHTML || "<li>(vazio)</li>";
   document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
 }
-function toggleCart() { const dropdown = document.getElementById("cart-dropdown"); dropdown.style.display = dropdown.style.display==="block"?"none":"block"; }
+function toggleCart(){ const dropdown = document.getElementById("cart-dropdown"); dropdown.style.display = dropdown.style.display==="block"?"none":"block"; }
 document.addEventListener("click", e=>{ if(!document.getElementById("cart").contains(e.target)) document.getElementById("cart-dropdown").style.display="none"; });
 document.getElementById("cart").addEventListener("click", ()=>toggleCart());
-
 function checkoutWhatsApp(){
   if(cart.length===0){ alert("O carrinho está vazio!"); return; }
   let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
@@ -209,45 +207,45 @@ function checkoutWhatsApp(){
 document.getElementById("btn-whatsapp").addEventListener("click", checkoutWhatsApp);
 
 // =================== Contador de visitas ===================
-let contador = localStorage.getItem('visitas') || 0;
-contador++;
-localStorage.setItem('visitas', contador);
-document.getElementById('contador').textContent = "Visitas: " + contador;
+let visitas = parseInt(localStorage.getItem('visitas')) || 0;
+visitas++;
+localStorage.setItem('visitas', visitas);
+document.getElementById('contador').textContent = "Visitas: " + visitas;
 
 // =================== Troca de idioma ===================
-function setLanguage(lang) {
-  if(lang==='pt') {
-    document.getElementById('titulo-principal').textContent = "Casa Feliz – Ebooks e Cursos Online";
-    document.getElementById('nav-domotica').textContent = "Domótica Online";
-    document.getElementById('nav-auto').textContent = "Manutenção Automóvel Online";
-    document.getElementById('nav-bricolage').textContent = "Bricolage em Casa Online";
-    document.getElementById('nav-contactos').textContent = "Contactos";
-    document.getElementById('titulo-domotica').textContent = "📗 Ebooks e Cursos Online de Domótica";
-    document.getElementById('produto-domotica').textContent = "Ebook Domótica Inteligente Online";
-    document.getElementById('desc-domotica').textContent = "Aprenda a automatizar sua casa com sistemas modernos.";
-    document.getElementById('titulo-auto').textContent = "🚗 Ebooks e Cursos Online de Manutenção Automóvel";
-    document.getElementById('produto-auto').textContent = "Ebook Manutenção Automóvel Online";
-    document.getElementById('desc-auto').textContent = "Dicas e técnicas para cuidar do seu carro.";
-    document.getElementById('titulo-bricolage').textContent = "🔨 Ebooks e Cursos Online de Bricolage em Casa";
-    document.getElementById('produto-bricolage').textContent = "Ebook Bricolage Fácil Online";
-    document.getElementById('desc-bricolage').textContent = "Projetos simples e práticos para casa.";
-    document.getElementById('titulo-contactos').textContent = "📞 Contactos";
+function setLanguage(lang){
+  if(lang==='pt'){
+    document.getElementById('titulo-principal').textContent="Casa Feliz – Ebooks e Cursos Online";
+    document.getElementById('nav-domotica').textContent="Domótica Online";
+    document.getElementById('nav-auto').textContent="Manutenção Automóvel Online";
+    document.getElementById('nav-bricolage').textContent="Bricolage em Casa Online";
+    document.getElementById('nav-contactos').textContent="Contactos";
+    document.getElementById('titulo-domotica').textContent="📗 Ebooks e Cursos Online de Domótica";
+    document.getElementById('produto-domotica').textContent="Ebook Domótica Inteligente Online";
+    document.getElementById('desc-domotica').textContent="Aprenda a automatizar sua casa com sistemas modernos.";
+    document.getElementById('titulo-auto').textContent="🚗 Ebooks e Cursos Online de Manutenção Automóvel";
+    document.getElementById('produto-auto').textContent="Ebook Manutenção Automóvel Online";
+    document.getElementById('desc-auto').textContent="Dicas e técnicas para cuidar do seu carro.";
+    document.getElementById('titulo-bricolage').textContent="🔨 Ebooks e Cursos Online de Bricolage em Casa";
+    document.getElementById('produto-bricolage').textContent="Ebook Bricolage Fácil Online";
+    document.getElementById('desc-bricolage').textContent="Projetos simples e práticos para casa.";
+    document.getElementById('titulo-contactos').textContent="📞 Contactos";
   } else {
-    document.getElementById('titulo-principal').textContent = "Casa Feliz – Online Ebooks and Courses";
-    document.getElementById('nav-domotica').textContent = "Home Automation Online";
-    document.getElementById('nav-auto').textContent = "Car Maintenance Online";
-    document.getElementById('nav-bricolage').textContent = "DIY at Home Online";
-    document.getElementById('nav-contactos').textContent = "Contacts";
-    document.getElementById('titulo-domotica').textContent = "📗 Online Ebooks and Courses on Home Automation";
-    document.getElementById('produto-domotica').textContent = "Smart Home Automation Ebook";
-    document.getElementById('desc-domotica').textContent = "Learn to automate your home with modern systems.";
-    document.getElementById('titulo-auto').textContent = "🚗 Online Ebooks and Courses on Car Maintenance";
-    document.getElementById('produto-auto').textContent = "Car Maintenance Ebook";
-    document.getElementById('desc-auto').textContent = "Tips and techniques to take care of your car.";
-    document.getElementById('titulo-bricolage').textContent = "🔨 Online Ebooks and Courses on DIY at Home";
-    document.getElementById('produto-bricolage').textContent = "Easy DIY Ebook";
-    document.getElementById('desc-bricolage').textContent = "Simple and practical projects for home.";
-    document.getElementById('titulo-contactos').textContent = "📞 Contacts";
+    document.getElementById('titulo-principal').textContent="Casa Feliz – Online Ebooks and Courses";
+    document.getElementById('nav-domotica').textContent="Home Automation Online";
+    document.getElementById('nav-auto').textContent="Car Maintenance Online";
+    document.getElementById('nav-bricolage').textContent="DIY at Home Online";
+    document.getElementById('nav-contactos').textContent="Contacts";
+    document.getElementById('titulo-domotica').textContent="📗 Online Ebooks and Courses on Home Automation";
+    document.getElementById('produto-domotica').textContent="Smart Home Automation Ebook";
+    document.getElementById('desc-domotica').textContent="Learn to automate your home with modern systems.";
+    document.getElementById('titulo-auto').textContent="🚗 Online Ebooks and Courses on Car Maintenance";
+    document.getElementById('produto-auto').textContent="Car Maintenance Ebook";
+    document.getElementById('desc-auto').textContent="Tips and techniques to take care of your car.";
+    document.getElementById('titulo-bricolage').textContent="🔨 Online Ebooks and Courses on DIY at Home";
+    document.getElementById('produto-bricolage').textContent="Easy DIY Ebook";
+    document.getElementById('desc-bricolage').textContent="Simple and practical projects for home.";
+    document.getElementById('titulo-contactos').textContent="📞 Contacts";
   }
 }
 </script>
