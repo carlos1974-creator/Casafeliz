@@ -10,8 +10,8 @@
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
 header img.logo { width:220px; height:auto; display:block; margin:0 auto 10px auto; }
-.lang-switch { position:absolute; top:20px; right:20px; }
-.lang-switch .flag { width:28px; cursor:pointer; margin-left:5px; vertical-align:middle; }
+.lang-switch { position:absolute; top:20px; right:20px; font-size:28px; }
+.lang-switch span { cursor:pointer; margin-left:5px; }
 nav { background:#e0e0e0; display:flex; justify-content:center; align-items:center; padding:10px; position:sticky; top:0; z-index:1000; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
@@ -50,6 +50,10 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 /* Botão Ver Todos Ebooks */
 .btn-ver-todos { display:block; margin:40px auto; background:#e65100; color:white; padding:10px 15px; border-radius:6px; text-align:center; font-weight:bold; cursor:pointer; border:none; }
 .btn-ver-todos:hover { background:#bf360c; }
+
+/* Botão Sugestões / Solicitações fixo */
+#btn-sugestoes { position:fixed; bottom:20px; right:20px; z-index:5000; padding:10px 15px; background:#e65100; color:white; border:none; border-radius:5px; cursor:pointer; }
+#btn-sugestoes:hover { background:#bf360c; }
 </style>
 </head>
 <body>
@@ -58,8 +62,8 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
   <img src="images/logo.png" alt="Casa Feliz Logo" class="logo"/>
   <h1 id="titulo-principal">Casa Feliz – Ebooks e Cursos Online</h1>
   <div class="lang-switch">
-    <img src="images/pt.png" alt="Português" onclick="setLanguage('pt')" class="flag">
-    <img src="images/en.png" alt="English" onclick="setLanguage('en')" class="flag">
+    <span onclick="setLanguage('pt')">🇵🇹</span>
+    <span onclick="setLanguage('en')">🇬🇧</span>
   </div>
 </header>
 
@@ -143,7 +147,7 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
     </div>
   </section>
 
-  <button class="btn-ver-todos" onclick="openAllEbooks()">Ver todos os Ebooks</button>
+  <button class="btn-ver-todos">Ver todos os Ebooks</button>
 
   <section id="contactos">
     <h2 id="titulo-contactos">📞 Contactos</h2>
@@ -157,16 +161,19 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 </main>
 
 <footer>
-  Casa Feliz &copy; 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
+  Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
   <div id="contador">Visitas: 0</div>
 </footer>
 
-<!-- Modal Sugestões / Solicitações -->
+<!-- Botão Sugestões / Solicitações -->
+<button id="btn-sugestoes" onclick="openSugestoes()">Sugestões / Solicitações</button>
+
+<!-- Modal Sugestões -->
 <div id="modal-sugestoes">
   <div class="modal-content">
     <h3>Sugestões / Solicitações</h3>
     <p>Envie sua mensagem via WhatsApp para nós!</p>
-    <button onclick="window.open('https://wa.me/351000000000', '_blank')">Enviar via WhatsApp</button>
+    <button onclick="window.open('https://wa.me/351000000000','_blank')">Enviar via WhatsApp</button>
     <button onclick="closeSugestoes()">Fechar</button>
   </div>
 </div>
@@ -241,12 +248,9 @@ function setLanguage(lang) {
 }
 
 // Modal Sugestões
-function openSugestoes() { document.getElementById('modal-sugestoes').style.display='block'; }
-function closeSugestoes() { document.getElementById('modal-sugestoes').style.display='none'; }
-
-// Botão Ver Todos Ebooks
-function openAllEbooks() { alert('Aqui você pode exibir todos os ebooks (exemplo).'); }
-
+function openSugestoes(){ document.getElementById('modal-sugestoes').style.display='block'; }
+function closeSugestoes(){ document.getElementById('modal-sugestoes').style.display='none'; }
 </script>
+
 </body>
 </html>
