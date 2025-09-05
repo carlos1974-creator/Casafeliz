@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Casa Feliz – Ebooks e Cursos Online</title>
 <style>
-body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; padding-bottom:70px; /* espaço para footer */ }
+body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; padding-bottom:70px; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
 header img.logo { width:220px; display:block; margin:0 auto 10px auto; }
 .lang-switch { position:absolute; top:20px; right:20px; display:flex; gap:8px; }
@@ -24,7 +24,7 @@ nav a:hover { color:#e65100; }
 main { max-width:1000px; margin:30px auto; padding:0 15px; text-align:center; }
 .product { background:white; border-radius:6px; padding:15px; max-width:280px; display:inline-block; margin:10px; vertical-align:top; }
 .price { font-weight:bold; color:#e65100; margin:10px 0; }
-.btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; }
+.btn-add, .btn-paypal { background:#008080; color:white; padding:8px 12px; border-radius:5px; text-decoration:none; font-weight:bold; cursor:pointer; border:none; width:100%; }
 .btn-add:hover, .btn-paypal:hover { background:#006666; }
 #contador { color:#00ff00; display:block; margin-top:5px; }
 
@@ -86,6 +86,7 @@ footer {
 </nav>
 
 <main>
+  <!-- Domótica -->
   <section id="domotica">
     <h2>📗 Ebooks e Cursos Online de Domótica</h2>
     <div class="product">
@@ -93,9 +94,18 @@ footer {
       <p>Aprenda a automatizar sua casa com sistemas modernos.</p>
       <div class="price">12,90€</div>
       <button onclick="addToCart('Ebook Domótica Inteligente Online', 12.90)" class="btn-add">Adicionar ao Carrinho</button>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+        <input type="hidden" name="item_name" value="Ebook Domótica Inteligente Online">
+        <input type="hidden" name="amount" value="12.90">
+        <input type="hidden" name="currency_code" value="EUR">
+        <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+      </form>
     </div>
   </section>
 
+  <!-- Automóvel -->
   <section id="auto">
     <h2>🚗 Ebooks e Cursos Online de Manutenção Automóvel</h2>
     <div class="product">
@@ -103,9 +113,18 @@ footer {
       <p>Dicas e técnicas para cuidar do seu carro.</p>
       <div class="price">15,00€</div>
       <button onclick="addToCart('Ebook Manutenção Automóvel Online', 15.00)" class="btn-add">Adicionar ao Carrinho</button>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+        <input type="hidden" name="item_name" value="Ebook Manutenção Automóvel Online">
+        <input type="hidden" name="amount" value="15.00">
+        <input type="hidden" name="currency_code" value="EUR">
+        <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+      </form>
     </div>
   </section>
 
+  <!-- Bricolage -->
   <section id="bricolage">
     <h2>🔨 Ebooks e Cursos Online de Bricolage em Casa</h2>
     <div class="product">
@@ -113,9 +132,18 @@ footer {
       <p>Projetos simples e práticos para casa.</p>
       <div class="price">9,90€</div>
       <button onclick="addToCart('Ebook Bricolage Fácil Online', 9.90)" class="btn-add">Adicionar ao Carrinho</button>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:5px;">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
+        <input type="hidden" name="item_name" value="Ebook Bricolage Fácil Online">
+        <input type="hidden" name="amount" value="9.90">
+        <input type="hidden" name="currency_code" value="EUR">
+        <input type="submit" value="Comprar com PayPal" class="btn-paypal">
+      </form>
     </div>
   </section>
 
+  <!-- Contactos -->
   <section id="contactos">
     <h2>📞 Contactos</h2>
     <ul>
@@ -127,13 +155,12 @@ footer {
   </section>
 </main>
 
-<!-- Botão e modal de sugestões -->
+<!-- Sugestões -->
 <button id="suggestionsBtn">Sugestões 💬</button>
 <div id="suggestionsModal">
   <div id="suggestionsModalContent">
     <span class="close" onclick="closeSuggestions()">X</span>
     <h3>Envie a sua sugestão</h3>
-    <p>Escreva a sua sugestão ou pedido abaixo:</p>
     <textarea id="suggestionText" placeholder="Escreva aqui..."></textarea>
     <button onclick="sendSuggestion()">Enviar para WhatsApp</button>
   </div>
