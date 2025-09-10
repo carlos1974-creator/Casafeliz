@@ -142,6 +142,12 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   </ul>
 </section>
 
+<!-- Botão Sugestões / Solicitações -->
+<div id="btn-sugestoes" onclick="window.open('https://wa.me/351928332158?text=Olá! Gostaria de enviar Sugestões / Solicitações','_blank')"
+     style="position:fixed; bottom:20px; right:20px; background:#25d366; color:white; padding:12px 15px; border-radius:50px; cursor:pointer; font-weight:bold; z-index:9999; text-align:center;">
+  💬 Sugestões / Solicitações
+</div>
+
 <footer>
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
 </footer>
@@ -152,6 +158,10 @@ let cart = [];
 function addToCartWhatsApp(product, price) {
   cart.push({product, price});
   alert(product+" adicionado ao carrinho WhatsApp!");
+}
+function toggleCart() { 
+  const dropdown = document.getElementById("cart-dropdown"); 
+  dropdown.style.display = dropdown.style.display==="block"?"none":"block"; 
 }
 function checkoutWhatsApp() {
   if(cart.length===0){ alert("O carrinho está vazio!"); return; }
