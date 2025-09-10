@@ -8,6 +8,7 @@
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
 header img.logo { width:260px; height:auto; display:block; margin:0 auto 10px auto; }
+.lang-switch { position:absolute; top:20px; right:20px; display:flex; gap:8px; cursor:pointer; font-size:24px; }
 
 nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
@@ -46,6 +47,11 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 <header>
   <img src="images/logo.png" alt="Casa Feliz Logo" class="logo">
   <h1>Casa Feliz – Domótica e Produtos Inteligentes</h1>
+  <!-- Seleção de idioma -->
+  <div class="lang-switch">
+    <span class="flag" onclick="setLanguage('pt')">🇵🇹</span>
+    <span class="flag" onclick="setLanguage('en')">🇬🇧</span>
+  </div>
 </header>
 
 <nav>
@@ -171,6 +177,17 @@ function checkoutWhatsApp() {
   const total=cart.reduce((sum,item)=>sum+item.price,0);
   msg+="Total: "+total.toFixed(2)+"€";
   window.open("https://wa.me/351928332158?text="+encodeURIComponent(msg),"_blank");
+}
+
+// Troca de idioma
+function setLanguage(lang) {
+  if(lang==='pt') {
+    document.querySelector('h1').textContent = "Casa Feliz – Domótica e Produtos Inteligentes";
+    document.querySelector('h2').textContent = "📗 Ebook Domótica Inteligente";
+  } else {
+    document.querySelector('h1').textContent = "Casa Feliz – Smart Home and Smart Products";
+    document.querySelector('h2').textContent = "📗 Smart Home Automation Ebook";
+  }
 }
 </script>
 
