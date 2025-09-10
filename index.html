@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casa Feliz – Ebooks e Produtos Inteligentes</title>
+<title>Casa Feliz – Domótica e Produtos Inteligentes</title>
 <style>
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
@@ -17,7 +17,9 @@ nav a:hover { color:#e65100; }
 .products { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin:20px 0; }
 .product { background:white; border-radius:6px; padding:10px; max-width:220px; text-align:center; box-shadow:0 0 6px rgba(0,0,0,0.1);}
 .product img { max-width:100%; border-radius:6px; }
-.afiliado { margin-top:5px; font-size:0.9em; color:#555; }
+
+.btn-comprar, .btn-paypal { margin-top:8px; display:inline-block; padding:8px 12px; background:#e65100; color:white; border-radius:5px; text-decoration:none; font-weight:bold; }
+.btn-comprar:hover, .btn-paypal:hover { background:#ff7f26; }
 
 #btn-sugestoes { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; padding:12px 15px; border-radius:50px; cursor:pointer; font-weight:bold; z-index:9999; text-align:center; }
 #btn-sugestoes:hover { background:#128c4a; }
@@ -25,13 +27,19 @@ nav a:hover { color:#e65100; }
 footer { background:#008080; color:white; text-align:center; padding:15px; margin-top:40px; }
 #contador { color:#00ff00; font-weight:bold; margin-top:10px; text-align:center; }
 section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
+
+/* Centralizar contactos */
+#contactos ul { list-style:none; padding:0; text-align:center; }
+#contactos li { margin:8px 0; font-size:1.05em; }
+#contactos a { color:#008080; text-decoration:none; font-weight:bold; }
+#contactos a:hover { color:#e65100; }
 </style>
 </head>
 <body>
 
 <header>
 <img src="images/logo.png" alt="Casa Feliz Logo" class="logo">
-<h1 id="titulo-principal">Casa Feliz – Ebooks e Produtos Inteligentes</h1>
+<h1>Casa Feliz – Domótica e Produtos Inteligentes</h1>
 <div class="lang-switch">
   <span class="flag" onclick="setLanguage('pt')">🇵🇹</span>
   <span class="flag" onclick="setLanguage('en')">🇬🇧</span>
@@ -40,8 +48,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 
 <nav>
 <a href="#domotica" id="nav-domotica">Domótica Online</a>
-<a href="#auto" id="nav-auto">Manutenção Automóvel Online</a>
-<a href="#bricolage" id="nav-bricolage">Bricolage em Casa Online</a>
 <a href="#aliexpress" id="nav-aliexpress">Produtos AliExpress</a>
 <a href="#contactos" id="nav-contactos">Contactos</a>
 </nav>
@@ -62,47 +68,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <input type="hidden" name="item_name" value="Domótica para Iniciantes">
       <input type="hidden" name="amount" value="12.90">
       <input type="hidden" name="currency_code" value="EUR">
-      <input type="submit" value="Comprar com PayPal" class="btn-add">
-    </form>
-  </div>
-</div>
-</section>
-
-<!-- Manutenção Automóvel -->
-<section id="auto">
-<h2>🚗 Ebooks e Cursos Online de Manutenção Automóvel</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images-na.ssl-images-amazon.com/images/I/51O+2p1uXVL._SX258_BO1,204,203,200_.jpg" alt="Manutenção Automóvel Básica">
-    <h3>Manutenção Automóvel Básica</h3>
-    <p>Dicas e técnicas para cuidar do seu carro.</p>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_xclick">
-      <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-      <input type="hidden" name="item_name" value="Manutenção Automóvel Básica">
-      <input type="hidden" name="amount" value="15.00">
-      <input type="hidden" name="currency_code" value="EUR">
-      <input type="submit" value="Comprar com PayPal" class="btn-add">
-    </form>
-  </div>
-</div>
-</section>
-
-<!-- Bricolage -->
-<section id="bricolage">
-<h2>🔨 Ebooks e Cursos Online de Bricolage em Casa</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images-na.ssl-images-amazon.com/images/I/51Z0ZrkZkLL._SX258_BO1,204,203,200_.jpg" alt="Bricolage Fácil">
-    <h3>Bricolage Fácil</h3>
-    <p>Projetos simples e práticos para casa.</p>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_xclick">
-      <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-      <input type="hidden" name="item_name" value="Bricolage Fácil">
-      <input type="hidden" name="amount" value="9.90">
-      <input type="hidden" name="currency_code" value="EUR">
-      <input type="submit" value="Comprar com PayPal" class="btn-add">
+      <input type="submit" value="Comprar com PayPal" class="btn-paypal">
     </form>
   </div>
 </div>
@@ -118,7 +84,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <img src="https://ae01.alicdn.com/kf/H123abc456789/LED-WiFi-Lamp.jpg" alt="Lâmpada LED WiFi">
     </a>
     <h3>Lâmpada LED WiFi</h3>
-    <div class="afiliado">Link afiliado AliExpress</div>
+    <a href="https://s.click.aliexpress.com/e/_oFUcCwF" target="_blank" class="btn-comprar">Comprar</a>
   </div>
 
   <div class="product">
@@ -126,7 +92,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <img src="https://ae01.alicdn.com/kf/H987def654321/Smart-Plug.jpg" alt="Tomada Inteligente WiFi">
     </a>
     <h3>Tomada Inteligente WiFi</h3>
-    <div class="afiliado">Link afiliado AliExpress</div>
+    <a href="https://s.click.aliexpress.com/e/_omEGhuL" target="_blank" class="btn-comprar">Comprar</a>
   </div>
 
   <div class="product">
@@ -134,7 +100,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <img src="https://ae01.alicdn.com/kf/H456ghj123456/Camera-WiFi.jpg" alt="Câmera IP WiFi">
     </a>
     <h3>Câmera IP WiFi</h3>
-    <div class="afiliado">Link afiliado AliExpress</div>
+    <a href="https://s.click.aliexpress.com/e/_dKJhPpR" target="_blank" class="btn-comprar">Comprar</a>
   </div>
 
   <div class="product">
@@ -142,7 +108,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <img src="https://ae01.alicdn.com/kf/H789ijk654321/Motion-Sensor.jpg" alt="Sensor de Movimento Smart">
     </a>
     <h3>Sensor de Movimento Smart</h3>
-    <div class="afiliado">Link afiliado AliExpress</div>
+    <a href="https://s.click.aliexpress.com/e/_dKJhPqT" target="_blank" class="btn-comprar">Comprar</a>
   </div>
 
 </div>
@@ -174,9 +140,9 @@ document.getElementById('contador').textContent = "Visitas: "+contador;
 
 function setLanguage(lang) {
   if(lang==='pt') {
-    document.getElementById('titulo-principal').textContent = "Casa Feliz – Ebooks e Produtos Inteligentes";
+    document.querySelector('h1').textContent = "Casa Feliz – Domótica e Produtos Inteligentes";
   } else {
-    document.getElementById('titulo-principal').textContent = "Casa Feliz – Online Ebooks and Products";
+    document.querySelector('h1').textContent = "Casa Feliz – Smart Home & Products";
   }
 }
 </script>
