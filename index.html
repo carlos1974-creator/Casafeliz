@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casa Feliz – Domótica e Produtos Inteligentes</title>
+<title>Casa Feliz – Produtos Inteligentes</title>
 <style>
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
@@ -18,8 +18,8 @@ nav a:hover { color:#e65100; }
 .product { background:white; border-radius:6px; padding:10px; max-width:220px; text-align:center; box-shadow:0 0 6px rgba(0,0,0,0.1);}
 .product img { max-width:100%; border-radius:6px; }
 
-.btn-comprar, .btn-paypal { margin-top:8px; display:inline-block; padding:8px 12px; background:#e65100; color:white; border-radius:5px; text-decoration:none; font-weight:bold; }
-.btn-comprar:hover, .btn-paypal:hover { background:#ff7f26; }
+.btn-comprar { margin-top:8px; display:inline-block; padding:8px 12px; background:#e65100; color:white; border-radius:5px; text-decoration:none; font-weight:bold; }
+.btn-comprar:hover { background:#ff7f26; }
 
 #btn-sugestoes { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; padding:12px 15px; border-radius:50px; cursor:pointer; font-weight:bold; z-index:9999; text-align:center; }
 #btn-sugestoes:hover { background:#128c4a; }
@@ -39,7 +39,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 
 <header>
 <img src="images/logo.png" alt="Casa Feliz Logo" class="logo">
-<h1>Casa Feliz – Domótica e Produtos Inteligentes</h1>
+<h1>Casa Feliz – Produtos Inteligentes</h1>
 <div class="lang-switch">
   <span class="flag" onclick="setLanguage('pt')">🇵🇹</span>
   <span class="flag" onclick="setLanguage('en')">🇬🇧</span>
@@ -47,32 +47,11 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 </header>
 
 <nav>
-<a href="#domotica" id="nav-domotica">Domótica Online</a>
 <a href="#aliexpress" id="nav-aliexpress">Produtos AliExpress</a>
 <a href="#contactos" id="nav-contactos">Contactos</a>
 </nav>
 
 <main>
-
-<!-- Domótica -->
-<section id="domotica">
-<h2>📗 Ebooks e Cursos Online de Domótica</h2>
-<div class="products">
-  <div class="product">
-    <img src="https://images-na.ssl-images-amazon.com/images/I/51cFz1H1lXL._SX258_BO1,204,203,200_.jpg" alt="Domótica para Iniciantes">
-    <h3>Domótica para Iniciantes</h3>
-    <p>Aprenda a automatizar sua casa com sistemas modernos.</p>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_xclick">
-      <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-      <input type="hidden" name="item_name" value="Domótica para Iniciantes">
-      <input type="hidden" name="amount" value="12.90">
-      <input type="hidden" name="currency_code" value="EUR">
-      <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-    </form>
-  </div>
-</div>
-</section>
 
 <!-- Produtos AliExpress -->
 <section id="aliexpress">
@@ -140,9 +119,9 @@ document.getElementById('contador').textContent = "Visitas: "+contador;
 
 function setLanguage(lang) {
   if(lang==='pt') {
-    document.querySelector('h1').textContent = "Casa Feliz – Domótica e Produtos Inteligentes";
+    document.querySelector('h1').textContent = "Casa Feliz – Produtos Inteligentes";
   } else {
-    document.querySelector('h1').textContent = "Casa Feliz – Smart Home & Products";
+    document.querySelector('h1').textContent = "Casa Feliz – Smart Products";
   }
 }
 </script>
