@@ -161,7 +161,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
 </footer>
 
-<!-- Scripts -->
 <script src="https://unpkg.com/countapi-js@1.0.0/dist/countapi.min.js"></script>
 <script>
 // Carrinho WhatsApp Domótica
@@ -197,8 +196,13 @@ function setLanguage(lang) {
 
 // Contador real de visitas com CountAPI
 const contadorElemento = document.getElementById('contador');
-countapi.hit('casafeliz', 'visitas').then(result => {
+const namespace = 'casafeliz_2025'; // namespace único do site
+const key = 'visitas'; 
+
+countapi.hit(namespace, key).then(result => {
     contadorElemento.innerText = result.value;
+}).catch(err => {
+    console.error('Erro ao acessar CountAPI:', err);
 });
 </script>
 
