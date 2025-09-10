@@ -57,8 +57,9 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 </header>
 
 <nav>
-  <a href="#domotica">Domótica</a>
-  <a href="#produtos-inteligentes">Produtos Inteligentes</a>
+  <a href="#domotica" id="nav-domotica">Domótica</a>
+  <a href="#produtos-inteligentes" id="nav-produtos">Produtos Inteligentes</a>
+  <a href="#contactos" id="nav-contactos">Contactos</a>
   <div class="cart" onclick="toggleCart()">
     <span class="cart-icon">🛒</span>
     <span class="cart-count" id="cart-count">0</span>
@@ -80,13 +81,8 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <img src="https://via.placeholder.com/250x150?text=Domotica+Ebook" alt="Domótica Ebook">
       <h3>Ebook Domótica Inteligente</h3>
       <p><strong>19,50€</strong></p>
-      <!-- Botão PayPal funcional via PayPal.Me -->
-      <a href="https://www.paypal.me/CarlosOliveira955/19.50" target="_blank" class="btn-azul">
-        Comprar PayPal
-      </a>
-      <button class="btn-verde" onclick="addToCartWhatsApp('Ebook Domótica Inteligente', 19.50)">
-        Comprar via WhatsApp
-      </button>
+      <a href="https://www.paypal.me/CarlosOliveira955/19.50" target="_blank" class="btn-azul">Comprar PayPal</a>
+      <button class="btn-verde" onclick="addToCartWhatsApp('Ebook Domótica Inteligente', 19.50)">Comprar via WhatsApp</button>
     </div>
   </div>
 </section>
@@ -102,7 +98,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <h3>Lâmpada LED WiFi</h3>
       <a href="https://s.click.aliexpress.com/e/_olVnySb" target="_blank" class="btn-azul">Comprar AliExpress</a>
     </div>
-
     <div class="product">
       <a href="https://s.click.aliexpress.com/e/_oFC1dgx" target="_blank">
         <img src="https://via.placeholder.com/250x150?text=Tomada+Inteligente+WiFi" alt="Tomada Inteligente WiFi">
@@ -110,7 +105,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <h3>Tomada Inteligente WiFi</h3>
       <a href="https://s.click.aliexpress.com/e/_oFC1dgx" target="_blank" class="btn-azul">Comprar AliExpress</a>
     </div>
-
     <div class="product">
       <a href="https://s.click.aliexpress.com/e/_oCuO2Wx" target="_blank">
         <img src="https://via.placeholder.com/250x150?text=Câmera+Segurança" alt="Câmera de Segurança Inteligente">
@@ -118,7 +112,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <h3>Câmera de Segurança Inteligente</h3>
       <a href="https://s.click.aliexpress.com/e/_oCuO2Wx" target="_blank" class="btn-azul">Comprar AliExpress</a>
     </div>
-
     <div class="product">
       <a href="https://s.click.aliexpress.com/e/_okFURGT" target="_blank">
         <img src="https://via.placeholder.com/250x150?text=Sensor+Movimento" alt="Sensor de Movimento">
@@ -126,7 +119,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <h3>Sensor de Movimento</h3>
       <a href="https://s.click.aliexpress.com/e/_okFURGT" target="_blank" class="btn-azul">Comprar AliExpress</a>
     </div>
-
     <div class="product">
       <a href="https://s.click.aliexpress.com/e/_oo3tzC7" target="_blank">
         <img src="https://via.placeholder.com/250x150?text=Fechadura+Inteligente" alt="Fechadura Inteligente">
@@ -134,7 +126,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <h3>Fechadura Inteligente</h3>
       <a href="https://s.click.aliexpress.com/e/_oo3tzC7" target="_blank" class="btn-azul">Comprar AliExpress</a>
     </div>
-
     <div class="product">
       <a href="https://s.click.aliexpress.com/e/_oBjbCbV" target="_blank">
         <img src="https://via.placeholder.com/250x150?text=Interruptor+WiFi" alt="Interruptor Inteligente WiFi">
@@ -178,17 +169,14 @@ let cart = [];
 function updateCartDropdown() {
   const cartItems = document.getElementById("cart-items");
   cartItems.innerHTML = '';
-
   cart.forEach((item, index) => {
     const li = document.createElement('li');
     li.innerHTML = `${item.product} (${item.price.toFixed(2)}€) 
                     <span style="cursor:pointer;color:red;margin-left:8px;" onclick="removeFromCart(${index})">❌</span>`;
     cartItems.appendChild(li);
   });
-
   const total = cart.reduce((sum, item) => sum + item.price, 0);
   document.getElementById("cart-total").textContent = "Total: " + total.toFixed(2) + "€";
-
   document.getElementById("cart-count").textContent = cart.length;
 }
 
@@ -222,21 +210,39 @@ function checkoutWhatsApp() {
   window.open("https://wa.me/351928332158?text="+encodeURIComponent(msg),"_blank");
 }
 
-// Troca de idioma
+// Traduções
 const translations = {
   pt: {
     h1: "Casa Feliz – Domótica e Produtos Inteligentes",
     domotica: "📗 Ebook Domótica Inteligente",
     produtos: "🛒 Produtos Inteligentes – AliExpress",
     contactos: "📞 Contactos",
-    sugestoes: "💬 Sugestões / Solicitações"
+    navDomotica: "Domótica",
+    navProdutos: "Produtos Inteligentes",
+    navContactos: "Contactos",
+    sugestoes: "💬 Sugestões / Solicitações",
+    fundador: "👤 Fundador: Carlos Oliveira",
+    whatsapp: "📱 WhatsApp: ",
+    facebook: "📘 Facebook: Casa Feliz",
+    instagram: "📸 Instagram: @casafeliz_2025",
+    paypalButton: "Comprar PayPal",
+    comprarWhatsApp: "Comprar via WhatsApp"
   },
   en: {
     h1: "Casa Feliz – Smart Home and Smart Products",
     domotica: "📗 Smart Home Automation Ebook",
     produtos: "🛒 Smart Products – AliExpress",
     contactos: "📞 Contact",
-    sugestoes: "💬 Suggestions / Requests"
+    navDomotica: "Domotics",
+    navProdutos: "Smart Products",
+    navContactos: "Contact",
+    sugestoes: "💬 Suggestions / Requests",
+    fundador: "👤 Founder: Carlos Oliveira",
+    whatsapp: "📱 WhatsApp: ",
+    facebook: "📘 Facebook: Casa Feliz",
+    instagram: "📸 Instagram: @casafeliz_2025",
+    paypalButton: "Buy with PayPal",
+    comprarWhatsApp: "Buy via WhatsApp"
   }
 };
 
@@ -246,6 +252,22 @@ function setLanguage(lang){
   document.querySelector('#produtos-inteligentes h2').textContent = translations[lang].produtos;
   document.querySelector('#contactos h2').textContent = translations[lang].contactos;
   document.getElementById('btn-sugestoes').textContent = translations[lang].sugestoes;
+
+  // Menu
+  document.getElementById('nav-domotica').textContent = translations[lang].navDomotica;
+  document.getElementById('nav-produtos').textContent = translations[lang].navProdutos;
+  document.getElementById('nav-contactos').textContent = translations[lang].navContactos;
+
+  // Botões ebook
+  document.querySelector('.btn-azul').textContent = translations[lang].paypalButton;
+  document.querySelector('.btn-verde').textContent = translations[lang].comprarWhatsApp;
+
+  // Contactos
+  const contactos = document.querySelectorAll('#contactos ul li');
+  contactos[0].textContent = translations[lang].fundador;
+  contactos[1].innerHTML = translations[lang].whatsapp + '<a href="https://wa.me/351928332158" target="_blank">+351928332158</a>';
+  contactos[2].innerHTML = translations[lang].facebook;
+  contactos[3].innerHTML = translations[lang].instagram;
 }
 
 // Contador de visitas
