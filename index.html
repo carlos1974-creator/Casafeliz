@@ -40,22 +40,6 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 #contactos a:hover { color:#e65100; }
 
 section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
-
-#contador {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #25d366;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  z-index: 9999;
-  text-align: center;
-  font-size: 16px;
-}
 </style>
 </head>
 <body>
@@ -152,96 +136,14 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 
 <section id="contactos">
   <h2 id="contactos-title">📞 Contactos</h2>
-  <ul>
+  <ul style="list-style:none; padding:0; text-align:center;">
     <li>👤 <span id="fundador">Fundador: Carlos Oliveira</span></li>
     <li>📱 <span id="whatsapp">WhatsApp:</span> <a href="https://wa.me/351928332158" target="_blank">+351928332158</a></li>
-    <li>📘 <span id="facebook">Facebook:</span> <a href="https://www.facebook.com/share/19f9GhAERQ/" target="_blank">Casa Feliz</a></li>
-    <li>📸 <span id="instagram">Instagram:</span> <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a></li>
-  </ul>
-</section>
 
-<div id="btn-sugestoes" 
-     style="position:fixed; bottom:70px; right:20px; background:#25d366; color:white; padding:12px 15px; border-radius:50px; cursor:pointer; font-weight:bold; z-index:9999; text-align:center;"
-     onclick="window.open('https://wa.me/351928332158?text=Olá! Gostaria de enviar Sugestões / Solicitações','_blank')">
-  💬 Sugestões / Solicitações
-</div>
-
-<div id="contador">
-  Visitas: <span id="visitas">0</span>
-</div>
-
-<footer id="footer-text">
-  Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
-</footer>
-
-<script>
-// Carrinho WhatsApp
-let cart = [];
-function addToCartWhatsApp(product, price) {
-  cart.push({product, price});
-  document.getElementById("cart-count").textContent = cart.length;
-  alert(product+" adicionado ao carrinho WhatsApp!");
-}
-function toggleCart() { 
-  const dropdown = document.getElementById("cart-dropdown"); 
-  dropdown.style.display = dropdown.style.display==="block"?"none":"block"; 
-}
-function checkoutWhatsApp() {
-  if(cart.length===0){ alert("O carrinho está vazio!"); return; }
-  let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
-  cart.forEach(item=>{ msg+="- "+item.product+" ("+item.price.toFixed(2)+"€)\n"; });
-  const total=cart.reduce((sum,item)=>sum+item.price,0);
-  msg+="Total: "+total.toFixed(2)+"€";
-  window.open("https://wa.me/351928332158?text="+encodeURIComponent(msg),"_blank");
-}
-
-// Contador de visitas simples
-let visitas = localStorage.getItem('visitas') || 0;
-visitas++;
-localStorage.setItem('visitas', visitas);
-document.getElementById('visitas').textContent = visitas;
-
-// Tradução PT/EN
-const textos = {
-  pt: {
-    siteTitle: "Casa Feliz – Domótica e Produtos Inteligentes",
-    domotica: "📗 Ebook Domótica Inteligente",
-    produtos: "🛒 Produtos Inteligentes – AliExpress",
-    contatos: "📞 Contactos",
-    fundador: "Fundador: Carlos Oliveira",
-    whatsapp: "WhatsApp:",
-    facebook: "Facebook:",
-    instagram: "Instagram:",
-    checkout: "Finalizar via WhatsApp",
-    btnWhats: "Comprar via WhatsApp",
-    footer: "Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados"
-  },
-  en: {
-    siteTitle: "Casa Feliz – Smart Home and Smart Products",
-    domotica: "📗 Smart Home Automation Ebook",
-    produtos: "🛒 Smart Products – AliExpress",
-    contatos: "📞 Contacts",
-    fundador: "Founder: Carlos Oliveira",
-    whatsapp: "WhatsApp:",
-    facebook: "Facebook:",
-    instagram: "Instagram:",
-    checkout: "Checkout via WhatsApp",
-    btnWhats: "Buy via WhatsApp",
-    footer: "Casa Feliz © 2025 — Created by Carlos Oliveira — All rights reserved"
-  }
-};
-
-function setLanguage(lang){
-  document.getElementById('site-title').textContent = textos[lang].siteTitle;
-  document.getElementById('domotica-title').textContent = textos[lang].domotica;
-  document.getElementById('produtos-title').textContent = textos[lang].produtos;
-  document.getElementById('contactos-title').textContent = textos[lang].contatos;
-  document.getElementById('fundador').textContent = textos[lang].fundador;
-  document.getElementById('whatsapp').textContent = textos[lang].whatsapp;
-  document.getElementById('facebook').textContent = textos[lang].facebook;
-  document.getElementById('instagram').textContent = textos[lang].instagram;
-  document.getElementById('checkout-btn').textContent = textos[lang].checkout;
-  document.getElementById('footer-text').textContent = textos[lang].footer;
-
-  // Atualiza todos os nomes de produtos
-  document.querySelectorAll('.product-name').for
+    <!-- Contador entre Instagram e Casa Feliz -->
+    <li style="display:flex; justify-content:center; align-items:center; gap:20px; margin-top:10px;">
+      <span>📸 <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a></span>
+      <div id="contador" style="background:#25d366; color:white; padding:8px 15px; border-radius:8px; font-weight:bold;">
+        Visitas: <span id="visitas">0</span>
+      </div>
+      <span>Casa Feliz</span>
