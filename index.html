@@ -40,7 +40,6 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 #contactos a:hover { color:#e65100; }
 
 section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
-#contador { font-size:24px; font-weight:bold; color:#00cc00; margin-top:6px; text-align:center; }
 </style>
 </head>
 <body>
@@ -94,6 +93,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <h3>Lâmpada LED WiFi</h3>
       <a href="https://s.click.aliexpress.com/e/_olVnySb" target="_blank" class="btn-azul">Comprar AliExpress</a>
     </div>
+
     <div class="product">
       <a href="https://s.click.aliexpress.com/e/_oFC1dgx" target="_blank">
         <img src="https://via.placeholder.com/250x150?text=Tomada+Inteligente+WiFi" alt="Tomada Inteligente WiFi">
@@ -101,12 +101,37 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <h3>Tomada Inteligente WiFi</h3>
       <a href="https://s.click.aliexpress.com/e/_oFC1dgx" target="_blank" class="btn-azul">Comprar AliExpress</a>
     </div>
+
     <div class="product">
       <a href="https://s.click.aliexpress.com/e/_oCuO2Wx" target="_blank">
         <img src="https://via.placeholder.com/250x150?text=Câmera+Segurança" alt="Câmera de Segurança Inteligente">
       </a>
       <h3>Câmera de Segurança Inteligente</h3>
       <a href="https://s.click.aliexpress.com/e/_oCuO2Wx" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_okFURGT" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Sensor+Movimento" alt="Sensor de Movimento">
+      </a>
+      <h3>Sensor de Movimento</h3>
+      <a href="https://s.click.aliexpress.com/e/_okFURGT" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_oo3tzC7" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Fechadura+Inteligente" alt="Fechadura Inteligente">
+      </a>
+      <h3>Fechadura Inteligente</h3>
+      <a href="https://s.click.aliexpress.com/e/_oo3tzC7" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_oBjbCbV" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Interruptor+WiFi" alt="Interruptor Inteligente WiFi">
+      </a>
+      <h3>Interruptor Inteligente WiFi</h3>
+      <a href="https://s.click.aliexpress.com/e/_oBjbCbV" target="_blank" class="btn-azul">Comprar AliExpress</a>
     </div>
   </div>
 </section>
@@ -117,9 +142,8 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   <ul>
     <li>👤 Fundador: Carlos Oliveira</li>
     <li>📱 WhatsApp: <a href="https://wa.me/351928332158" target="_blank">+351928332158</a></li>
-    <li>📸 Instagram: <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a>
-      <div id="contador">Carregando contador...</div>
-    </li>
+    <li>📘 Facebook: <a href="https://www.facebook.com/share/19f9GhAERQ/" target="_blank">Casa Feliz</a></li>
+    <li>📸 Instagram: <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a></li>
   </ul>
 </section>
 
@@ -164,18 +188,6 @@ function setLanguage(lang) {
     document.querySelector('h2').textContent = "📗 Smart Home Automation Ebook";
   }
 }
-
-// CONTADOR REAL VERDE (CountAPI)
-const countKey = 'casafeliz/visitas';
-fetch(`https://api.countapi.xyz/hit/${countKey}`)
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('contador').textContent = `👁️ Visitas: ${data.value}`;
-  })
-  .catch(err => {
-    console.log(err);
-    document.getElementById('contador').textContent = 'Contador indisponível';
-  });
 </script>
 
 </body>
