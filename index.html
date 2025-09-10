@@ -8,7 +8,6 @@
 body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
 header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
 header img.logo { width:260px; height:auto; display:block; margin:0 auto 10px auto; }
-.lang-switch { position:absolute; top:20px; right:20px; display:flex; gap:8px; cursor:pointer; font-size:24px; }
 
 nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; }
 nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
@@ -88,7 +87,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       </a>
       <h3>Lâmpada LED WiFi</h3>
       <a href="https://s.click.aliexpress.com/e/_oFUcCwF" target="_blank" class="btn-azul">Comprar AliExpress</a>
-      <button class="btn-verde" onclick="addToCartWhatsApp('Lâmpada LED WiFi')">Adicionar ao WhatsApp</button>
     </div>
 
     <div class="product">
@@ -97,7 +95,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       </a>
       <h3>Tomada Inteligente WiFi</h3>
       <a href="https://s.click.aliexpress.com/e/_omEGhuL" target="_blank" class="btn-azul">Comprar AliExpress</a>
-      <button class="btn-verde" onclick="addToCartWhatsApp('Tomada Inteligente WiFi')">Adicionar ao WhatsApp</button>
     </div>
 
     <div class="product">
@@ -106,7 +103,30 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       </a>
       <h3>Câmera de Segurança Inteligente</h3>
       <a href="https://s.click.aliexpress.com/e/_oEA5wcJ" target="_blank" class="btn-azul">Comprar AliExpress</a>
-      <button class="btn-verde" onclick="addToCartWhatsApp('Câmera de Segurança Inteligente')">Adicionar ao WhatsApp</button>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_sensor123" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Sensor+de+Movimento" alt="Sensor de Movimento">
+      </a>
+      <h3>Sensor de Movimento</h3>
+      <a href="https://s.click.aliexpress.com/e/_sensor123" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_lock123" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Fechadura+Inteligente" alt="Fechadura Inteligente">
+      </a>
+      <h3>Fechadura Inteligente</h3>
+      <a href="https://s.click.aliexpress.com/e/_lock123" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_switch123" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Interruptor+WiFi" alt="Interruptor Inteligente WiFi">
+      </a>
+      <h3>Interruptor Inteligente WiFi</h3>
+      <a href="https://s.click.aliexpress.com/e/_switch123" target="_blank" class="btn-azul">Comprar AliExpress</a>
     </div>
   </div>
 </section>
@@ -122,41 +142,23 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   </ul>
 </section>
 
-</main>
-
 <footer>
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
 </footer>
 
 <script>
-// Carrinho WhatsApp
-let cartWhatsApp = [];
-
-function addToCartWhatsApp(name, price) {
-  cartWhatsApp.push({ name, price });
-  updateCart();
+// Carrinho WhatsApp Domótica
+let cart = [];
+function addToCartWhatsApp(product, price) {
+  cart.push({product, price});
+  alert(product+" adicionado ao carrinho WhatsApp!");
 }
-
-function updateCart() {
-  document.getElementById("cart-count").textContent = cartWhatsApp.length;
-  let itemsHTML = "";
-  cartWhatsApp.forEach((item,index)=>{
-    itemsHTML += `<li>${item.name}${item.price ? " - "+item.price+"€" : ""} <button onclick="removeFromCart(${index})" style="background:red;color:white;border:none;border-radius:3px;padding:2px 6px;cursor:pointer;margin-left:8px;">❌</button></li>`;
-  });
-  document.getElementById("cart-items").innerHTML = itemsHTML;
-  let total = cartWhatsApp.reduce((sum,item)=>sum+(item.price||0),0);
-  document.getElementById("cart-total").textContent = "Total: "+total.toFixed(2)+"€";
-}
-
-function removeFromCart(index){ cartWhatsApp.splice(index,1); updateCart(); }
-function toggleCart(){ const dropdown = document.getElementById("cart-dropdown"); dropdown.style.display = dropdown.style.display==="block"?"none":"block"; }
-
 function checkoutWhatsApp() {
-  if(cartWhatsApp.length===0){ alert("O carrinho está vazio!"); return; }
-  let msg="Olá! Gostaria de comprar os seguintes produtos:\n";
-  let total=0;
-  cartWhatsApp.forEach(item=>{ msg+="- "+item.name+(item.price?" ("+item.price+"€)":"")+"\n"; total+=item.price||0; });
-  if(total>0) msg+="Total: "+total.toFixed(2)+"€";
+  if(cart.length===0){ alert("O carrinho está vazio!"); return; }
+  let msg="Olá! Gostaria de finalizar a compra dos seguintes produtos:\n";
+  cart.forEach(item=>{ msg+="- "+item.product+" ("+item.price.toFixed(2)+"€)\n"; });
+  const total=cart.reduce((sum,item)=>sum+item.price,0);
+  msg+="Total: "+total.toFixed(2)+"€";
   window.open("https://wa.me/351928332158?text="+encodeURIComponent(msg),"_blank");
 }
 </script>
