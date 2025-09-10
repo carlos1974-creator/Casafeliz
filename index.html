@@ -40,121 +40,8 @@ footer { background:#008080; color:white; text-align:center; padding:15px; margi
 #contactos a:hover { color:#e65100; }
 
 section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
-</style>
-</head>
-<body>
 
-<header>
-  <img src="images/logo.png" alt="Casa Feliz Logo" class="logo">
-  <h1>Casa Feliz – Domótica e Produtos Inteligentes</h1>
-  <div class="lang-switch">
-    <span class="flag" onclick="setLanguage('pt')">🇵🇹</span>
-    <span class="flag" onclick="setLanguage('en')">🇬🇧</span>
-  </div>
-</header>
-
-<nav>
-  <a href="#domotica">Domótica</a>
-  <a href="#produtos-inteligentes">Produtos Inteligentes</a>
-  <div class="cart" onclick="toggleCart()">
-    <span class="cart-icon">🛒</span>
-    <span class="cart-count" id="cart-count">0</span>
-    <div class="cart-dropdown" id="cart-dropdown">
-      <ul id="cart-items"></ul>
-      <div class="total" id="cart-total">Total: 0€</div>
-      <a href="#" class="btn-whatsapp" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</a>
-    </div>
-  </div>
-</nav>
-
-<main>
-
-<!-- Domótica -->
-<section id="domotica">
-  <h2>📗 Ebook Domótica Inteligente</h2>
-  <div class="products">
-    <div class="product">
-      <img src="https://via.placeholder.com/250x150?text=Domotica+Ebook" alt="Domótica Ebook">
-      <h3>Ebook Domótica Inteligente</h3>
-      <a href="#" class="btn-azul">Comprar PayPal</a>
-      <button class="btn-verde" onclick="addToCartWhatsApp('Ebook Domótica Inteligente',12.90)">Comprar via WhatsApp</button>
-    </div>
-  </div>
-</section>
-
-<!-- Produtos Inteligentes -->
-<section id="produtos-inteligentes">
-  <h2>🛒 Produtos Inteligentes – AliExpress</h2>
-  <div class="products">
-    <div class="product">
-      <a href="https://s.click.aliexpress.com/e/_olVnySb" target="_blank">
-        <img src="https://via.placeholder.com/250x150?text=Lâmpada+LED+WiFi" alt="Lâmpada LED WiFi">
-      </a>
-      <h3>Lâmpada LED WiFi</h3>
-      <a href="https://s.click.aliexpress.com/e/_olVnySb" target="_blank" class="btn-azul">Comprar AliExpress</a>
-    </div>
-
-    <div class="product">
-      <a href="https://s.click.aliexpress.com/e/_oFC1dgx" target="_blank">
-        <img src="https://via.placeholder.com/250x150?text=Tomada+Inteligente+WiFi" alt="Tomada Inteligente WiFi">
-      </a>
-      <h3>Tomada Inteligente WiFi</h3>
-      <a href="https://s.click.aliexpress.com/e/_oFC1dgx" target="_blank" class="btn-azul">Comprar AliExpress</a>
-    </div>
-
-    <div class="product">
-      <a href="https://s.click.aliexpress.com/e/_oCuO2Wx" target="_blank">
-        <img src="https://via.placeholder.com/250x150?text=Câmera+Segurança" alt="Câmera de Segurança Inteligente">
-      </a>
-      <h3>Câmera de Segurança Inteligente</h3>
-      <a href="https://s.click.aliexpress.com/e/_oCuO2Wx" target="_blank" class="btn-azul">Comprar AliExpress</a>
-    </div>
-
-    <div class="product">
-      <a href="https://s.click.aliexpress.com/e/_okFURGT" target="_blank">
-        <img src="https://via.placeholder.com/250x150?text=Sensor+Movimento" alt="Sensor de Movimento">
-      </a>
-      <h3>Sensor de Movimento</h3>
-      <a href="https://s.click.aliexpress.com/e/_okFURGT" target="_blank" class="btn-azul">Comprar AliExpress</a>
-    </div>
-
-    <div class="product">
-      <a href="https://s.click.aliexpress.com/e/_oo3tzC7" target="_blank">
-        <img src="https://via.placeholder.com/250x150?text=Fechadura+Inteligente" alt="Fechadura Inteligente">
-      </a>
-      <h3>Fechadura Inteligente</h3>
-      <a href="https://s.click.aliexpress.com/e/_oo3tzC7" target="_blank" class="btn-azul">Comprar AliExpress</a>
-    </div>
-
-    <div class="product">
-      <a href="https://s.click.aliexpress.com/e/_oBjbCbV" target="_blank">
-        <img src="https://via.placeholder.com/250x150?text=Interruptor+WiFi" alt="Interruptor Inteligente WiFi">
-      </a>
-      <h3>Interruptor Inteligente WiFi</h3>
-      <a href="https://s.click.aliexpress.com/e/_oBjbCbV" target="_blank" class="btn-azul">Comprar AliExpress</a>
-    </div>
-  </div>
-</section>
-
-<!-- Contactos -->
-<section id="contactos">
-  <h2>📞 Contactos</h2>
-  <ul>
-    <li>👤 Fundador: Carlos Oliveira</li>
-    <li>📱 WhatsApp: <a href="https://wa.me/351928332158" target="_blank">+351928332158</a></li>
-    <li>📘 Facebook: <a href="https://www.facebook.com/share/19f9GhAERQ/" target="_blank">Casa Feliz</a></li>
-    <li>📸 Instagram: <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a></li>
-  </ul>
-</section>
-
-<div id="btn-sugestoes" 
-     style="position:fixed; bottom:70px; right:20px; background:#25d366; color:white; padding:12px 15px; border-radius:50px; cursor:pointer; font-weight:bold; z-index:9999; text-align:center;"
-     onclick="window.open('https://wa.me/351928332158?text=Olá! Gostaria de enviar Sugestões / Solicitações','_blank')">
-  💬 Sugestões / Solicitações
-</div>
-
-<!-- Contador de visitas verde no centro inferior -->
-<div id="contador" style="
+#contador {
   position: fixed;
   bottom: 20px;
   left: 50%;
@@ -168,11 +55,122 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   z-index: 9999;
   text-align: center;
   font-size: 16px;
-">
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Casa Feliz Logo" class="logo">
+  <h1 id="site-title">Casa Feliz – Domótica e Produtos Inteligentes</h1>
+  <div class="lang-switch">
+    <span class="flag" onclick="setLanguage('pt')">🇵🇹</span>
+    <span class="flag" onclick="setLanguage('en')">🇬🇧</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#domotica" id="nav-domotica">Domótica</a>
+  <a href="#produtos-inteligentes" id="nav-produtos">Produtos Inteligentes</a>
+  <div class="cart" onclick="toggleCart()">
+    <span class="cart-icon">🛒</span>
+    <span class="cart-count" id="cart-count">0</span>
+    <div class="cart-dropdown" id="cart-dropdown">
+      <ul id="cart-items"></ul>
+      <div class="total" id="cart-total">Total: 0€</div>
+      <a href="#" class="btn-whatsapp" id="checkout-btn" onclick="checkoutWhatsApp()">Finalizar via WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<section id="domotica">
+  <h2 id="domotica-title">📗 Ebook Domótica Inteligente</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://via.placeholder.com/250x150?text=Domotica+Ebook" alt="Domótica Ebook">
+      <h3 class="product-name" data-pt="Ebook Domótica Inteligente" data-en="Smart Home Automation Ebook">Ebook Domótica Inteligente</h3>
+      <a href="#" class="btn-azul">Comprar PayPal</a>
+      <button class="btn-verde product-btn" onclick="addToCartWhatsApp('Ebook Domótica Inteligente',12.90)">Comprar via WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<section id="produtos-inteligentes">
+  <h2 id="produtos-title">🛒 Produtos Inteligentes – AliExpress</h2>
+  <div class="products">
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_olVnySb" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Lâmpada+LED+WiFi" alt="Lâmpada LED WiFi">
+      </a>
+      <h3 class="product-name" data-pt="Lâmpada LED WiFi" data-en="LED WiFi Bulb">Lâmpada LED WiFi</h3>
+      <a href="https://s.click.aliexpress.com/e/_olVnySb" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_oFC1dgx" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Tomada+Inteligente+WiFi" alt="Tomada Inteligente WiFi">
+      </a>
+      <h3 class="product-name" data-pt="Tomada Inteligente WiFi" data-en="Smart WiFi Plug">Tomada Inteligente WiFi</h3>
+      <a href="https://s.click.aliexpress.com/e/_oFC1dgx" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_oCuO2Wx" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Câmera+Segurança" alt="Câmera de Segurança Inteligente">
+      </a>
+      <h3 class="product-name" data-pt="Câmera de Segurança Inteligente" data-en="Smart Security Camera">Câmera de Segurança Inteligente</h3>
+      <a href="https://s.click.aliexpress.com/e/_oCuO2Wx" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_okFURGT" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Sensor+Movimento" alt="Sensor de Movimento">
+      </a>
+      <h3 class="product-name" data-pt="Sensor de Movimento" data-en="Motion Sensor">Sensor de Movimento</h3>
+      <a href="https://s.click.aliexpress.com/e/_okFURGT" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_oo3tzC7" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Fechadura+Inteligente" alt="Fechadura Inteligente">
+      </a>
+      <h3 class="product-name" data-pt="Fechadura Inteligente" data-en="Smart Lock">Fechadura Inteligente</h3>
+      <a href="https://s.click.aliexpress.com/e/_oo3tzC7" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+
+    <div class="product">
+      <a href="https://s.click.aliexpress.com/e/_oBjbCbV" target="_blank">
+        <img src="https://via.placeholder.com/250x150?text=Interruptor+WiFi" alt="Interruptor Inteligente WiFi">
+      </a>
+      <h3 class="product-name" data-pt="Interruptor Inteligente WiFi" data-en="Smart WiFi Switch">Interruptor Inteligente WiFi</h3>
+      <a href="https://s.click.aliexpress.com/e/_oBjbCbV" target="_blank" class="btn-azul">Comprar AliExpress</a>
+    </div>
+  </div>
+</section>
+
+<section id="contactos">
+  <h2 id="contactos-title">📞 Contactos</h2>
+  <ul>
+    <li>👤 <span id="fundador">Fundador: Carlos Oliveira</span></li>
+    <li>📱 <span id="whatsapp">WhatsApp:</span> <a href="https://wa.me/351928332158" target="_blank">+351928332158</a></li>
+    <li>📘 <span id="facebook">Facebook:</span> <a href="https://www.facebook.com/share/19f9GhAERQ/" target="_blank">Casa Feliz</a></li>
+    <li>📸 <span id="instagram">Instagram:</span> <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a></li>
+  </ul>
+</section>
+
+<div id="btn-sugestoes" 
+     style="position:fixed; bottom:70px; right:20px; background:#25d366; color:white; padding:12px 15px; border-radius:50px; cursor:pointer; font-weight:bold; z-index:9999; text-align:center;"
+     onclick="window.open('https://wa.me/351928332158?text=Olá! Gostaria de enviar Sugestões / Solicitações','_blank')">
+  💬 Sugestões / Solicitações
+</div>
+
+<div id="contador">
   Visitas: <span id="visitas">0</span>
 </div>
 
-<footer>
+<footer id="footer-text">
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
 </footer>
 
@@ -197,11 +195,53 @@ function checkoutWhatsApp() {
   window.open("https://wa.me/351928332158?text="+encodeURIComponent(msg),"_blank");
 }
 
-// Troca de idioma
-function setLanguage(lang) {
-  if(lang==='pt') {
-    document.querySelector('h1').textContent = "Casa Feliz – Domótica e Produtos Inteligentes";
-    document.querySelectorAll('section h2')[0].textContent = "📗 Ebook Domótica Inteligente";
-    document.querySelectorAll('section h2')[1].textContent = "🛒 Produtos Inteligentes – AliExpress";
-  } else {
-    document.querySelector('h1').textContent = "Casa Feliz – Smart Home and Smart Products";
+// Contador de visitas simples
+let visitas = localStorage.getItem('visitas') || 0;
+visitas++;
+localStorage.setItem('visitas', visitas);
+document.getElementById('visitas').textContent = visitas;
+
+// Tradução PT/EN
+const textos = {
+  pt: {
+    siteTitle: "Casa Feliz – Domótica e Produtos Inteligentes",
+    domotica: "📗 Ebook Domótica Inteligente",
+    produtos: "🛒 Produtos Inteligentes – AliExpress",
+    contatos: "📞 Contactos",
+    fundador: "Fundador: Carlos Oliveira",
+    whatsapp: "WhatsApp:",
+    facebook: "Facebook:",
+    instagram: "Instagram:",
+    checkout: "Finalizar via WhatsApp",
+    btnWhats: "Comprar via WhatsApp",
+    footer: "Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados"
+  },
+  en: {
+    siteTitle: "Casa Feliz – Smart Home and Smart Products",
+    domotica: "📗 Smart Home Automation Ebook",
+    produtos: "🛒 Smart Products – AliExpress",
+    contatos: "📞 Contacts",
+    fundador: "Founder: Carlos Oliveira",
+    whatsapp: "WhatsApp:",
+    facebook: "Facebook:",
+    instagram: "Instagram:",
+    checkout: "Checkout via WhatsApp",
+    btnWhats: "Buy via WhatsApp",
+    footer: "Casa Feliz © 2025 — Created by Carlos Oliveira — All rights reserved"
+  }
+};
+
+function setLanguage(lang){
+  document.getElementById('site-title').textContent = textos[lang].siteTitle;
+  document.getElementById('domotica-title').textContent = textos[lang].domotica;
+  document.getElementById('produtos-title').textContent = textos[lang].produtos;
+  document.getElementById('contactos-title').textContent = textos[lang].contatos;
+  document.getElementById('fundador').textContent = textos[lang].fundador;
+  document.getElementById('whatsapp').textContent = textos[lang].whatsapp;
+  document.getElementById('facebook').textContent = textos[lang].facebook;
+  document.getElementById('instagram').textContent = textos[lang].instagram;
+  document.getElementById('checkout-btn').textContent = textos[lang].checkout;
+  document.getElementById('footer-text').textContent = textos[lang].footer;
+
+  // Atualiza todos os nomes de produtos
+  document.querySelectorAll('.product-name').for
