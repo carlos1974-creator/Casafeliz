@@ -1,3 +1,13 @@
+<?php
+// Atualiza contador de visitas
+$counterFile = 'visitas.txt';
+if(!file_exists($counterFile)){
+    file_put_contents($counterFile, 0);
+}
+$visitas = (int)file_get_contents($counterFile);
+$visitas++;
+file_put_contents($counterFile, $visitas);
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -144,9 +154,8 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
     <li>👤 Fundador: Carlos Oliveira</li>
     <li>📱 WhatsApp: <a href="https://wa.me/351928332158" target="_blank">+351928332158</a></li>
     <li>📘 Facebook: <a href="https://www.facebook.com/share/19f9GhAERQ/" target="_blank">Casa Feliz</a></li>
-    <li>📸 Instagram: 
-      <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a>
-      <div id="contador">0</div>
+    <li>📸 Instagram: <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a>
+        <div id="contador"><?php echo $visitas; ?></div>
     </li>
   </ul>
 </section>
@@ -161,7 +170,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
 </footer>
 
-<script src="https://unpkg.com/countapi-js@1.0.0/dist/countapi.min.js"></script>
 <script>
 // Carrinho WhatsApp Domótica
 let cart = [];
@@ -193,17 +201,6 @@ function setLanguage(lang) {
     document.querySelector('h2').textContent = "📗 Smart Home Automation Ebook";
   }
 }
-
-// Contador real de visitas com CountAPI
-const contadorElemento = document.getElementById('contador');
-const namespace = 'casafeliz_2025'; // namespace único do site
-const key = 'visitas'; 
-
-countapi.hit(namespace, key).then(result => {
-    contadorElemento.innerText = result.value;
-}).catch(err => {
-    console.error('Erro ao acessar CountAPI:', err);
-});
 </script>
 
 </body>
