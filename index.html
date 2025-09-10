@@ -27,12 +27,6 @@ nav a:hover { color:#e65100; }
 #btn-ver-todos { background:#e65100; color:white; padding:12px 20px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; font-size:1em; }
 #btn-ver-todos:hover { background:#ff7f26; }
 
-#modal-ebooks { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:9999; }
-#modal-ebooks .modal-content { background:white; padding:20px; border-radius:8px; max-width:500px; width:90%; max-height:80%; overflow-y:auto; position:relative; }
-#modal-ebooks .fechar { position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px; }
-#modal-ebooks ul { list-style:none; padding:0; }
-#modal-ebooks li { margin:10px 0; }
-
 .cart { position:relative; margin-left:auto; cursor:pointer; }
 .cart-icon { font-size:22px; }
 .cart-count { background:red; color:white; border-radius:50%; padding:2px 6px; font-size:12px; position:absolute; top:-8px; right:-10px; }
@@ -70,8 +64,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 
 <nav>
   <a href="#domotica" id="nav-domotica">Domótica Online</a>
-  <a href="#auto" id="nav-auto">Manutenção Automóvel Online</a>
-  <a href="#bricolage" id="nav-bricolage">Bricolage em Casa Online</a>
   <a href="#aliexpress" id="nav-aliexpress">Produtos AliExpress</a>
   <a href="#contactos" id="nav-contactos">Contactos</a>
   <div class="cart" onclick="toggleCart()">
@@ -88,7 +80,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 <main>
   <!-- Ebooks Domótica -->
   <section id="domotica">
-    <h2 id="titulo-domotica">📗 Ebooks e Cursos Online de Domótica</h2>
+    <h2>📗 Ebooks e Cursos Online de Domótica</h2>
     <div class="products">
       <div class="product">
         <img src="https://via.placeholder.com/250x150?text=Domotica+1" alt="Domótica Ebook">
@@ -96,28 +88,41 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
         <p>Aprenda a automatizar sua casa com sistemas modernos.</p>
         <div class="price">12,90€</div>
         <button onclick="addToCart('Ebook Domótica Inteligente Online',12.90)" class="btn-add">Adicionar ao Carrinho</button>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="casafeliz_2025@hotmail.com">
-          <input type="hidden" name="item_name" value="Ebook Domótica Inteligente Online">
-          <input type="hidden" name="amount" value="12.90">
-          <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Comprar com PayPal" class="btn-paypal">
-        </form>
       </div>
     </div>
   </section>
 
-  <!-- AliExpress Produtos -->
+  <!-- Produtos AliExpress -->
   <section id="aliexpress">
     <h2>🛒 Produtos Inteligentes – AliExpress</h2>
     <div class="products">
+      <!-- Sensor Movimento -->
       <div class="product">
-        <img src="https://ae01.alicdn.com/kf/H7d3e1c8a2f4f4c9b9a6f1f5f8b0a5d92x.jpg" alt="Sensor de Movimento Inteligente">
+        <img src="https://via.placeholder.com/250x150?text=Sensor+Movimento" alt="Sensor de Movimento Inteligente">
         <h3>Sensor de Movimento Inteligente</h3>
         <p>Automatize sua casa com Wi-Fi, compatível Alexa/Google Home.</p>
         <div class="price">25,00€</div>
         <a href="https://s.click.aliexpress.com/e/_oFUcCwF" target="_blank" class="btn-paypal">Comprar no AliExpress</a>
+        <p class="afiliado">*Link afiliado, sem custo extra.</p>
+      </div>
+
+      <!-- Lampada LED Wi-Fi -->
+      <div class="product">
+        <img src="https://ae01.alicdn.com/kf/H7d3e1c8a2f4f4c9b9a6f1f5f8b0a5d92x.jpg" alt="Lâmpada LED Wi-Fi">
+        <h3>Lâmpada LED Inteligente Wi-Fi</h3>
+        <p>Controle via app, compatível Alexa e Google Assistant.</p>
+        <div class="price">12,90€</div>
+        <a href="https://www.aliexpress.com/item/1005002651446747.html" target="_blank" class="btn-paypal">Comprar no AliExpress</a>
+        <p class="afiliado">*Link afiliado, sem custo extra.</p>
+      </div>
+
+      <!-- Tomada Inteligente Wi-Fi -->
+      <div class="product">
+        <img src="https://ae01.alicdn.com/kf/Hf2e2c8f8f1d64e5b8f3b3e8b8e8b8b8b8.jpg" alt="Tomada Inteligente Wi-Fi">
+        <h3>Tomada Inteligente Wi-Fi</h3>
+        <p>Ligue e desligue aparelhos remotamente via app. Compatível Alexa/Google Home.</p>
+        <div class="price">15,90€</div>
+        <a href="https://s.click.aliexpress.com/e/_omEGhuL" target="_blank" class="btn-paypal">Comprar no AliExpress</a>
         <p class="afiliado">*Link afiliado, sem custo extra.</p>
       </div>
     </div>
@@ -125,7 +130,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 
   <!-- Contactos -->
   <section id="contactos">
-    <h2 id="titulo-contactos">📞 Contactos</h2>
+    <h2>📞 Contactos</h2>
     <ul>
       <li>👤 Fundador: Carlos Oliveira</li>
       <li>📱 WhatsApp: <a href="https://wa.me/351928332158" target="_blank">+351928332158</a></li>
@@ -133,20 +138,11 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
       <li>📸 Instagram: <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a></li>
     </ul>
   </section>
-
 </main>
 
-<div id="modal-ebooks">
-  <div class="modal-content">
-    <span class="fechar">&times;</span>
-    <h3>Todos os Ebooks</h3>
-    <ul>
-      <li>Ebook Domótica Inteligente Online – 12,90€ <button onclick="addToCart('Ebook Domótica Inteligente Online',12.90)" class="btn-add">Adicionar ao Carrinho</button></li>
-    </ul>
-  </div>
+<div id="btn-sugestoes" onclick="window.open('https://wa.me/351928332158?text=Olá! Gostaria de enviar Sugestões / Solicitações','_blank')">
+  💬 Sugestões / Solicitações
 </div>
-
-<div id="btn-sugestoes" onclick="window.open('https://wa.me/351928332158?text=Olá! Gostaria de enviar Sugestões / Solicitações','_blank')">💬 Sugestões / Solicitações</div>
 
 <footer>
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
@@ -190,32 +186,16 @@ function setLanguage(lang) {
   if(lang==='pt') {
     document.getElementById('titulo-principal').textContent = "Casa Feliz – Ebooks e Produtos Inteligentes";
     document.getElementById('nav-domotica').textContent = "Domótica Online";
-    document.getElementById('nav-auto').textContent = "Manutenção Automóvel Online";
-    document.getElementById('nav-bricolage').textContent = "Bricolage em Casa Online";
     document.getElementById('nav-aliexpress').textContent = "Produtos AliExpress";
     document.getElementById('nav-contactos').textContent = "Contactos";
-    document.getElementById('titulo-domotica').textContent = "📗 Ebooks e Cursos Online de Domótica";
-    document.getElementById('titulo-contactos').textContent = "📞 Contactos";
   } else {
     document.getElementById('titulo-principal').textContent = "Casa Feliz – Online Ebooks and Products";
     document.getElementById('nav-domotica').textContent = "Home Automation Online";
-    document.getElementById('nav-auto').textContent = "Car Maintenance Online";
-    document.getElementById('nav-bricolage').textContent = "DIY at Home Online";
     document.getElementById('nav-aliexpress').textContent = "AliExpress Products";
     document.getElementById('nav-contactos').textContent = "Contacts";
-    document.getElementById('titulo-domotica').textContent = "📗 Online Ebooks and Courses on Home Automation";
-    document.getElementById('titulo-contactos').textContent = "📞 Contacts";
   }
 }
-
-// Modal ebooks
-const modal = document.getElementById('modal-ebooks');
-const btnVerTodos = document.getElementById('btn-ver-todos');
-const spanFechar = modal.querySelector('.fechar');
-btnVerTodos?.addEventListener('click', ()=>{ modal.style.display='flex'; });
-spanFechar?.addEventListener('click', ()=>{ modal.style.display='none'; });
-window.onclick = (e)=>{ if(e.target==modal) modal.style.display='none'; }
-
 </script>
+
 </body>
 </html>
