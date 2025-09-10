@@ -249,11 +249,16 @@ function setLanguage(lang){
 }
 
 // Contador de visitas
-let visitas = localStorage.getItem('contadorVisitas') || 0;
-visitas = parseInt(visitas) + 1;
-localStorage.setItem('contadorVisitas', visitas);
-document.getElementById('visitas-count').textContent = visitas;
+document.addEventListener('DOMContentLoaded', () => {
+  let visitas = localStorage.getItem('contadorVisitas') || 0;
+  visitas = parseInt(visitas) + 1;
+  localStorage.setItem('contadorVisitas', visitas);
 
+  const contadorSpan = document.getElementById('visitas-count');
+  if (contadorSpan) {
+    contadorSpan.textContent = visitas;
+  }
+});
 </script>
 
 </body>
