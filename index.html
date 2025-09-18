@@ -4,59 +4,75 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa Feliz – Domótica e Produtos Inteligentes</title>
+<meta name="description" content="Casa Feliz: Descubra produtos de domótica e smart home. Ebook, lâmpadas, sensores e muito mais. Compre via WhatsApp ou AliExpress com segurança.">
 <style>
-body { margin:0; font-family: Arial,sans-serif; background:#f9f9f9; color:#333; }
-header { background:#008080; color:white; padding:20px; text-align:center; position:relative; }
-header img.logo { width:260px; height:auto; display:block; margin:0 auto 10px auto; }
-.lang-switch { position:absolute; top:20px; right:20px; display:flex; gap:8px; cursor:pointer; font-size:24px; user-select:none; }
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial,sans-serif; }
+body { background:#f9f9f9; color:#333; line-height:1.5; }
 
-nav { background:#e0e0e0; display:flex; justify-content:center; padding:10px; position:sticky; top:0; z-index:1000; }
-nav a { margin:0 12px; text-decoration:none; color:#008080; font-weight:bold; }
+/* Header compacto */
+header { background:#008080; color:white; padding:15px 10px; display:flex; flex-direction:column; align-items:center; position:relative; }
+header img.logo { width:200px; height:auto; margin-bottom:8px; }
+.lang-switch { position:absolute; top:15px; right:15px; display:flex; gap:8px; cursor:pointer; font-size:22px; user-select:none; }
+
+/* Navigation */
+nav { background:#e0e0e0; display:flex; flex-wrap:wrap; justify-content:center; padding:8px 0; position:sticky; top:0; z-index:1000; }
+nav a { margin:4px 12px; text-decoration:none; color:#008080; font-weight:bold; }
 nav a:hover { color:#e65100; }
 
-.products { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin:20px 0; }
-.product { background:white; border-radius:6px; padding:10px; max-width:220px; text-align:center; box-shadow:0 0 6px rgba(0,0,0,0.1);}
-.product img { max-width:100%; border-radius:6px; transition: transform 0.3s; }
+/* Banner principal */
+.banner { background:#00b3b3; color:white; text-align:center; padding:35px 15px; border-radius:8px; margin:15px; }
+.banner h2 { font-size:1.8rem; margin-bottom:10px; }
+.banner p { font-size:1rem; margin-bottom:15px; }
+.banner a { background:#ffcc00; color:#333; padding:10px 22px; text-decoration:none; font-weight:bold; border-radius:8px; transition:0.3s; }
+.banner a:hover { background:#e6b800; }
+
+/* Produtos */
+.products { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; padding:15px; }
+.product { background:white; border-radius:8px; padding:12px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+.product img { max-width:100%; border-radius:6px; margin-bottom:8px; transition: transform 0.3s; }
 .product img:hover { transform: scale(1.05); }
-.btn-azul, .btn-verde { padding:8px 12px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; display:inline-block; margin-top:5px; text-decoration:none; color:white; }
-.btn-azul { background:#003087; }
+.product h3 { font-size:1.1rem; margin-bottom:5px; color:#6a1b9a; }
+.product p { font-size:0.95rem; margin-bottom:10px; color:#555; }
+.product a, .product button { display:inline-block; padding:8px 14px; margin:3px 0; border:none; border-radius:6px; text-decoration:none; cursor:pointer; font-weight:bold; transition:0.3s; }
+.btn-azul { background:#003087; color:white; }
 .btn-azul:hover { background:#0050b3; }
-.btn-verde { background:#25d366; }
+.btn-verde { background:#25d366; color:white; }
 .btn-verde:hover { background:#128c4a; }
 
-.cart { position:relative; margin-left:auto; cursor:pointer; }
+/* WhatsApp flutuante */
+.whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:16px; border-radius:50%; font-size:1.6rem; box-shadow:0 2px 8px rgba(0,0,0,0.3); z-index:100; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:0.3s; }
+.whatsapp:hover { background:#1ebe5d; }
+
+/* Cart dropdown */
+.cart { position:relative; margin-left:auto; cursor:pointer; display:flex; align-items:center; }
 .cart-icon { font-size:22px; }
 .cart-count { background:red; color:white; border-radius:50%; padding:2px 6px; font-size:12px; position:absolute; top:-8px; right:-10px; min-width:20px; text-align:center; }
 .cart-dropdown { display:none; position:absolute; right:0; top:30px; background:white; border:1px solid #ccc; box-shadow:0 2px 6px rgba(0,0,0,0.2); width:270px; padding:10px; z-index:2000; transition: all 0.3s ease; opacity:0; }
 .cart-dropdown.show { display:block; opacity:1; }
 .cart-dropdown ul { list-style:none; padding:0; margin:0; }
 .cart-dropdown li { font-size:14px; margin:5px 0; }
-
 .cart-dropdown .total { font-weight:bold; margin-top:10px; }
 .cart-dropdown .btn-whatsapp { display:block; text-align:center; margin-top:10px; padding:8px; background:#25d366; color:white; border-radius:5px; text-decoration:none; }
 .cart-dropdown .btn-whatsapp:hover { background:#128c4a; }
 
-footer { background:#008080; color:white; text-align:center; padding:15px; margin-top:40px; }
-#contactos ul { list-style:none; padding:0; text-align:center; }
-#contactos li { margin:8px 0; font-size:1.05em; }
-#contactos a { color:#008080; text-decoration:none; font-weight:bold; }
-#contactos a:hover { color:#e65100; }
+/* Footer */
+footer { background:#008080; color:white; text-align:center; padding:15px 10px; margin-top:20px; font-size:0.9rem; }
+footer a { color:white; text-decoration:underline; }
 
-section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px; }
+/* Prova social */
+.social-proof { background:#fffae6; padding:12px 15px; margin:15px auto; text-align:center; border-left:5px solid #ffcc00; border-radius:8px; max-width:800px; }
+.social-proof p { font-size:1rem; }
 
-.produto-destaque {
-  color: violet;
-  font-weight: bold;
-  font-size: 1.2em;
-  background: #f3e5f5;
-  padding: 8px;
-  border-radius: 8px;
-  display: inline-block;
-  text-align: center;
-  margin-bottom: 10px;
+/* Destaque produtos */
+.produto-destaque { font-weight:bold; font-size:1.1em; background:#f3e5f5; padding:6px; border-radius:6px; display:inline-block; margin-bottom:8px; }
+
+/* Responsivo */
+@media(max-width:600px){
+    header img.logo { width:150px; }
+    .banner h2 { font-size:1.5rem; }
+    .banner p { font-size:0.9rem; }
+    nav a { margin:3px 6px; font-size:0.9rem; }
 }
-
-section { padding:20px; }
 </style>
 </head>
 <body>
@@ -68,19 +84,6 @@ section { padding:20px; }
     <span class="flag" onclick="setLanguage('pt')">🇵🇹</span>
     <span class="flag" onclick="setLanguage('en')">🇬🇧</span>
   </div>
-
-  <!-- AdSense Topo -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875462679161698"
-      crossorigin="anonymous"></script>
-  <ins class="adsbygoogle"
-      style="display:block; margin-top:15px;"
-      data-ad-client="ca-pub-3875462679161698"
-      data-ad-slot="5082833807"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-  <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
 </header>
 
 <nav>
@@ -100,9 +103,17 @@ section { padding:20px; }
   </div>
 </nav>
 
-<main>
+<section class="banner">
+  <h2>Domótica Inteligente para Sua Casa</h2>
+  <p>Controle lâmpadas, sensores e muito mais pelo smartphone. Torne sua casa mais segura e moderna!</p>
+  <a href="#produtos-inteligentes">Ver Produtos</a>
+</section>
 
-<!-- Domótica -->
+<section class="social-proof">
+  <p>Mais de 500 clientes satisfeitos este mês! Últimas unidades disponíveis. 🚀</p>
+</section>
+
+<main>
 <section id="domotica">
   <h2>📗 Ebook Domótica Inteligente</h2>
   <div class="products">
@@ -112,24 +123,9 @@ section { padding:20px; }
       <a href="https://www.paypal.me/CarlosOliveira955/19.50" target="_blank" class="btn-azul">Comprar PayPal</a>
       <button class="btn-verde" onclick="addToCartWhatsApp('Ebook Domótica Inteligente', 19.50)">Comprar via WhatsApp</button>
     </div>
-
-    <!-- AdSense In-feed -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875462679161698"
-        crossorigin="anonymous"></script>
-    <ins class="adsbygoogle"
-        style="display:block; margin:20px 0;"
-        data-ad-client="ca-pub-3875462679161698"
-        data-ad-slot="5082833807"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-
   </div>
 </section>
 
-<!-- Produtos Inteligentes -->
 <section id="produtos-inteligentes">
   <h2>🛒 Produtos Inteligentes – AliExpress</h2>
   <div class="products">
@@ -161,40 +157,19 @@ section { padding:20px; }
       <h3 class="produto-destaque">Domótica Diversos</h3>
       <a href="https://amzn.to/3IhO63I" target="_blank" class="btn-azul">Comprar Amazon</a>
     </div>
-
-    <!-- AdSense Sidebar -->
-    <aside style="margin-top:20px;">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875462679161698"
-          crossorigin="anonymous"></script>
-      <ins class="adsbygoogle"
-          style="display:block; margin:20px 0;"
-          data-ad-client="ca-pub-3875462679161698"
-          data-ad-slot="5082833807"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
-      <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </aside>
-
   </div>
 </section>
 
-<!-- Página Sobre -->
 <section id="sobre">
   <h2>Sobre a Casa Feliz</h2>
-  <p>A Casa Feliz foi criada por Carlos Oliveira com o objetivo de ajudar pessoas a transformar a sua casa em um lar inteligente e conectado. Aqui encontra soluções de domótica e produtos inteligentes que facilitam o dia a dia, tornando a sua casa mais confortável, segura e eficiente.</p>
-  <p>Nosso compromisso é oferecer produtos de qualidade, dicas úteis e um atendimento dedicado para que cada cliente tenha a melhor experiência possível.</p>
+  <p>A Casa Feliz foi criada por Carlos Oliveira com o objetivo de ajudar pessoas a transformar a sua casa em um lar inteligente e conectado. Aqui encontra soluções de domótica e produtos inteligentes que facilitam o dia a dia.</p>
 </section>
 
-<!-- Política de Privacidade -->
 <section id="privacidade">
   <h2>Política de Privacidade</h2>
-  <p>A Casa Feliz respeita a sua privacidade. Todos os dados fornecidos pelo usuário, como informações de contato ou compras via WhatsApp, são usados exclusivamente para processar pedidos e oferecer suporte.</p>
-  <p>O site utiliza cookies para melhorar a experiência de navegação. Nenhuma informação pessoal é vendida ou compartilhada com terceiros sem consentimento.</p>
+  <p>A Casa Feliz respeita a sua privacidade. Dados fornecidos são usados apenas para processar pedidos e oferecer suporte. Cookies são usados para melhorar a experiência de navegação.</p>
 </section>
 
-<!-- Contactos -->
 <section id="contactos">
   <h2>📞 Contactos</h2>
   <ul>
@@ -204,30 +179,12 @@ section { padding:20px; }
     <li>📸 Instagram: <a href="https://www.instagram.com/casafeliz_2025" target="_blank">@casafeliz_2025</a></li>
   </ul>
 
-  <!-- Contador de visitas -->
   <div id="contador-visitas" style="text-align:center; margin:15px 0; font-weight:bold; color:white; background:#25d366; padding:10px; border-radius:5px;">
     Visitas: <span id="visitas-count">0</span>
   </div>
-
-  <!-- AdSense Rodapé -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3875462679161698"
-      crossorigin="anonymous"></script>
-  <ins class="adsbygoogle"
-      style="display:block; margin:20px 0;"
-      data-ad-client="ca-pub-3875462679161698"
-      data-ad-slot="5082833807"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-  <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
 </section>
 
-<div id="btn-sugestoes"
-     style="position:fixed; bottom:20px; right:20px; background:#25d366; color:white; padding:12px 15px; border-radius:50px; cursor:pointer; font-weight:bold; z-index:9999; text-align:center;"
-     onclick="window.open('https://wa.me/351928332158?text=Olá! Gostaria de enviar Sugestões / Solicitações','_blank')">
-  💬 Sugestões / Solicitações
-</div>
+<a href="https://wa.me/351928332158?text=Olá! Gostaria de enviar Sugestões / Solicitações" target="_blank" class="whatsapp">💬</a>
 
 <footer>
   Casa Feliz © 2025 — Criado por Carlos Oliveira — Todos os direitos reservados
@@ -241,8 +198,7 @@ function updateCartDropdown() {
   cartItems.innerHTML = '';
   cart.forEach((item, index) => {
     const li = document.createElement('li');
-    li.innerHTML = `${item.product} (${item.price.toFixed(2)}€)
-                    <span style="cursor:pointer;color:red;margin-left:8px;" onclick="removeFromCart(${index})">❌</span>`;
+    li.innerHTML = `${item.product} (${item.price.toFixed(2)}€) <span style="cursor:pointer;color:red;margin-left:8px;" onclick="removeFromCart(${index})">❌</span>`;
     cartItems.appendChild(li);
   });
   const total = cart.reduce((sum, item) => sum + item.price, 0);
@@ -261,46 +217,9 @@ function checkoutWhatsApp() {
   window.open("https://wa.me/351928332158?text="+encodeURIComponent(msg),"_blank");
 }
 
-// Traduções
+// Traduções PT/EN
 const translations = {
   pt: { h1:"Casa Feliz – Domótica e Produtos Inteligentes", domotica:"📗 Ebook Domótica Inteligente",
         produtos:"🛒 Produtos Inteligentes – AliExpress", contactos:"📞 Contactos",
         navDomotica:"Domótica", navProdutos:"Produtos Inteligentes", navContactos:"Contactos",
-        sugestoes:"💬 Sugestões / Solicitações", fundador:"👤 Fundador: Carlos Oliveira",
-        whatsapp:"📱 WhatsApp: ", facebook:"📘 Facebook: Casa Feliz",
-        instagram:"📸 Instagram: @casafeliz_2025", paypalButton:"Comprar PayPal", comprarWhatsApp:"Comprar via WhatsApp" },
-  en: { h1:"Casa Feliz – Smart Home and Smart Products", domotica:"📗 Smart Home Automation Ebook",
-        produtos:"🛒 Smart Products – AliExpress", contactos:"📞 Contact",
-        navDomotica:"Domotics", navProdutos:"Smart Products", navContactos:"Contact",
-        sugestoes:"💬 Suggestions / Requests", fundador:"👤 Founder: Carlos Oliveira",
-        whatsapp:"📱 WhatsApp: ", facebook:"📘 Facebook: Casa Feliz",
-        instagram:"📸 Instagram: @casafeliz_2025", paypalButton:"Buy with PayPal", comprarWhatsApp:"Buy via WhatsApp" }
-};
-function setLanguage(lang){
-  document.querySelector('header h1').textContent = translations[lang].h1;
-  document.querySelector('#domotica h2').textContent = translations[lang].domotica;
-  document.querySelector('#produtos-inteligentes h2').textContent = translations[lang].produtos;
-  document.querySelector('#contactos h2').textContent = translations[lang].contactos;
-  document.getElementById('btn-sugestoes').textContent = translations[lang].sugestoes;
-  document.getElementById('nav-domotica').textContent = translations[lang].navDomotica;
-  document.getElementById('nav-produtos').textContent = translations[lang].navProdutos;
-  document.getElementById('nav-contactos').textContent = translations[lang].navContactos;
-  const contactos = document.querySelectorAll('#contactos ul li');
-  contactos[0].textContent = translations[lang].fundador;
-  contactos[1].innerHTML = translations[lang].whatsapp + '<a href="https://wa.me/351928332158" target="_blank">+351928332158</a>';
-  contactos[2].innerHTML = translations[lang].facebook;
-  contactos[3].innerHTML = translations[lang].instagram;
-}
-
-// Contador de visitas
-document.addEventListener('DOMContentLoaded', () => {
-  let visitas = localStorage.getItem('contadorVisitas') || 0;
-  visitas = parseInt(visitas) + 1;
-  localStorage.setItem('contadorVisitas', visitas);
-  const contadorSpan = document.getElementById('visitas-count');
-  if (contadorSpan) { contadorSpan.textContent = visitas; }
-});
-</script>
-
-</body>
-</html>
+        sugestoes:"💬 Sugestões / Solicitações", fundador
