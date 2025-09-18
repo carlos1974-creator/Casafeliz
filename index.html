@@ -55,6 +55,8 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   text-align: center;
   margin-bottom: 10px;
 }
+
+section { padding:20px; }
 </style>
 </head>
 <body>
@@ -79,12 +81,13 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-
 </header>
 
 <nav>
   <a href="#domotica" id="nav-domotica">Domótica</a>
   <a href="#produtos-inteligentes" id="nav-produtos">Produtos Inteligentes</a>
+  <a href="#sobre" id="nav-sobre">Sobre</a>
+  <a href="#privacidade" id="nav-privacidade">Política de Privacidade</a>
   <a href="#contactos" id="nav-contactos">Contactos</a>
   <div class="cart" onclick="toggleCart()">
     <span class="cart-icon">🛒</span>
@@ -99,6 +102,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 
 <main>
 
+<!-- Domótica -->
 <section id="domotica">
   <h2>📗 Ebook Domótica Inteligente</h2>
   <div class="products">
@@ -125,6 +129,7 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   </div>
 </section>
 
+<!-- Produtos Inteligentes -->
 <section id="produtos-inteligentes">
   <h2>🛒 Produtos Inteligentes – AliExpress</h2>
   <div class="products">
@@ -175,6 +180,21 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   </div>
 </section>
 
+<!-- Página Sobre -->
+<section id="sobre">
+  <h2>Sobre a Casa Feliz</h2>
+  <p>A Casa Feliz foi criada por Carlos Oliveira com o objetivo de ajudar pessoas a transformar a sua casa em um lar inteligente e conectado. Aqui encontra soluções de domótica e produtos inteligentes que facilitam o dia a dia, tornando a sua casa mais confortável, segura e eficiente.</p>
+  <p>Nosso compromisso é oferecer produtos de qualidade, dicas úteis e um atendimento dedicado para que cada cliente tenha a melhor experiência possível.</p>
+</section>
+
+<!-- Política de Privacidade -->
+<section id="privacidade">
+  <h2>Política de Privacidade</h2>
+  <p>A Casa Feliz respeita a sua privacidade. Todos os dados fornecidos pelo usuário, como informações de contato ou compras via WhatsApp, são usados exclusivamente para processar pedidos e oferecer suporte.</p>
+  <p>O site utiliza cookies para melhorar a experiência de navegação. Nenhuma informação pessoal é vendida ou compartilhada com terceiros sem consentimento.</p>
+</section>
+
+<!-- Contactos -->
 <section id="contactos">
   <h2>📞 Contactos</h2>
   <ul>
@@ -201,7 +221,6 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
   <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-
 </section>
 
 <div id="btn-sugestoes"
@@ -266,8 +285,6 @@ function setLanguage(lang){
   document.getElementById('nav-domotica').textContent = translations[lang].navDomotica;
   document.getElementById('nav-produtos').textContent = translations[lang].navProdutos;
   document.getElementById('nav-contactos').textContent = translations[lang].navContactos;
-  document.querySelector('.btn-azul').textContent = translations[lang].paypalButton;
-  document.querySelector('.btn-verde').textContent = translations[lang].comprarWhatsApp;
   const contactos = document.querySelectorAll('#contactos ul li');
   contactos[0].textContent = translations[lang].fundador;
   contactos[1].innerHTML = translations[lang].whatsapp + '<a href="https://wa.me/351928332158" target="_blank">+351928332158</a>';
