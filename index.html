@@ -57,14 +57,21 @@ section h2 { text-align:center; color:#e65100; font-size:2em; margin-bottom:20px
 }
 
 section { padding:20px; }
+
+#clientes-satisfeitos {
+  color: #25d366;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 5px;
+}
 </style>
 </head>
 <body>
 
 <header>
   <img src="images/logo.png" alt="Casa Feliz Logo" class="logo">
-  <p style="color:#25d366; font-weight:bold; margin-top:5px;">Mais de 500 clientes satisfeitos</p>
   <h1>Casa Feliz – Domótica e Produtos Inteligentes</h1>
+  <div id="clientes-satisfeitos">✅ Mais de 500 clientes satisfeitos</div>
   <div class="lang-switch">
     <span class="flag" onclick="setLanguage('pt')">🇵🇹</span>
     <span class="flag" onclick="setLanguage('en')">🇬🇧</span>
@@ -269,13 +276,15 @@ const translations = {
         navDomotica:"Domótica", navProdutos:"Produtos Inteligentes", navContactos:"Contactos",
         sugestoes:"💬 Sugestões / Solicitações", fundador:"👤 Fundador: Carlos Oliveira",
         whatsapp:"📱 WhatsApp: ", facebook:"📘 Facebook: Casa Feliz",
-        instagram:"📸 Instagram: @casafeliz_2025", paypalButton:"Comprar PayPal", comprarWhatsApp:"Comprar via WhatsApp" },
+        instagram:"📸 Instagram: @casafeliz_2025", paypalButton:"Comprar PayPal", comprarWhatsApp:"Comprar via WhatsApp",
+        clientes:"✅ Mais de 500 clientes satisfeitos" },
   en: { h1:"Casa Feliz – Smart Home and Smart Products", domotica:"📗 Smart Home Automation Ebook",
         produtos:"🛒 Smart Products – AliExpress", contactos:"📞 Contact",
         navDomotica:"Domotics", navProdutos:"Smart Products", navContactos:"Contact",
         sugestoes:"💬 Suggestions / Requests", fundador:"👤 Founder: Carlos Oliveira",
         whatsapp:"📱 WhatsApp: ", facebook:"📘 Facebook: Casa Feliz",
-        instagram:"📸 Instagram: @casafeliz_2025", paypalButton:"Buy with PayPal", comprarWhatsApp:"Buy via WhatsApp" }
+        instagram:"📸 Instagram: @casafeliz_2025", paypalButton:"Buy with PayPal", comprarWhatsApp:"Buy via WhatsApp",
+        clientes:"✅ Over 500 satisfied customers" }
 };
 function setLanguage(lang){
   document.querySelector('header h1').textContent = translations[lang].h1;
@@ -283,6 +292,7 @@ function setLanguage(lang){
   document.querySelector('#produtos-inteligentes h2').textContent = translations[lang].produtos;
   document.querySelector('#contactos h2').textContent = translations[lang].contactos;
   document.getElementById('btn-sugestoes').textContent = translations[lang].sugestoes;
+  document.getElementById('clientes-satisfeitos').textContent = translations[lang].clientes;
   document.getElementById('nav-domotica').textContent = translations[lang].navDomotica;
   document.getElementById('nav-produtos').textContent = translations[lang].navProdutos;
   document.getElementById('nav-contactos').textContent = translations[lang].navContactos;
